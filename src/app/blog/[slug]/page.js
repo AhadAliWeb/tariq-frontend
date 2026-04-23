@@ -30,7 +30,6 @@ async function getBlog(slug) {
     // Get related posts
     const related = await Blog.find({
         status: "published",
-        category: blog.category,
         _id: { $ne: blog._id },
     })
         .limit(3)
@@ -71,7 +70,7 @@ export default async function BlogPostPage({ params }) {
                     </div>
 
                     <span className="inline-block px-3 py-1 bg-[#2f8f68] text-[#80c9a6] text-xs font-semibold rounded-full uppercase tracking-wider mb-4">
-                        {blog.category}
+                        Blog Post
                     </span>
 
                     <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight mb-4 font-heading">
@@ -97,8 +96,8 @@ export default async function BlogPostPage({ params }) {
                         </span>
                         <span>·</span>
                         <span>{blog.readTime} min read</span>
-                        <span>·</span>
-                        <span>{blog.views?.toLocaleString() || 0} views</span>
+                        {/* <span>·</span> */}
+                        {/* <span>{blog.views?.toLocaleString() || 0} views</span> */}
                     </div>
                 </div>
             </div>
@@ -147,7 +146,6 @@ export default async function BlogPostPage({ params }) {
                                 {blog.author?.charAt(0) || "A"}
                             </div>
                             <p className="font-semibold text-[#1c1917] text-center text-sm">{blog.author || "Admin"}</p>
-                            <p className="text-xs text-[#78716c] text-center mt-1">Real Estate Expert</p>
                         </div>
 
                         {/* Share */}
@@ -196,7 +194,6 @@ export default async function BlogPostPage({ params }) {
                                         )}
                                     </div>
                                     <div className="p-4">
-                                        <span className="text-xs text-[#2f8f68] font-medium">{post.category}</span>
                                         <h3 className="font-semibold text-[#1c1917] text-sm mt-1 line-clamp-2 group-hover:text-[#2f8f68] transition-colors">
                                             {post.title}
                                         </h3>

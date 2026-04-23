@@ -5,19 +5,6 @@ import dynamic from "next/dynamic";
 
 const RichTextEditor = dynamic(() => import("./RichTextEditor"), { ssr: false });
 
-const CATEGORIES = [
-    "Investment Tips",
-    "Market Analysis",
-    "Real Estate News",
-    "Guides & How-To",
-    "Legal & Regulations",
-    "Rental Properties",
-    "Commercial Real Estate",
-    "Property Management",
-    "Finance & Mortgages",
-    "Other",
-];
-
 const Field = ({ label, required, children, hint }) => (
     <div>
         <label className="block text-sm font-medium text-[#44403c] mb-1.5">
@@ -37,7 +24,6 @@ export default function BlogForm({ initialData = {}, mode = "create" }) {
         slug: initialData.slug || "",
         excerpt: initialData.excerpt || "",
         content: initialData.content || "",
-        category: initialData.category || "",
         tags: initialData.tags?.join(", ") || "",
         author: initialData.author || "Admin",
         status: initialData.status || "draft",
@@ -107,28 +93,19 @@ export default function BlogForm({ initialData = {}, mode = "create" }) {
         if (!form.title.trim()) errs.title = "Title is required";
         if (!form.excerpt.trim()) errs.excerpt = "Excerpt is required";
         if (!form.content || form.content === "<p></p>") errs.content = "Content is required";
-        if (!form.category) errs.category = "Category is required";
         setErrors(errs);
-        console.log(Object.keys(errs).length === 0);
-
         return Object.keys(errs).length === 0;
     };
 
     const handleSubmit = async (status) => {
-
-        // console.log(validate);
-
-
         if (!validate()) return;
         setSaving(true);
-
         try {
             const payload = {
                 ...form,
                 status,
                 tags: form.tags.split(",").map((t) => t.trim()).filter(Boolean),
             };
-
 
             const url = mode === "create" ? "/api/blogs" : `/api/blogs/${initialData._id}`;
             const method = mode === "create" ? "POST" : "PUT";
@@ -349,18 +326,6 @@ export default function BlogForm({ initialData = {}, mode = "create" }) {
                     {/* Meta */}
                     <div className="bg-white rounded-2xl p-5 shadow-sm border border-[#e7e5e4] space-y-4">
                         <h3 className="font-semibold text-[#1c1917] text-sm">Details</h3>
-
-                        <Field label="Category" required>
-                            <select
-                                value={form.category}
-                                onChange={(e) => handleChange("category", e.target.value)}
-                                className={`w-full px-3 py-2.5 border rounded-xl text-sm text-[#1c1917] focus:outline-none focus:ring-2 focus:ring-[#2f8f68] bg-white ${errors.category ? "border-red-400" : "border-[#e7e5e4]"}`}
-                            >
-                                <option value="">Select category</option>
-                                {CATEGORIES.map((c) => <option key={c} value={c}>{c}</option>)}
-                            </select>
-                            {errors.category && <p className="text-red-500 text-xs mt-1">{errors.category}</p>}
-                        </Field>
 
                         <Field label="Tags" hint="Comma-separated (e.g. tips, investing, guide)">
                             <input

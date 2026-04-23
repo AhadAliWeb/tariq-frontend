@@ -240,11 +240,6 @@ export default function RichTextEditor({ value, onChange, placeholder = "Write y
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 10H11a8 8 0 00-8 8v2m18-10l-6 6m6-6l-6-6" />
                     </svg>
                 </ToolbarButton>
-
-                {/* Word count */}
-                <span className="ml-auto text-xs text-[#78716c] pr-2">
-                    {editor.getText().split(/\s+/).filter(Boolean).length} words
-                </span>
             </div>
 
             {/* Editor Area */}

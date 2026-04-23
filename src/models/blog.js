@@ -28,11 +28,6 @@ const BlogSchema = new mongoose.Schema(
             type: String,
             default: "",
         },
-        category: {
-            type: String,
-            required: [true, "Category is required"],
-            trim: true,
-        },
         tags: {
             type: [String],
             default: [],
@@ -59,7 +54,7 @@ const BlogSchema = new mongoose.Schema(
 );
 
 // Auto-generate slug from title if not provided
-BlogSchema.pre("validate", function () {
+BlogSchema.pre("validate", function (next) {
     if (this.title && !this.slug) {
         this.slug = this.title
             .toLowerCase()

@@ -70,8 +70,7 @@ export default function AdminBlogsPage() {
     };
 
     const filtered = blogs.filter((b) =>
-        b.title.toLowerCase().includes(search.toLowerCase()) ||
-        b.category?.toLowerCase().includes(search.toLowerCase())
+        b.title.toLowerCase().includes(search.toLowerCase())
     );
 
     return (
@@ -140,8 +139,6 @@ export default function AdminBlogsPage() {
                             <thead>
                                 <tr className="border-b border-[#f5f5f4] bg-[#fafaf9]">
                                     <th className="text-left px-6 py-3 text-xs font-semibold text-[#78716c] uppercase tracking-wide">Title</th>
-                                    <th className="text-left px-4 py-3 text-xs font-semibold text-[#78716c] uppercase tracking-wide hidden md:table-cell">Category</th>
-                                    <th className="text-left px-4 py-3 text-xs font-semibold text-[#78716c] uppercase tracking-wide hidden lg:table-cell">Views</th>
                                     <th className="text-left px-4 py-3 text-xs font-semibold text-[#78716c] uppercase tracking-wide hidden sm:table-cell">Date</th>
                                     <th className="text-left px-4 py-3 text-xs font-semibold text-[#78716c] uppercase tracking-wide">Status</th>
                                     <th className="text-right px-6 py-3 text-xs font-semibold text-[#78716c] uppercase tracking-wide">Actions</th>
@@ -153,14 +150,6 @@ export default function AdminBlogsPage() {
                                         <td className="px-6 py-4">
                                             <p className="font-medium text-[#1c1917] text-sm line-clamp-1 max-w-xs">{blog.title}</p>
                                             <p className="text-xs text-[#a8a29e] mt-0.5">{blog.readTime} min read</p>
-                                        </td>
-                                        <td className="px-4 py-4 hidden md:table-cell">
-                                            <span className="px-2.5 py-1 bg-[#eef7f2] text-[#256f52] rounded-full text-xs font-medium">
-                                                {blog.category}
-                                            </span>
-                                        </td>
-                                        <td className="px-4 py-4 text-sm text-[#78716c] hidden lg:table-cell">
-                                            {blog.views?.toLocaleString() || 0}
                                         </td>
                                         <td className="px-4 py-4 text-sm text-[#78716c] hidden sm:table-cell">
                                             {new Date(blog.createdAt).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" })}

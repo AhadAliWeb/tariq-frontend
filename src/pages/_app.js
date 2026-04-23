@@ -4,11 +4,12 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Montserrat } from "next/font/google"
 import WhatsAppButton from "@/components/WhatsappButton";
+import Chat from "@/components/Chat";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
   variable: "--font-sans",
-}); 
+});
 
 export default function App({ Component, pageProps }) {
   return (
@@ -17,6 +18,7 @@ export default function App({ Component, pageProps }) {
       <Navbar />
       <Component {...pageProps} />
       <Footer />
+      <Chat />
     </div>
   );
 }

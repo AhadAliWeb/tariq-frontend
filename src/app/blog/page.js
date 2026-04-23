@@ -12,14 +12,12 @@ export const revalidate = 60; // ISR - revalidate every 60 seconds
 async function getBlogs(searchParams) {
     await connectDB();
     const page = parseInt(searchParams?.page || "1");
-    const category = searchParams?.category || "";
     const limit = 9;
     const skip = (page - 1) * limit;
 
     const query = { status: "published" };
-    if (category) query.category = category;
 
-    const [blogs, total, categories] = await Promise.all([
+    const [blogs, total] = await Promise.all([
         Blog.find(query)
             .sort({ createdAt: -1 })
             .skip(skip)
@@ -27,16 +25,14 @@ async function getBlogs(searchParams) {
             .select("-content")
             .lean(),
         Blog.countDocuments(query),
-        Blog.distinct("category", { status: "published" }),
     ]);
 
-    return { blogs, total, categories, page, pages: Math.ceil(total / limit) };
+    return { blogs, total, page, pages: Math.ceil(total / limit) };
 }
 
 export default async function BlogPage({ searchParams }) {
     const sp = await searchParams;
-    const { blogs, total, categories, page, pages } = await getBlogs(sp);
-    const category = sp?.category || "";
+    const { blogs, total, page, pages } = await getBlogs(sp);
 
     return (
         <div className="min-h-screen bg-[#fafaf9]">
@@ -56,33 +52,6 @@ export default async function BlogPage({ searchParams }) {
             </div>
 
             <div className="max-w-6xl mx-auto px-4 py-12">
-                {/* Category Filter */}
-                {categories.length > 0 && (
-                    <div className="flex flex-wrap gap-2 mb-8">
-                        <Link
-                            href="/blog"
-                            className={`px-4 py-1.5 rounded-full text-sm font-medium transition-all ${!category
-                                ? "bg-[#2f8f68] text-white shadow-sm"
-                                : "bg-white text-[#57534e] border border-[#e7e5e4] hover:border-[#2f8f68] hover:text-[#2f8f68]"
-                                }`}
-                        >
-                            All
-                        </Link>
-                        {categories.map((cat) => (
-                            <Link
-                                key={cat}
-                                href={`/blog?category=${encodeURIComponent(cat)}`}
-                                className={`px-4 py-1.5 rounded-full text-sm font-medium transition-all ${category === cat
-                                    ? "bg-[#2f8f68] text-white shadow-sm"
-                                    : "bg-white text-[#57534e] border border-[#e7e5e4] hover:border-[#2f8f68] hover:text-[#2f8f68]"
-                                    }`}
-                            >
-                                {cat}
-                            </Link>
-                        ))}
-                    </div>
-                )}
-
                 {/* Blog Grid */}
                 {blogs.length === 0 ? (
                     <div className="text-center py-24 text-[#a8a29e]">
@@ -92,7 +61,7 @@ export default async function BlogPage({ searchParams }) {
                     <>
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-10">
                             {blogs.map((blog, i) => (
-                                <BlogCard key={blog._id.toString()} blog={blog} featured={i === 0 && page === 1 && !category} />
+                                <BlogCard key={blog._id.toString()} blog={blog} featured={i === 0 && page === 1} />
                             ))}
                         </div>
 
@@ -101,7 +70,7 @@ export default async function BlogPage({ searchParams }) {
                             <div className="flex items-center justify-center gap-2">
                                 {page > 1 && (
                                     <Link
-                                        href={`/blog?page=${page - 1}${category ? `&category=${category}` : ""}`}
+                                        href={`/blog?page=${page - 1}`}
                                         className="px-4 py-2 bg-white border border-[#e7e5e4] rounded-xl text-sm hover:bg-[#eef7f2] hover:border-[#2f8f68] transition-all"
                                     >
                                         ← Previous
@@ -112,7 +81,7 @@ export default async function BlogPage({ searchParams }) {
                                 </span>
                                 {page < pages && (
                                     <Link
-                                        href={`/blog?page=${page + 1}${category ? `&category=${category}` : ""}`}
+                                        href={`/blog?page=${page + 1}`}
                                         className="px-4 py-2 bg-white border border-[#e7e5e4] rounded-xl text-sm hover:bg-[#eef7f2] hover:border-[#2f8f68] transition-all"
                                     >
                                         Next →
@@ -149,9 +118,6 @@ function BlogCard({ blog, featured }) {
                         </svg>
                     </div>
                 )}
-                <span className="absolute top-3 left-3 px-2.5 py-1 bg-[#2f8f68] text-white text-xs font-semibold rounded-full">
-                    {blog.category}
-                </span>
             </div>
 
             {/* Content */}

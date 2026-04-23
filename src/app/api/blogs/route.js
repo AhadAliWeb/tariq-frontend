@@ -8,14 +8,12 @@ export async function GET(request) {
 
         const { searchParams } = new URL(request.url);
         const status = searchParams.get("status");
-        const category = searchParams.get("category");
         const page = parseInt(searchParams.get("page") || "1");
         const limit = parseInt(searchParams.get("limit") || "10");
         const skip = (page - 1) * limit;
 
         const query = {};
         if (status) query.status = status;
-        if (category) query.category = category;
 
         const [blogs, total] = await Promise.all([
             Blog.find(query)
@@ -49,7 +47,6 @@ export async function POST(request) {
         await connectDB();
         const body = await request.json();
 
-
         // Auto-calculate read time from content (avg 200 words/min)
         if (body.content) {
             const wordCount = body.content.replace(/<[^>]*>/g, "").split(/\s+/).length;
@@ -75,10 +72,6 @@ export async function POST(request) {
         const blog = await Blog.create(body);
         return NextResponse.json({ success: true, blog }, { status: 201 });
     } catch (error) {
-
-        console.log(error);
-
-
         return NextResponse.json(
             { success: false, error: error.message },
             { status: 400 }
