@@ -1,26 +1,309 @@
+/*
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@theme {
+  /* Primary Colors (Deep Green) */
+/* --color-primary-50:  #eef7f2; */
+/* --color-primary-100: #d9efe3; */
+/* --color-primary-200: #b3dfc7; */
+/* --color-primary-300: #80c9a6; */
+/* --color-primary-400: #4caf83; */
+/* --color-primary-500: #2f8f68; */
+/* --color-primary-600: #256f52; */
+/* --color-primary-700: #1e5942; */
+/* --color-primary-800: #184636; */
+/* --color-primary-900: #12352a; */
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+/* Secondary (Muted Gold) */
+/* --color-secondary-50:  #faf6ed; */
+/* --color-secondary-100: #f4ead1; */
+/* --color-secondary-200: #e8d5a3; */
+/* --color-secondary-300: #d9bb6d; */
+/* --color-secondary-400: #c9a24a; */
+/* --color-secondary-500: #b5892f; */
+/* --color-secondary-600: #8f6b25; */
+/* --color-secondary-700: #70541d; */
+/* --color-secondary-800: #594317; */
+/* --color-secondary-900: #463411; */
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* Accent (Soft Teal) */
+/* --color-accent-50:  #eef9f8; */
+/* --color-accent-100: #d5f1ef; */
+/* --color-accent-200: #aee3de; */
+/* --color-accent-300: #7fd0c9; */
+/* --color-accent-400: #4fb8b1; */
+/* --color-accent-500: #2f9e97; */
+/* --color-accent-600: #257d78; */
+/* --color-accent-700: #1d6360; */
+/* --color-accent-800: #174f4c; */
+/* --color-accent-900: #113c3a; */
+
+/* Neutrals */
+/* --color-neutral-50:  #fafaf9; */
+/* --color-neutral-100: #f5f5f4; */
+/* --color-neutral-200: #e7e5e4; */
+/* --color-neutral-300: #d6d3d1; */
+/* --color-neutral-400: #a8a29e; */
+/* --color-neutral-500: #78716c; */
+/* --color-neutral-600: #57534e; */
+/* --color-neutral-700: #44403c; */
+/* --color-neutral-800: #292524; */
+/* --color-neutral-900: #1c1917; */
+
+/* Semantic */
+/* --color-success: #2f8f68; */
+/* --color-warning: #c9a24a; */
+/* --color-error:   #dc2626; */
+
+/* Backgrounds */
+/* --color-bg-primary: var(--color-neutral-50); */
+/* --color-bg-secondary: var(--color-primary-50); */
+/* --color-bg-dark: var(--color-neutral-900); */
+
+/* Text */
+/* --color-text-primary: var(--color-neutral-900); */
+/* --color-text-secondary: var(--color-neutral-600); */
+/* --color-text-inverse: #ffffff; */
+
+/* Borders */
+/* --color-border: var(--color-neutral-200); */
+
+/* Fonts (UPDATED) */
+/* --font-sans: "Montserrat", sans-serif; */
+/* --font-heading: "Montserrat", sans-serif; */
+
+/* @keyframes ping-soft { */
+/*   0% { */
+/*     transform: scale(1); */
+/*     opacity: 0.8; */
+/*   } */
+/*   75%, 100% { */
+/*     transform: scale(1.4); / reduced from 2 → much softer / */
+/*     opacity: 0; */
+/*   } */
+/* } */
+
+/* --animate-ping-soft: ping-soft 1.5s ease-out infinite; */
+
+
+
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+@import "tailwindcss";
+
+@theme {
+  /* Primary Colors (Deep Green) */
+  --color-primary-50: #eef7f2;
+  --color-primary-100: #d9efe3;
+  --color-primary-200: #b3dfc7;
+  --color-primary-300: #80c9a6;
+  --color-primary-400: #4caf83;
+  --color-primary-500: #2f8f68;
+  --color-primary-600: #256f52;
+  --color-primary-700: #1e5942;
+  --color-primary-800: #184636;
+  --color-primary-900: #12352a;
+
+  /* Secondary (Muted Gold) */
+  --color-secondary-50: #faf6ed;
+  --color-secondary-100: #f4ead1;
+  --color-secondary-200: #e8d5a3;
+  --color-secondary-300: #d9bb6d;
+  --color-secondary-400: #c9a24a;
+  --color-secondary-500: #b5892f;
+  --color-secondary-600: #8f6b25;
+  --color-secondary-700: #70541d;
+  --color-secondary-800: #594317;
+  --color-secondary-900: #463411;
+
+  /* Accent (Soft Teal) */
+  --color-accent-50: #eef9f8;
+  --color-accent-100: #d5f1ef;
+  --color-accent-200: #aee3de;
+  --color-accent-300: #7fd0c9;
+  --color-accent-400: #4fb8b1;
+  --color-accent-500: #2f9e97;
+  --color-accent-600: #257d78;
+  --color-accent-700: #1d6360;
+  --color-accent-800: #174f4c;
+  --color-accent-900: #113c3a;
+
+  /* Neutrals */
+  --color-neutral-50: #fafaf9;
+  --color-neutral-100: #f5f5f4;
+  --color-neutral-200: #e7e5e4;
+  --color-neutral-300: #d6d3d1;
+  --color-neutral-400: #a8a29e;
+  --color-neutral-500: #78716c;
+  --color-neutral-600: #57534e;
+  --color-neutral-700: #44403c;
+  --color-neutral-800: #292524;
+  --color-neutral-900: #1c1917;
+
+  /* Semantic */
+  --color-success: #2f8f68;
+  --color-warning: #c9a24a;
+  --color-error: #dc2626;
+
+  /* Backgrounds */
+  --color-bg-primary: var(--color-neutral-50);
+  --color-bg-secondary: var(--color-primary-50);
+  --color-bg-dark: var(--color-neutral-900);
+
+  /* Text */
+  --color-text-primary: var(--color-neutral-900);
+  --color-text-secondary: var(--color-neutral-600);
+  --color-text-inverse: #ffffff;
+
+  /* Borders */
+  --color-border: var(--color-neutral-200);
+
+  /* Fonts */
+  --font-sans: "Montserrat", sans-serif;
+  --font-heading: "Montserrat", sans-serif;
+
+  /* ── Hero-specific tokens ── */
+
+  /* Deep forest green — hero section background */
+  --color-hero-bg: #0e2a1e;
+
+  /* Glow blobs */
+  --color-hero-glow-green: var(--color-primary-500);
+  /* #2f8f68 */
+  --color-hero-glow-gold: var(--color-secondary-500);
+  /* #b5892f */
+
+  /* Trust badge & proof points */
+  --color-hero-badge-bg: var(--color-primary-500);
+  /* #2f8f68 */
+  --color-hero-badge-text: var(--color-primary-300);
+  /* #80c9a6 */
+  --color-hero-badge-dot: var(--color-primary-400);
+  /* #4caf83 */
+
+  /* Headline accent line */
+  --color-hero-headline-accent: var(--color-secondary-400);
+  /* #c9a24a */
+
+  /* Body copy & list items */
+  --color-hero-body: var(--color-primary-100);
+  /* #d9efe3 */
+  --color-hero-list: var(--color-primary-200);
+  /* #b3dfc7 */
+
+  /* CTA button */
+  --color-hero-cta-bg: var(--color-secondary-400);
+  /* #c9a24a */
+  --color-hero-cta-bg-hover: var(--color-secondary-500);
+  /* #b5892f */
+  --color-hero-cta-text: var(--color-primary-900);
+  /* #12352a */
+
+  /* Form card */
+  --color-hero-form-select-bg: var(--color-hero-bg);
+  /* #0e2a1e */
+  --color-hero-form-focus: var(--color-primary-400);
+  /* #4caf83 */
+
+  /* Form urgency badge */
+  --color-hero-urgency-bg: var(--color-secondary-400);
+  /* #c9a24a */
+  --color-hero-urgency-text: var(--color-secondary-400);
+  /* #c9a24a */
+
+  /* Success state icon */
+  --color-hero-success-bg: var(--color-primary-500);
+  /* #2f8f68 */
+
+  /* Avatar ring border */
+  --color-hero-avatar-border: var(--color-hero-bg);
+  /* #0e2a1e */
+  --color-hero-avatar-bg: var(--color-primary-500);
+  /* #2f8f68 */
+
+  /* Star rating */
+  --color-hero-stars: var(--color-secondary-400);
+  /* #c9a24a */
+
+  /* ── WhyChooseUs-specific tokens ── */
+
+  /* Section background — light warm parchment */
+  --color-wcu-bg: var(--color-primary-50);
+  /* #eef7f2 */
+  --color-wcu-bg-alt: #ffffff;
+
+  /* Section label & heading */
+  --color-wcu-label-text: var(--color-primary-600);
+  /* #256f52 */
+  --color-wcu-label-bg: var(--color-primary-100);
+  /* #d9efe3 */
+  --color-wcu-heading: var(--color-primary-900);
+  /* #12352a */
+  --color-wcu-heading-accent: var(--color-secondary-500);
+  /* #b5892f */
+  --color-wcu-subtext: var(--color-neutral-600);
+  /* #57534e */
+
+  /* Cards */
+  --color-wcu-card-bg: #ffffff;
+  --color-wcu-card-border: var(--color-primary-100);
+  /* #d9efe3 */
+  --color-wcu-card-border-hover: var(--color-primary-400);
+  /* #4caf83 */
+  --color-wcu-card-icon-bg: var(--color-primary-100);
+  /* #d9efe3 */
+  --color-wcu-card-icon-color: var(--color-primary-600);
+  /* #256f52 */
+  --color-wcu-card-title: var(--color-primary-900);
+  /* #12352a */
+  --color-wcu-card-text: var(--color-neutral-600);
+  /* #57534e */
+  --color-wcu-card-tag-bg: var(--color-secondary-100);
+  /* #f4ead1 */
+  --color-wcu-card-tag-text: var(--color-secondary-700);
+  /* #70541d */
+
+  /* Divider / accent line */
+  --color-wcu-divider: var(--color-primary-200);
+  /* #b3dfc7 */
+
+  /* Stats bar */
+  --color-wcu-stat-number: var(--color-primary-700);
+  /* #1e5942 */
+  --color-wcu-stat-label: var(--color-neutral-500);
+  /* #78716c */
+
+  /* CTA banner */
+  --color-wcu-cta-bg: var(--color-primary-800);
+  /* #184636 */
+  --color-wcu-cta-glow: var(--color-primary-600);
+  /* #256f52 */
+  --color-wcu-cta-heading: #ffffff;
+  --color-wcu-cta-sub: var(--color-primary-200);
+  /* #b3dfc7 */
+  --color-wcu-cta-btn-bg: var(--color-secondary-400);
+  /* #c9a24a */
+  --color-wcu-cta-btn-hover: var(--color-secondary-500);
+  /* #b5892f */
+  --color-wcu-cta-btn-text: var(--color-primary-900);
+  /* #12352a */
+  --color-wcu-cta-outline-border: var(--color-primary-300);
+  /* #80c9a6 */
+  --color-wcu-cta-outline-text: var(--color-primary-100);
+  /* #d9efe3 */
+
+  @keyframes ping-soft {
+    0% {
+      transform: scale(1);
+      opacity: 0.8;
+    }
+
+    75%,
+    100% {
+      transform: scale(1.4);
+      opacity: 0;
+    }
   }
-}
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  --animate-ping-soft: ping-soft 1.5s ease-out infinite;
 }
