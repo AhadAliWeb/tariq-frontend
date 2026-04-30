@@ -8,31 +8,27 @@ import FormPopup from "./FormPopup";
 const courses = [
   {
     id: 1,
-    title: "Noorani Qaida (Beginners)",
-    description: "The perfect start for kids and adults. Master the Arabic alphabet and pronunciation to read fluently.",
+    title: "Quran Basic Course",
+    description: "Start from scratch. Learn Arabic letters, pronunciation, and basic Tajweed with expert guidance.",
     imageUrl: "https://images.unsplash.com/photo-1585036156171-384164a8c675?auto=format&fit=crop&q=80&w=600",
-    tag: "Most Popular",
   },
   {
     id: 2,
-    title: "Quran Reading & Tajweed",
-    description: "Read the Holy Quran exactly as it was revealed. Master articulation points with expert tutors.",
-    imageUrl: "https://images.unsplash.com/photo-1585036156171-384164a8c675?auto=format&fit=crop&q=80&w=600",
-    tag: "Intermediate",
+    title: "Quran Recitation & Tajweed",
+    description: "Perfect your recitation with proper Tajweed rules, articulation points, and fluency training.",
+    imageUrl: "https://res.cloudinary.com/dqnjqcerb/image/upload/v1761369554/uploads/mpqiogcsjxslgiwhtlhu.png",
   },
   {
     id: 3,
     title: "Quran Memorization (Hifz)",
-    description: "A structured, step-by-step program to memorize the Quran using proven retention techniques.",
-    imageUrl: "https://images.unsplash.com/photo-1585036156171-384164a8c675?auto=format&fit=crop&q=80&w=600",
-    tag: "Advanced",
+    description: "Memorize the Quran with a personalized plan, daily revision sessions, and experienced Huffaz teachers.",
+    imageUrl: "https://res.cloudinary.com/dqnjqcerb/image/upload/v1761471265/uploads/krrariibgllamoqg0kyq.jpg",
   },
   {
     id: 4,
-    title: "Islamic Studies & Duas",
-    description: "Build a strong foundation. Learn daily Duas, basic Fiqh, Seerah, and essential Islamic values.",
-    imageUrl: "https://images.unsplash.com/photo-1585036156171-384164a8c675?auto=format&fit=crop&q=80&w=600",
-    tag: "Family Friendly",
+    title: "Islamic Studies",
+    description: "Learn core Islamic beliefs, daily Fiqh, Seerah, and essential duas in simple, engaging lessons.",
+    imageUrl: "https://res.cloudinary.com/dqnjqcerb/image/upload/v1761471305/uploads/y0sl8iu2myrvtz2fduez.jpg",
   }
 ];
 
@@ -87,9 +83,6 @@ export default function ExploreCourses() {
             >
               {/* Image Container */}
               <div className="relative h-48 overflow-hidden bg-[var(--color-neutral-100)]">
-                <div className="absolute top-4 left-4 z-10 bg-[var(--color-secondary-400)] text-[var(--color-primary-900)] text-xs font-bold px-3 py-1.5 rounded-full shadow-md">
-                  {course.tag}
-                </div>
                 <img
                   src={course.imageUrl}
                   alt={course.title}

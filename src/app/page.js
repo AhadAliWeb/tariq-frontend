@@ -27,7 +27,6 @@ export default function RootLayout({ children }) {
       <StudentTestimonials />
       <Pricing />
       <WhatsAppButton />
-      <RichTextEditor />
       <Footer />
       <Chat />
     </>
