@@ -1,6 +1,7 @@
 import connectDB from "@/lib/mongodb";
 import Blog from "@/models/blog";
 import Link from "next/link";
+import NotificationToggle from "@/components/NotificationToggle";
 
 async function getStats() {
     await connectDB();
@@ -45,6 +46,7 @@ export default async function AdminDashboard() {
     return (
         <div className="p-8">
             {/* Header */}
+            <NotificationToggle />
             <div className="mb-8">
                 <h1 className="text-2xl font-bold text-[#12352a]">Dashboard</h1>
                 <p className="text-[#78716c] text-sm mt-1">Welcome back — here's what's happening.</p>
