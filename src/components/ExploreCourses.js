@@ -38,7 +38,7 @@ export default function ExploreCourses() {
 
 
   return (
-    <section className="relative py-24 overflow-hidden bg-[var(--color-bg-primary)]">
+    <section className="relative py-24 overflow-hidden bg-bg-primary">
       <FormPopup isOpen={popupOpen} onClose={() => setPopupOpen(false)} />
       {/* --- Professional Background Design --- */}
       <div className="absolute inset-0 pointer-events-none">

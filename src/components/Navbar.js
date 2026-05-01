@@ -2,16 +2,22 @@
 
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
+import Image from "next/image"
+import FormPopup from "./FormPopup";
 
 const links = [
   { label: "Home", href: "/" },
   {
     label: "Courses", href: "#courses",
-    // sublinks: [
-    //   { label: "Analytics", href: "#analytics" },
-    //   { label: "Automation", href: "#automation" },
-    //   { label: "Integrations", href: "#integrations" },
-    // ],
+    sublinks: [
+      { label: "Arabic", href: "/courses/arabic" },
+      { label: "Hifz", href: "/courses/hifz" },
+      { label: "Islamic Studies", href: "/courses/islamic-studies" },
+      { label: "Basic Quran", href: "/courses/quran-basic" },
+      { label: "Tafseer", href: "/courses/tafseer" },
+      { label: "Tajweed", href: "/courses/tajweed" },
+      { label: "Translation", href: "/courses/translation" },
+    ],
   },
   { label: "Pricing", href: "/pricing" },
   { label: "About", href: "/about" },
@@ -112,6 +118,8 @@ export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(null);
+  const [popupOpen, setPopupOpen] = useState(false)
+
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 16);
@@ -126,11 +134,18 @@ export default function Navbar() {
         : "bg-transparent text-white"
         }`}
     >
+      <FormPopup isOpen={popupOpen} onClose={() => setPopupOpen(false)} />
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
 
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2.5 shrink-0 group">
-          <span className="w-10 h-10 rounded-xl bg-primary-600 flex items-center justify-center shadow-md group-hover:bg-primary-500 transition-colors">
+          <Image
+            src="/images/logo.png"
+            alt="Logo"
+            width="100"
+            height="100"
+          />
+          {/* <span className="w-10 h-10 rounded-xl bg-primary-600 flex items-center justify-center shadow-md group-hover:bg-primary-500 transition-colors">
             <svg width="22" height="22" viewBox="0 0 18 18" fill="none">
               <path d="M9 2L15.5 6V12L9 16L2.5 12V6L9 2Z" fill="white" fillOpacity="0.9" />
               <path d="M9 5.5L12.5 7.5V11.5L9 13.5L5.5 11.5V7.5L9 5.5Z" fill="white" fillOpacity="0.4" />
@@ -141,7 +156,7 @@ export default function Navbar() {
             style={{ fontFamily: "var(--font-heading)" }}
           >
             Learn Quran
-          </span>
+          </span> */}
         </Link>
 
         {/* Center Nav Links (Desktop) */}
@@ -155,14 +170,13 @@ export default function Navbar() {
         <div className="flex items-center gap-3">
           <div className="relative hidden sm:block">
             <span className="absolute inset-0 rounded-md bg-primary-400 opacity-60 animate-ping-soft" />
-            <Link
-              href="#trial"
-              className="relative inline-flex items-center gap-2 px-5 py-2.5 text-sm font-bold bg-primary-600 hover:bg-primary-500 rounded-md shadow-md hover:shadow-lg transition-all duration-200 active:scale-95"
-              style={{ fontFamily: "var(--font-sans)" }}
+            <button
+              className="relative inline-flex cursor-pointer items-center gap-2 px-5 py-2.5 text-sm font-bold bg-primary-600 hover:bg-primary-500 rounded-md shadow-md hover:shadow-lg transition-all duration-200 active:scale-95"
+              onClick={() => setPopupOpen(true)}
             >
               <span className="w-1.5 h-1.5 rounded-full bg-secondary-300 animate-pulse shrink-0" />
               Get a free trial
-            </Link>
+            </button>
           </div>
 
           <button
@@ -241,15 +255,14 @@ export default function Navbar() {
           <li className="pt-2 pb-1">
             <div className="relative">
               <span className="absolute inset-0 rounded-xl bg-primary-400 opacity-50 animate-ping" />
-              <Link
-                href="#trial"
-                onClick={() => setMenuOpen(false)}
-                className="relative flex items-center justify-center gap-2 w-full px-4 py-3 text-sm font-bold text-white bg-primary-600 hover:bg-primary-500 rounded-xl shadow-md transition-all duration-200"
-                style={{ fontFamily: "var(--font-sans)" }}
+              <button
+                // onClick={() => setMenuOpen(false)}
+                onClick={() => setPopupOpen(true)}
+                className="relative flex items-center cursor-pointer justify-center gap-2 w-full px-4 py-3 text-sm font-bold text-white bg-primary-600 hover:bg-primary-500 rounded-xl shadow-md transition-all duration-200"
               >
                 <span className="w-1.5 h-1.5 rounded-full bg-secondary-300 animate-pulse shrink-0" />
                 Get a free trial
-              </Link>
+              </button>
             </div>
           </li>
         </ul>
