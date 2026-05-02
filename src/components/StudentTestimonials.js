@@ -2,6 +2,7 @@
 import { useState } from "react";
 import PhoneInput from "react-phone-number-input"
 import "react-phone-number-input/style.css"
+import { parsePhoneNumber } from "react-phone-number-input"
 
 const testimonials = [
   {
@@ -117,10 +118,23 @@ export default function StudentTestimonials() {
     setError("")
 
     try {
+
+      const parsed = parsePhoneNumber(phone)
+
+      if (!parsed) {
+
+        setError("Inavlid Phone Number")
+        throw new Error("Invalid Phone Number")
+      }
+
+
+      const country = parsed.country;
+      const countryCode = `+${parsed.countryCallingCode}`
+
       const res = await fetch("/api/leads", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ phone })
+        body: JSON.stringify({ phone, country, countryCode })
       });
 
       // Handle non-2xx responses
@@ -129,17 +143,16 @@ export default function StudentTestimonials() {
       }
 
       const data = await res.json();
-      console.log(data);
       setSubmitted(true);
 
     } catch (error) {
       setError("Error Occured, Try again later")
       console.error("Error submitting form:", error);
+
     } finally {
       setLoading(false);
     }
   };
-
   return (
     <section className="bg-white py-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
       <div className="max-w-7xl mx-auto">

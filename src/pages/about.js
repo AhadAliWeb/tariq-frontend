@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import FormPopup from "@/components/FormPopup";
 
 // ── Simple counter hook ──────────────────────────────────────────────────────
 function useCounter(target, duration = 2000, start = false) {
@@ -37,9 +38,9 @@ function useInView(threshold = 0.2) {
 // ── Stats data ───────────────────────────────────────────────────────────────
 const STATS = [
   { value: 5000, suffix: "+", label: "Students Enrolled" },
-  { value: 98,   suffix: "%", label: "Satisfaction Rate" },
-  { value: 12,   suffix: "+", label: "Years of Experience" },
-  { value: 40,   suffix: "+", label: "Expert Tutors" },
+  { value: 98, suffix: "%", label: "Satisfaction Rate" },
+  { value: 12, suffix: "+", label: "Years of Experience" },
+  { value: 40, suffix: "+", label: "Expert Tutors" },
 ];
 
 // ── Team data ────────────────────────────────────────────────────────────────
@@ -134,12 +135,15 @@ function StatCard({ value, suffix, label, animate }) {
 export default function AboutPage() {
   const [statsRef, statsInView] = useInView(0.3);
   const [heroRef, heroInView] = useInView(0.1);
+  const [popupOpen, setPopupOpen] = useState(false)
+
 
   return (
     <main
       className="w-full overflow-x-hidden"
       style={{ fontFamily: "var(--font-sans)", background: "var(--color-neutral-50)" }}
     >
+      <FormPopup isOpen={popupOpen} onClose={() => setPopupOpen(false)} />
 
       {/* ── HERO ── */}
       <section
@@ -210,18 +214,16 @@ export default function AboutPage() {
           </p>
 
           {/* CTA */}
-          <a
-            href="#enroll"
-            className="inline-block px-8 py-4 rounded-xl font-bold text-base tracking-wide transition-all duration-200 shadow-lg hover:shadow-xl hover:-translate-y-0.5"
+          <button
+            onClick={() => setPopupOpen(true)}
+            className="inline-block px-8 cursor-pointer py-4 rounded-xl font-bold text-base tracking-wide transition-all duration-200 shadow-lg hover:shadow-xl hover:-translate-y-0.5"
             style={{
               background: "var(--color-hero-cta-bg)",
               color: "var(--color-hero-cta-text)",
             }}
-            onMouseEnter={e => (e.currentTarget.style.background = "var(--color-hero-cta-bg-hover)")}
-            onMouseLeave={e => (e.currentTarget.style.background = "var(--color-hero-cta-bg)")}
           >
             Start Your Free Trial Class →
-          </a>
+          </button>
         </div>
       </section>
 
@@ -395,78 +397,6 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
-
-      {/* ── LEAD CAPTURE CTA ── */}
-      <section
-        id="enroll"
-        className="py-20 px-6 relative overflow-hidden"
-        style={{ background: "var(--color-wcu-cta-bg)" }}
-      >
-        {/* Glow */}
-        <div
-          className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[200px] rounded-full blur-3xl opacity-30 pointer-events-none"
-          style={{ background: "var(--color-wcu-cta-glow)" }}
-        />
-
-        <div className="relative z-10 max-w-3xl mx-auto text-center">
-          <h2
-            className="text-3xl md:text-4xl font-extrabold mb-4"
-            style={{ color: "var(--color-wcu-cta-heading)", fontFamily: "var(--font-heading)" }}
-          >
-            Start Learning Today —{" "}
-            <span style={{ color: "var(--color-secondary-400)" }}>First Class is Free</span>
-          </h2>
-          <p className="text-base mb-10" style={{ color: "var(--color-wcu-cta-sub)" }}>
-            Join 5,000+ students worldwide. No long-term commitment. Cancel anytime.
-          </p>
-
-          {/* Lead Form */}
-          <form
-            className="flex flex-col sm:flex-row gap-3 max-w-lg mx-auto"
-            onSubmit={(e) => e.preventDefault()}
-          >
-            <input
-              type="text"
-              placeholder="Your Name"
-              className="flex-1 px-4 py-3 rounded-xl text-sm outline-none border"
-              style={{
-                background: "rgba(255,255,255,0.07)",
-                borderColor: "rgba(128,201,166,0.3)",
-                color: "#ffffff",
-              }}
-              required
-            />
-            <input
-              type="email"
-              placeholder="Email Address"
-              className="flex-1 px-4 py-3 rounded-xl text-sm outline-none border"
-              style={{
-                background: "rgba(255,255,255,0.07)",
-                borderColor: "rgba(128,201,166,0.3)",
-                color: "#ffffff",
-              }}
-              required
-            />
-            <button
-              type="submit"
-              className="px-6 py-3 rounded-xl font-bold text-sm whitespace-nowrap transition-all duration-200 hover:-translate-y-0.5"
-              style={{
-                background: "var(--color-wcu-cta-btn-bg)",
-                color: "var(--color-wcu-cta-btn-text)",
-              }}
-              onMouseEnter={e => (e.currentTarget.style.background = "var(--color-wcu-cta-btn-hover)")}
-              onMouseLeave={e => (e.currentTarget.style.background = "var(--color-wcu-cta-btn-bg)")}
-            >
-              Book Free Class
-            </button>
-          </form>
-
-          <p className="mt-4 text-xs" style={{ color: "rgba(179,223,199,0.6)" }}>
-            🔒 No spam. Your data is safe. We'll contact you within 24 hours.
-          </p>
-        </div>
-      </section>
-
     </main>
   );
 }

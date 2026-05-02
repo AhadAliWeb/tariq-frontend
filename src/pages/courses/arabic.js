@@ -1,5 +1,7 @@
 "use client";
 import { CheckCircle, ChevronRight, MessageSquare, PenLine, BookOpen, Globe, Users, Clock, Award } from "lucide-react";
+import FormPopup from "@/components/FormPopup";
+import { useState } from "react";
 
 const curriculum = [
     { title: "Arabic Alphabets", desc: "Pronunciation & recognition" },
@@ -18,8 +20,11 @@ const outcomes = [
 ];
 
 export default function ArabicCourse() {
+    const [popupOpen, setPopupOpen] = useState(false)
+
     return (
         <main className="min-h-screen font-sans bg-neutral-50">
+            <FormPopup isOpen={popupOpen} onClose={() => setPopupOpen(false)} />
             {/* Hero — language-focused, vibrant */}
             <section className="relative overflow-hidden"
                 style={{ background: "linear-gradient(135deg, #12352a 0%, #0e2a1e 50%, #184636 100%)" }}>
@@ -43,11 +48,13 @@ export default function ArabicCourse() {
                                 Master the language of the Quran. From alphabets to grammar, reading to conversation — learn Arabic with certified native teachers.
                             </p>
                             <div className="flex flex-col sm:flex-row gap-4">
-                                <a href="/contact"
-                                    className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl font-bold transition-all hover:scale-105"
-                                    style={{ background: "#c9a24a", color: "#12352a" }}>
+                                <button
+                                    className="inline-flex items-center justify-center gap-2 cursor-pointer px-8 py-4 rounded-xl font-bold transition-all hover:scale-105"
+                                    style={{ background: "#c9a24a", color: "#12352a" }}
+                                    onClick={() => setPopupOpen(true)}
+                                >
                                     Book FREE Trial Class <ChevronRight size={18} />
-                                </a>
+                                </button>
                                 <div className="inline-flex items-center justify-center gap-2 px-6 py-4 rounded-xl border text-sm font-medium"
                                     style={{ borderColor: "rgba(128,201,166,0.4)", color: "#b3dfc7" }}>
                                     <Clock size={16} /> 6–12 Month Program
@@ -145,11 +152,12 @@ export default function ArabicCourse() {
                 <div className="max-w-3xl mx-auto px-4 text-center">
                     <h2 className="text-3xl font-extrabold text-white mb-4">Start Speaking the Language of the Quran</h2>
                     <p className="mb-8" style={{ color: "#b3dfc7" }}>Book your FREE trial Arabic class and start your journey today.</p>
-                    <a href="/contact"
+                    <button
+                        onClick={() => setPopupOpen(true)}
                         className="inline-flex items-center gap-2 px-10 py-4 rounded-xl font-bold text-lg transition-all hover:scale-105"
                         style={{ background: "#c9a24a", color: "#12352a" }}>
                         Book FREE Trial Class <ChevronRight size={20} />
-                    </a>
+                    </button>
                 </div>
             </section>
         </main>

@@ -1,13 +1,14 @@
 "use client";
 
 import { useState } from "react";
+import FormPopup from "@/components/FormPopup";
 
 const weekdayPlans = [
   {
     days: "2 Days / Week",
     sessions: "8 sessions/mo",
-    originalPrice: 100,
-    price: 75,
+    originalPrice: 59,
+    price: 39,
     popular: false,
     badge: null,
     features: [
@@ -21,8 +22,8 @@ const weekdayPlans = [
   {
     days: "3 Days / Week",
     sessions: "12 sessions/mo",
-    originalPrice: 140,
-    price: 105,
+    originalPrice: 69,
+    price: 49,
     popular: true,
     badge: "Most Popular",
     features: [
@@ -36,8 +37,8 @@ const weekdayPlans = [
   {
     days: "4 Days / Week",
     sessions: "16 sessions/mo",
-    originalPrice: 175,
-    price: 130,
+    originalPrice: 79,
+    price: 55,
     popular: false,
     badge: "Best Value",
     features: [
@@ -51,8 +52,8 @@ const weekdayPlans = [
   {
     days: "5 Days / Week",
     sessions: "20 sessions/mo",
-    originalPrice: 210,
-    price: 155,
+    originalPrice: 89,
+    price: 59,
     popular: false,
     badge: "Accelerated",
     features: [
@@ -113,14 +114,16 @@ const Sparkle = ({ className }) => (
 
 export default function PricingPage() {
   const [activeTab, setActiveTab] = useState("weekday");
+  const [popupOpen, setPopupOpen] = useState(false)
+
 
   const plans = activeTab === "weekday" ? weekdayPlans : weekendPlans;
 
   return (
     <section className="relative min-h-screen overflow-hidden bg-[#0e2a1e] py-20 px-4 font-sans">
+      <FormPopup isOpen={popupOpen} onClose={() => setPopupOpen(false)} />
       {/* ── Decorative Background ── */}
       <div className="pointer-events-none absolute inset-0 overflow-hidden">
-        {/* Geometric grid lines */}
         <div
           className="absolute inset-0 opacity-[0.04]"
           style={{
@@ -129,14 +132,10 @@ export default function PricingPage() {
             backgroundSize: "60px 60px",
           }}
         />
-        {/* Radial glow — green */}
         <div className="absolute -top-40 -left-40 w-[600px] h-[600px] rounded-full bg-[#2f8f68] opacity-10 blur-[120px]" />
-        {/* Radial glow — gold */}
         <div className="absolute top-1/2 -right-40 w-[500px] h-[500px] rounded-full bg-[#b5892f] opacity-10 blur-[120px]" />
-        {/* Bottom glow */}
         <div className="absolute -bottom-40 left-1/3 w-[600px] h-[400px] rounded-full bg-[#2f9e97] opacity-8 blur-[140px]" />
 
-        {/* Decorative Arabic calligraphy-inspired arcs */}
         <svg className="absolute top-0 right-0 w-96 h-96 opacity-[0.06]" viewBox="0 0 400 400" fill="none">
           <circle cx="400" cy="0" r="200" stroke="#80c9a6" strokeWidth="1" />
           <circle cx="400" cy="0" r="280" stroke="#c9a24a" strokeWidth="0.5" />
@@ -147,7 +146,6 @@ export default function PricingPage() {
           <circle cx="0" cy="320" r="240" stroke="#c9a24a" strokeWidth="0.5" />
         </svg>
 
-        {/* Floating sparkles */}
         <Sparkle className="absolute top-24 right-1/4 w-3 h-3 text-[#c9a24a] opacity-30 animate-pulse" />
         <Sparkle className="absolute top-1/3 left-16 w-2 h-2 text-[#4caf83] opacity-25 animate-pulse" style={{ animationDelay: "1s" }} />
         <Sparkle className="absolute bottom-32 right-20 w-3 h-3 text-[#c9a24a] opacity-20 animate-pulse" style={{ animationDelay: "2s" }} />
@@ -186,11 +184,10 @@ export default function PricingPage() {
               <button
                 key={tab}
                 onClick={() => setActiveTab(tab)}
-                className={`relative z-10 px-6 py-2.5 rounded-full text-sm font-semibold transition-all duration-300 cursor-pointer ${
-                  activeTab === tab
-                    ? "bg-[#2f8f68] text-white shadow-lg shadow-[#2f8f68]/30"
-                    : "text-[#80c9a6] hover:text-white"
-                }`}
+                className={`relative z-10 px-6 py-2.5 rounded-full text-sm font-semibold transition-all duration-300 cursor-pointer ${activeTab === tab
+                  ? "bg-[#2f8f68] text-white shadow-lg shadow-[#2f8f68]/30"
+                  : "text-[#80c9a6] hover:text-white"
+                  }`}
               >
                 {tab === "weekday" ? "📅 Weekday Classes" : "🌙 Weekend Classes"}
               </button>
@@ -207,11 +204,10 @@ export default function PricingPage() {
 
         {/* Pricing Cards */}
         <div
-          className={`grid gap-6 ${
-            plans.length === 4
-              ? "grid-cols-1 sm:grid-cols-2 lg:grid-cols-4"
-              : "grid-cols-1 sm:grid-cols-2 max-w-3xl mx-auto"
-          }`}
+          className={`grid gap-6 ${plans.length === 4
+            ? "grid-cols-1 sm:grid-cols-2 lg:grid-cols-4"
+            : "grid-cols-1 sm:grid-cols-2 max-w-3xl mx-auto"
+            }`}
         >
           {plans.map((plan, i) => {
             const title = plan.days || plan.duration;
@@ -221,27 +217,22 @@ export default function PricingPage() {
             return (
               <div
                 key={i}
-                className={`relative flex flex-col rounded-2xl border transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl ${
-                  isPop
-                    ? "border-[#c9a24a]/60 bg-gradient-to-b from-[#12352a] to-[#0e2a1e] shadow-xl shadow-[#c9a24a]/10"
-                    : "border-[#2f8f68]/25 bg-[#0e2a1e]/80 hover:border-[#2f8f68]/50"
-                }`}
+                className={`relative flex flex-col rounded-2xl border transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl ${isPop
+                  ? "border-[#c9a24a]/60 bg-gradient-to-b from-[#12352a] to-[#0e2a1e] shadow-xl shadow-[#c9a24a]/10"
+                  : "border-[#2f8f68]/25 bg-[#0e2a1e]/80 hover:border-[#2f8f68]/50"
+                  }`}
               >
-                {/* Popular ribbon */}
                 {plan.badge && (
-                  <div className={`absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full text-xs font-bold tracking-wide whitespace-nowrap ${
-                    isPop ? "bg-[#c9a24a] text-[#12352a]" : "bg-[#2f8f68] text-white"
-                  }`}>
+                  <div className={`absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full text-xs font-bold tracking-wide whitespace-nowrap ${isPop ? "bg-[#c9a24a] text-[#12352a]" : "bg-[#2f8f68] text-white"
+                    }`}>
                     {plan.badge}
                   </div>
                 )}
 
                 <div className="p-6 flex flex-col flex-1">
-                  {/* Title */}
                   <h3 className="text-white font-bold text-lg mb-1">{title}</h3>
                   <p className="text-[#80c9a6] text-xs mb-4">{plan.sessions}</p>
 
-                  {/* Pricing */}
                   <div className="mb-5">
                     <div className="flex items-baseline gap-2">
                       <span className="text-4xl font-extrabold text-white">${plan.price}</span>
@@ -255,10 +246,8 @@ export default function PricingPage() {
                     </div>
                   </div>
 
-                  {/* Divider */}
                   <div className="border-t border-[#2f8f68]/20 mb-5" />
 
-                  {/* Features */}
                   <ul className="space-y-2.5 flex-1 mb-6">
                     {plan.features.map((f, j) => (
                       <li key={j} className="flex items-start gap-2.5 text-[#b3dfc7] text-sm">
@@ -268,25 +257,36 @@ export default function PricingPage() {
                     ))}
                   </ul>
 
-                  {/* CTA */}
-                  <a
-                    href="#enroll"
-                    className={`block text-center py-3 rounded-xl font-bold text-sm transition-all duration-200 cursor-pointer ${
-                      isPop
-                        ? "bg-[#c9a24a] hover:bg-[#b5892f] text-[#12352a] shadow-lg shadow-[#c9a24a]/25"
-                        : "bg-[#2f8f68]/20 hover:bg-[#2f8f68]/40 text-[#4caf83] border border-[#2f8f68]/40 hover:border-[#4caf83]"
-                    }`}
+                  <button
+                    onClick={() => setPopupOpen(true)}
+                    className={`block text-center py-3 rounded-xl font-bold text-sm transition-all duration-200 cursor-pointer ${isPop
+                      ? "bg-[#c9a24a] hover:bg-[#b5892f] text-[#12352a] shadow-lg shadow-[#c9a24a]/25"
+                      : "bg-[#2f8f68]/20 hover:bg-[#2f8f68]/40 text-[#4caf83] border border-[#2f8f68]/40 hover:border-[#4caf83]"
+                      }`}
                   >
                     {isPop ? "🚀 Enroll Now" : "Get Started"}
-                  </a>
+                  </button>
                 </div>
               </div>
             );
           })}
         </div>
 
+        {/* ── Low Income Discount Notice ── */}
+        <div className="mt-8 flex justify-center">
+          <div className="inline-flex items-center gap-3 bg-[#12352a]/80 border border-[#2f8f68]/30 rounded-2xl px-5 py-4 max-w-xl text-center">
+            <span className="text-2xl shrink-0" aria-hidden>🤲</span>
+            <p className="text-sm text-[#b3dfc7] leading-relaxed">
+              <strong className="text-[#c9a24a]">Supporting every family —</strong>{" "}
+              Low-income families are offered a{" "}
+              <strong className="text-white">10% discount</strong> on any plan.
+              Reach out via WhatsApp or the contact form to apply.
+            </p>
+          </div>
+        </div>
+
         {/* Free Trial CTA */}
-        <div className="mt-16 relative rounded-2xl overflow-hidden border border-[#2f8f68]/30">
+        <div className="mt-10 relative rounded-2xl overflow-hidden border border-[#2f8f68]/30">
           <div className="absolute inset-0 bg-gradient-to-r from-[#12352a] via-[#1e5942] to-[#12352a]" />
           <div className="absolute inset-0 opacity-5"
             style={{ backgroundImage: "radial-gradient(circle, #4caf83 1px, transparent 1px)", backgroundSize: "24px 24px" }} />
@@ -301,10 +301,18 @@ export default function PricingPage() {
               </p>
             </div>
             <div className="flex flex-col sm:flex-row gap-3 shrink-0">
-              <a href="#book-trial" className="px-7 py-3.5 bg-[#c9a24a] hover:bg-[#b5892f] text-[#12352a] font-bold rounded-xl text-sm transition-all duration-200 text-center shadow-lg shadow-[#c9a24a]/25 cursor-pointer">
-                Book Free Trial
-              </a>
-              <a href="#contact" className="px-7 py-3.5 border border-[#80c9a6]/40 hover:border-[#80c9a6] text-[#d9efe3] font-semibold rounded-xl text-sm transition-all duration-200 text-center cursor-pointer">
+              <button
+                className="inline-flex items-center justify-center gap-2 bg-[var(--color-wcu-cta-btn-bg)] hover:bg-[var(--color-wcu-cta-btn-hover)] text-[var(--color-wcu-cta-btn-text)] font-extrabold text-base px-8 py-4 rounded-xl transition-colors duration-200 font-[family-name:var(--font-heading)] shadow-lg shadow-black/20"
+                onClick={() => setPopupOpen(true)}
+              >
+                Book My Free Trial Class →
+              </button>
+              <a
+                href="https://wa.me/133225225428"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 border-2 border-[var(--color-wcu-cta-outline-border)] text-[var(--color-wcu-cta-outline-text)] hover:bg-white/10 font-bold text-base px-8 py-4 rounded-xl transition-colors duration-200 font-[family-name:var(--font-sans)]"
+              >
                 Talk to an Advisor
               </a>
             </div>

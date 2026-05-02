@@ -1,16 +1,17 @@
 "use client";
 
 import { useState } from "react";
+import FormPopup from "@/components/FormPopup"
 
 const weekdayPlans = [
   {
     id: "2days",
     label: "2 Days / Week",
     badge: null,
-    originalPrice: 89,
-    price: 59,
+    originalPrice: 59,
+    price: 39,
     sessions: 8,
-    perSession: "~$7.38",
+    perSession: "~$4.88",
     color: "accent",
     features: [
       "2 live 1-on-1 sessions per week",
@@ -24,10 +25,10 @@ const weekdayPlans = [
     id: "3days",
     label: "3 Days / Week",
     badge: "Most Popular",
-    originalPrice: 119,
-    price: 79,
+    originalPrice: 69,
+    price: 49,
     sessions: 12,
-    perSession: "~$6.58",
+    perSession: "~$4.08",
     color: "primary",
     features: [
       "3 live 1-on-1 sessions per week",
@@ -42,10 +43,10 @@ const weekdayPlans = [
     id: "4days",
     label: "4 Days / Week",
     badge: "Best Value",
-    originalPrice: 149,
-    price: 99,
+    originalPrice: 79,
+    price: 55,
     sessions: 16,
-    perSession: "~$6.19",
+    perSession: "~$3.44",
     color: "secondary",
     features: [
       "4 live 1-on-1 sessions per week",
@@ -60,10 +61,10 @@ const weekdayPlans = [
     id: "5days",
     label: "5 Days / Week",
     badge: "Fastest Progress",
-    originalPrice: 179,
-    price: 119,
+    originalPrice: 89,
+    price: 59,
     sessions: 20,
-    perSession: "~$5.95",
+    perSession: "~$2.95",
     color: "gold",
     features: [
       "5 live 1-on-1 sessions per week",
@@ -168,7 +169,7 @@ function CheckIcon({ colorClass }) {
   );
 }
 
-function PricingCard({ plan, featured }) {
+function PricingCard({ plan, featured, onOpenPopup }) {
   const c = colorMap[plan.color];
   return (
     <div
@@ -216,12 +217,12 @@ function PricingCard({ plan, featured }) {
         </ul>
 
         {/* CTA */}
-        <a
-          href="#contact"
+        <button
+          onClick={onOpenPopup}
           className={`block w-full text-center py-3 rounded-xl text-sm font-bold tracking-wide transition-all duration-200 shadow-sm hover:shadow-md ${c.btn}`}
         >
           Start Free Trial →
-        </a>
+        </button>
 
         <p className="text-center text-xs text-[var(--color-neutral-400)] mt-3">
           No contract · Cancel anytime
@@ -236,31 +237,34 @@ export default function PricingSection() {
   const plans = tab === "weekday" ? weekdayPlans : weekendPlans;
   const featuredId = tab === "weekday" ? "3days" : "45min";
 
+  const [popupOpen, setPopupOpen] = useState(false)
+
   return (
     <section id="pricing" className="relative overflow-hidden bg-[var(--color-bg-primary)] py-20 lg:py-28">
+      <FormPopup isOpen={popupOpen} onClose={() => setPopupOpen(false)} />
 
-        {/* Arabesque top-right */}
-        <svg className="absolute -top-20 -right-20 w-96 h-96 opacity-[0.06]" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="200" cy="200" r="190" stroke="#2f8f68" strokeWidth="1.5" />
-          <circle cx="200" cy="200" r="150" stroke="#2f8f68" strokeWidth="1" />
-          <circle cx="200" cy="200" r="110" stroke="#b5892f" strokeWidth="1" />
-          <circle cx="200" cy="200" r="70" stroke="#b5892f" strokeWidth="1.5" />
-          {[0,45,90,135,180,225,270,315].map((deg) => (
-            <line
-              key={deg}
-              x1="200" y1="10"
-              x2="200" y2="390"
-              stroke="#2f8f68"
-              strokeWidth="0.8"
-              transform={`rotate(${deg} 200 200)`}
-            />
-          ))}
-        </svg>
+      {/* Arabesque top-right */}
+      <svg className="absolute -top-20 -right-20 w-96 h-96 opacity-[0.06]" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="200" cy="200" r="190" stroke="#2f8f68" strokeWidth="1.5" />
+        <circle cx="200" cy="200" r="150" stroke="#2f8f68" strokeWidth="1" />
+        <circle cx="200" cy="200" r="110" stroke="#b5892f" strokeWidth="1" />
+        <circle cx="200" cy="200" r="70" stroke="#b5892f" strokeWidth="1.5" />
+        {[0, 45, 90, 135, 180, 225, 270, 315].map((deg) => (
+          <line
+            key={deg}
+            x1="200" y1="10"
+            x2="200" y2="390"
+            stroke="#2f8f68"
+            strokeWidth="0.8"
+            transform={`rotate(${deg} 200 200)`}
+          />
+        ))}
+      </svg>
 
-        {/* Green glow bottom-left */}
-        <div className="absolute -bottom-32 -left-32 w-[500px] h-[500px] rounded-full bg-[var(--color-primary-400)] opacity-[0.07] blur-3xl" />
-        {/* Gold glow top-center */}
-        <div className="absolute -top-20 left-1/2 -translate-x-1/2 w-[600px] h-[300px] rounded-full bg-[var(--color-secondary-300)] opacity-[0.06] blur-3xl" />
+      {/* Green glow bottom-left */}
+      <div className="absolute -bottom-32 -left-32 w-[500px] h-[500px] rounded-full bg-[var(--color-primary-400)] opacity-[0.07] blur-3xl" />
+      {/* Gold glow top-center */}
+      <div className="absolute -top-20 left-1/2 -translate-x-1/2 w-[600px] h-[300px] rounded-full bg-[var(--color-secondary-300)] opacity-[0.06] blur-3xl" />
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
@@ -336,8 +340,22 @@ export default function PricingSection() {
             }`}
         >
           {plans.map((plan) => (
-            <PricingCard key={plan.id} plan={plan} featured={plan.id === featuredId} />
+            <PricingCard key={plan.id} plan={plan} featured={plan.id === featuredId} onOpenPopup={() => setPopupOpen(true)}
+            />
           ))}
+        </div>
+
+        {/* ── Low Income Discount Notice ── */}
+        <div className="mt-8 flex justify-center">
+          <div className="inline-flex items-start gap-3 px-5 py-4 rounded-2xl bg-[var(--color-primary-50)] border border-[var(--color-primary-100)] max-w-xl text-center sm:text-left sm:flex-row flex-col sm:items-center">
+            <span className="text-2xl shrink-0" aria-hidden>🤲</span>
+            <p className="text-sm text-[var(--color-neutral-600)] leading-relaxed">
+              <strong className="text-[var(--color-primary-700)]">Supporting every family —</strong>{" "}
+              Low-income families are offered a{" "}
+              <strong className="text-[var(--color-primary-700)]">10% discount</strong> on any plan.
+              Reach out to us via WhatsApp or the contact form to apply.
+            </p>
+          </div>
         </div>
 
         {/* ── Why This Pricing Section ── */}
@@ -358,87 +376,6 @@ export default function PricingSection() {
                 <rect width="100%" height="100%" fill="url(#dots)" />
               </svg>
             </div>
-
-            {/* <div className="relative z-10 px-6 sm:px-10 lg:px-16 py-12 lg:py-16">
-              <div className="text-center mb-10">
-                <span className="inline-block mb-3 px-4 py-1 rounded-full bg-[var(--color-primary-700)] text-[var(--color-primary-200)] text-xs font-bold uppercase tracking-widest">
-                  Why Our Pricing Makes Sense
-                </span>
-                <h3 className="font-heading text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white mb-3">
-                  More Affordable Than Local Tutors.{" "}
-                  <span className="text-[var(--color-secondary-400)]">Far More Effective.</span>
-                </h3>
-                <p className="max-w-2xl mx-auto text-[var(--color-primary-200)] text-base leading-relaxed">
-                  Local tutors can cost $25–$50 per session. Our online model removes overhead so
-                  you get a <strong className="text-white">certified, experienced tutor</strong> for a fraction of the price — with zero commute.
-                </p>
-              </div>
-
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                {[
-                  {
-                    icon: "🎓",
-                    title: "Certified & Screened Tutors",
-                    text: "Every tutor holds an Ijazah (chain of transmission) and passes our 3-step vetting. Your child learns from the best.",
-                  },
-                  {
-                    icon: "🕐",
-                    title: "Flexible Scheduling",
-                    text: "Morning, afternoon, or evening — 7 days a week. Sessions fit around school and family life, not the other way around.",
-                  },
-                  {
-                    icon: "📈",
-                    title: "Measurable Progress",
-                    text: "Monthly reports, recitation recordings, and milestone tracking keep you informed every step of the way.",
-                  },
-                  {
-                    icon: "🔒",
-                    title: "Safe Online Environment",
-                    text: "All sessions are conducted in a monitored, recorded setting. Parents can join or review at any time.",
-                  },
-                  {
-                    icon: "🌍",
-                    title: "Learn From Anywhere",
-                    text: "No commute. No rescheduling. Access your tutor from any device — at home, traveling, or abroad.",
-                  },
-                  {
-                    icon: "🎁",
-                    title: "No Risk — Free Trial First",
-                    text: "Try a full class for free before paying a single dollar. If it's not the right fit, you owe nothing.",
-                  },
-                ].map(({ icon, title, text }) => (
-                  <div
-                    key={title}
-                    className="flex gap-4 p-5 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 transition-colors duration-200"
-                  >
-                    <span className="text-2xl shrink-0 mt-0.5">{icon}</span>
-                    <div>
-                      <h4 className="font-bold text-white text-sm mb-1">{title}</h4>
-                      <p className="text-[var(--color-primary-200)] text-xs leading-relaxed">{text}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-
-
-              <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
-                <a
-                  href="#contact"
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl bg-[var(--color-secondary-400)] hover:bg-[var(--color-secondary-500)] text-[var(--color-primary-900)] font-bold text-sm transition-all duration-200 shadow-lg hover:shadow-xl hover:scale-105"
-                >
-                  Book My Free Trial Class 🎉
-                </a>
-                <a
-                  href="tel:+1234567890"
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl border-2 border-[var(--color-primary-400)] text-[var(--color-primary-100)] hover:bg-[var(--color-primary-800)] font-bold text-sm transition-all duration-200"
-                >
-                  📞 Talk to an Advisor
-                </a>
-              </div>
-              <p className="text-center text-[var(--color-primary-400)] text-xs mt-4">
-                Limited spots available — Classes fill up fast during Ramadan & school holidays.
-              </p>
-            </div> */}
           </div>
         </div>
 

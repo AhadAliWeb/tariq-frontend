@@ -10,8 +10,7 @@ const reasons = [
     tag: "Most Popular",
     title: "Certified & Verified Tutors",
     body: "Every tutor is hand-screened, Ijazah-certified, and background-checked. Male & female tutors available so you choose who teaches your family — someone you fully trust.",
-    cta: "Meet Our Tutors →",
-    href: "#lead-form",
+    cta: "Certified Tutors",
   },
   {
     icon: (
@@ -23,8 +22,7 @@ const reasons = [
     tag: "Flexible",
     title: "Classes That Fit Your Life",
     body: "Mornings, evenings, or weekends — you set the time. Reschedule anytime, no penalties. Whether you're a busy parent or a working professional, we work around you.",
-    cta: "Pick Your Time Slot →",
-    href: "#lead-form",
+    cta: "Flexible Timing",
   },
   {
     icon: (
@@ -35,8 +33,7 @@ const reasons = [
     tag: "All Ages",
     title: "For Kids, Teens & Adults",
     body: "Tailored learning paths starting from age 5, all the way to adults. Begin from Noorani Qaida or pick up mid-journey — we assess your level and build a plan just for you.",
-    cta: "Find the Right Plan →",
-    href: "#lead-form",
+    cta: "No Age Limit",
   },
   {
     icon: (
@@ -47,8 +44,7 @@ const reasons = [
     tag: "Zero Risk",
     title: "Your First Class Is FREE",
     body: "No credit card. No contracts. No pressure. Your first session is completely free so you can experience the quality, the tutor, and the teaching style before you commit to anything.",
-    cta: "Claim My Free Class →",
-    href: "#lead-form",
+    cta: "First Class Is On Us",
   },
 ];
 
@@ -115,12 +111,11 @@ export default function WhyChooseUs() {
               </div>
 
               {/* Per-card CTA button */}
-              <a
-                href={href}
+              <div
                 className="mt-auto inline-flex items-center justify-center w-full bg-[var(--color-wcu-cta-btn-bg)] hover:bg-[var(--color-wcu-cta-btn-hover)] text-[var(--color-wcu-cta-btn-text)] font-bold text-sm px-6 py-3 rounded-xl transition-colors duration-200 font-[family-name:var(--font-sans)] shadow-sm"
               >
                 {cta}
-              </a>
+              </div>
             </div>
           ))}
         </div>

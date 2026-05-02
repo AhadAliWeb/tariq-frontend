@@ -1,5 +1,7 @@
 "use client";
 import { CheckCircle, ChevronRight, Moon, Heart, BookOpen, Users, Clock, Star, Compass } from "lucide-react";
+import FormPopup from "@/components/FormPopup";
+import { useState } from "react";
 
 const curriculum = [
     { title: "Aqeedah", desc: "Core Islamic beliefs" },
@@ -18,8 +20,12 @@ const outcomes = [
 ];
 
 export default function IslamicStudiesCourse() {
+
+    const [popupOpen, setPopupOpen] = useState(false)
+
     return (
         <main className="min-h-screen font-sans bg-neutral-50">
+            <FormPopup isOpen={popupOpen} onClose={() => setPopupOpen(false)} />
             {/* Hero — warm, welcoming, family-friendly */}
             <section className="relative overflow-hidden"
                 style={{ background: "linear-gradient(150deg, #0e2a1e 0%, #12352a 40%, #1e5942 100%)" }}>
@@ -52,11 +58,12 @@ export default function IslamicStudiesCourse() {
                                 ))}
                             </ul>
                             <div className="flex flex-col sm:flex-row gap-4">
-                                <a href="/contact"
+                                <button
+                                    onClick={() => setPopupOpen(true)}
                                     className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl font-bold transition-all hover:scale-105"
                                     style={{ background: "#c9a24a", color: "#12352a" }}>
                                     Book FREE Trial <ChevronRight size={18} />
-                                </a>
+                                </button>
                                 <div className="inline-flex items-center justify-center gap-2 px-6 py-4 rounded-xl border text-sm font-medium"
                                     style={{ borderColor: "rgba(128,201,166,0.4)", color: "#b3dfc7" }}>
                                     <Clock size={16} /> Ongoing Program
@@ -154,11 +161,12 @@ export default function IslamicStudiesCourse() {
                     <p className="mb-8" style={{ color: "#b3dfc7" }}>
                         Join our Islamic Studies course — book a FREE trial class for you or your child.
                     </p>
-                    <a href="/contact"
+                    <button
+                        onClick={() => setPopupOpen(true)}
                         className="inline-flex items-center gap-2 px-10 py-4 rounded-xl font-bold text-lg transition-all hover:scale-105"
                         style={{ background: "#c9a24a", color: "#12352a" }}>
                         Book FREE Trial Class <ChevronRight size={20} />
-                    </a>
+                    </button>
                 </div>
             </section>
         </main>

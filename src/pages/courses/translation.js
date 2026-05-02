@@ -1,5 +1,7 @@
 "use client";
 import { BookOpen, CheckCircle, ChevronRight, Star, Globe, Award, Calendar, Languages, Heart, Clock } from "lucide-react";
+import FormPopup from "@/components/FormPopup";
+import { useState } from "react";
 
 const outcomes = [
     "Understand commonly used Quranic words",
@@ -18,8 +20,11 @@ const curriculum = [
 ];
 
 export default function TranslationCourse() {
+    const [popupOpen, setPopupOpen] = useState(false)
+
     return (
         <main className="min-h-screen font-sans bg-neutral-50">
+            <FormPopup isOpen={popupOpen} onClose={() => setPopupOpen(false)} />
             {/* Hero — center-aligned elegant style */}
             <section className="relative overflow-hidden"
                 style={{ background: "linear-gradient(180deg, #0e2a1e 0%, #184636 100%)" }}>
@@ -39,11 +44,12 @@ export default function TranslationCourse() {
                         Go beyond recitation. Understand the divine message of the Quran word by word, and build a deeper spiritual connection.
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-                        <a href="/contact"
+                        <button
+                            onClick={() => setPopupOpen(true)}
                             className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl font-bold transition-all hover:scale-105"
                             style={{ background: "#c9a24a", color: "#12352a" }}>
                             Book FREE Trial Class <ChevronRight size={18} />
-                        </a>
+                        </button>
                         <div className="inline-flex items-center justify-center gap-2 px-6 py-4 rounded-xl border"
                             style={{ borderColor: "rgba(128,201,166,0.4)", color: "#b3dfc7" }}>
                             <Clock size={16} /> Duration: 6–12 Months
@@ -121,11 +127,12 @@ export default function TranslationCourse() {
                 <div className="max-w-3xl mx-auto px-4 text-center">
                     <h2 className="text-3xl font-extrabold text-white mb-4">Connect Deeply with the Quran's Message</h2>
                     <p className="mb-8" style={{ color: "#b3dfc7" }}>Book your FREE trial class and start understanding the Quran today.</p>
-                    <a href="/contact"
+                    <button
+                        onClick={() => setPopupOpen(true)}
                         className="inline-flex items-center gap-2 px-10 py-4 rounded-xl font-bold text-lg transition-all hover:scale-105"
                         style={{ background: "#c9a24a", color: "#12352a" }}>
                         Book FREE Trial Class <ChevronRight size={20} />
-                    </a>
+                    </button>
                 </div>
             </section>
         </main>

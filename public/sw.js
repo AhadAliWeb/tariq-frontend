@@ -22,8 +22,8 @@ self.addEventListener("push", (event) => {
         // Shows notification even when the app tab is open
         requireInteraction: false,
         // Replaces older lead notifications instead of stacking them
-        tag: "new-lead",
-        renotify: true,
+        // tag: "new-lead",
+        // renotify: true,
     };
 
     event.waitUntil(self.registration.showNotification(data.title, options));

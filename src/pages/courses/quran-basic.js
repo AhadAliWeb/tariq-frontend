@@ -1,5 +1,7 @@
 "use client";
 import { BookOpen, Clock, Users, Star, CheckCircle, ChevronRight, Play, Award, Calendar, Globe } from "lucide-react";
+import FormPopup from "@/components/FormPopup";
+import { useState } from "react";
 
 const outcomes = [
     "Recognize and pronounce Arabic letters correctly",
@@ -25,8 +27,13 @@ const features = [
 ];
 
 export default function QuranBasicCourse() {
+
+    const [popupOpen, setPopupOpen] = useState(false)
+
     return (
         <main className="min-h-screen font-sans bg-neutral-50">
+            <FormPopup isOpen={popupOpen} onClose={() => setPopupOpen(false)} />
+
             {/* Hero */}
             <section
                 className="relative overflow-hidden"
@@ -66,11 +73,12 @@ export default function QuranBasicCourse() {
                             </ul>
 
                             <div className="flex flex-col sm:flex-row gap-4">
-                                <a href="/contact"
+                                <button
+                                    onClick={() => setPopupOpen(true)}
                                     className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl font-bold text-base transition-all hover:scale-105"
                                     style={{ background: "#c9a24a", color: "#12352a" }}>
                                     Book FREE Trial Class <ChevronRight size={18} />
-                                </a>
+                                </button>
                                 <a href="#curriculum"
                                     className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl font-semibold text-base border transition-all hover:bg-white/10"
                                     style={{ borderColor: "#80c9a6", color: "#d9efe3" }}>
@@ -200,11 +208,12 @@ export default function QuranBasicCourse() {
                     <p className="mb-8" style={{ color: "#b3dfc7" }}>
                         Join hundreds of students learning Quran online. Book your FREE trial class today — no commitment required.
                     </p>
-                    <a href="/contact"
+                    <button
+                        onClick={() => setPopupOpen(true)}
                         className="inline-flex items-center gap-2 px-10 py-4 rounded-xl font-bold text-lg transition-all hover:scale-105"
                         style={{ background: "#c9a24a", color: "#12352a" }}>
                         Book FREE Trial Class <ChevronRight size={20} />
-                    </a>
+                    </button>
                 </div>
             </section>
         </main>

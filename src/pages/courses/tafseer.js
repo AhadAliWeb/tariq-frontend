@@ -1,5 +1,7 @@
 "use client";
 import { BookMarked, CheckCircle, ChevronRight, MessageCircle, Lightbulb, Clock, Users, Award } from "lucide-react";
+import FormPopup from "@/components/FormPopup";
+import { useState } from "react";
 
 const curriculum = [
     { title: "Tafseer of Selected Surahs", desc: "In-depth verse explanation" },
@@ -18,8 +20,12 @@ const outcomes = [
 ];
 
 export default function TafseerCourse() {
+
+    const [popupOpen, setPopupOpen] = useState(false)
+
     return (
         <main className="min-h-screen font-sans bg-neutral-50">
+            <FormPopup isOpen={popupOpen} onClose={() => setPopupOpen(false)} />
             {/* Hero — bold left-border accent style */}
             <section className="relative overflow-hidden"
                 style={{ background: "linear-gradient(135deg, #0e2a1e 0%, #12352a 50%, #1e5942 100%)" }}>
@@ -54,11 +60,12 @@ export default function TafseerCourse() {
                                 </div>
                             ))}
                         </div>
-                        <a href="/contact"
+                        <button
+                            onClick={() => setPopupOpen(true)}
                             className="inline-flex items-center gap-2 px-8 py-4 rounded-xl font-bold text-base transition-all hover:scale-105"
                             style={{ background: "#c9a24a", color: "#12352a" }}>
                             Book FREE Trial Class <ChevronRight size={18} />
-                        </a>
+                        </button>
                     </div>
                 </div>
             </section>
@@ -137,11 +144,12 @@ export default function TafseerCourse() {
                 <div className="max-w-3xl mx-auto px-4 text-center">
                     <h2 className="text-3xl font-extrabold text-white mb-4">Unlock the Depths of the Quran</h2>
                     <p className="mb-8" style={{ color: "#b3dfc7" }}>Begin your Tafseer journey with a FREE trial class from our qualified scholars.</p>
-                    <a href="/contact"
+                    <button
+                        onClick={() => setPopupOpen(true)}
                         className="inline-flex items-center gap-2 px-10 py-4 rounded-xl font-bold text-lg transition-all hover:scale-105"
                         style={{ background: "#c9a24a", color: "#12352a" }}>
                         Book FREE Trial Class <ChevronRight size={20} />
-                    </a>
+                    </button>
                 </div>
             </section>
         </main>

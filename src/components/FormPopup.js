@@ -6,6 +6,7 @@ import PhoneInput from "react-phone-number-input"
 import { parsePhoneNumber } from "react-phone-number-input"
 import "react-phone-number-input/style.css"
 
+
 export default function FormPopup({ isOpen, onClose }) {
     const [phone, setPhone] = useState("")
     const [submitted, setSubmitted] = useState(false)
@@ -51,7 +52,6 @@ export default function FormPopup({ isOpen, onClose }) {
             }
 
             const data = await res.json();
-            console.log(data);
             setSubmitted(true);
 
         } catch (error) {

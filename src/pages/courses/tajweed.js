@@ -1,5 +1,7 @@
 "use client";
 import { Mic, CheckCircle, ChevronRight, Star, Layers, Volume2, Award, Calendar, Users, Globe } from "lucide-react";
+import FormPopup from "@/components/FormPopup";
+import { useState } from "react";
 
 const curriculum = [
     { title: "Advanced Tajweed Rules", desc: "Complete rule system" },
@@ -18,8 +20,11 @@ const outcomes = [
 ];
 
 export default function TajweedCourse() {
+
+    const [popupOpen, setPopupOpen] = useState(false)
     return (
         <main className="min-h-screen font-sans bg-neutral-50">
+            <FormPopup isOpen={popupOpen} onClose={() => setPopupOpen(false)} />
             {/* Hero — diagonal split design */}
             <section className="relative overflow-hidden min-h-[520px] flex items-center"
                 style={{ background: "linear-gradient(160deg, #12352a 0%, #1e5942 45%, #2f8f68 100%)" }}>
@@ -47,11 +52,12 @@ export default function TajweedCourse() {
                                 Already know the basics? Perfect your recitation with all Tajweed rules applied beautifully and correctly, with expert one-on-one guidance.
                             </p>
                             <div className="flex flex-col sm:flex-row gap-4">
-                                <a href="/contact"
+                                <button
+                                    onClick={() => setPopupOpen(true)}
                                     className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl font-bold text-base transition-all hover:scale-105"
                                     style={{ background: "#c9a24a", color: "#12352a" }}>
                                     Book FREE Trial <ChevronRight size={18} />
-                                </a>
+                                </button>
                                 <div className="inline-flex items-center gap-2 px-6 py-4 rounded-xl border"
                                     style={{ borderColor: "rgba(128,201,166,0.4)", color: "#b3dfc7" }}>
                                     <Users size={16} />
@@ -162,11 +168,12 @@ export default function TajweedCourse() {
                     <p className="mb-8" style={{ color: "#b3dfc7" }}>
                         Start with a FREE trial class and experience expert Tajweed teaching firsthand.
                     </p>
-                    <a href="/contact"
+                    <button
+                        onClick={() => setPopupOpen(true)}
                         className="inline-flex items-center gap-2 px-10 py-4 rounded-xl font-bold text-lg transition-all hover:scale-105"
                         style={{ background: "#c9a24a", color: "#12352a" }}>
                         Book FREE Trial Class <ChevronRight size={20} />
-                    </a>
+                    </button>
                 </div>
             </section>
         </main>

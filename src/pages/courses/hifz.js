@@ -1,5 +1,8 @@
 "use client";
 import { Star, CheckCircle, ChevronRight, Target, BarChart, ShieldCheck, Calendar, Clock, Award, Users } from "lucide-react";
+import FormPopup from "@/components/FormPopup";
+import { useState } from "react";
+
 
 const plan = [
     { title: "Daily Memorization Lessons", desc: "Structured new lesson every session" },
@@ -18,8 +21,14 @@ const outcomes = [
 ];
 
 export default function HifzCourse() {
+
+    const [popupOpen, setPopupOpen] = useState(false)
+
+
     return (
         <main className="min-h-screen font-sans bg-neutral-50">
+            <FormPopup isOpen={popupOpen} onClose={() => setPopupOpen(false)} />
+
             {/* Hero — prestigious, achievement-focused */}
             <section className="relative overflow-hidden"
                 style={{ background: "linear-gradient(160deg, #0e2a1e 0%, #184636 40%, #1e5942 100%)" }}>
@@ -55,11 +64,12 @@ export default function HifzCourse() {
                                     </div>
                                 ))}
                             </div>
-                            <a href="/contact"
+                            <button
+                                onClick={() => setPopupOpen(true)}
                                 className="inline-flex items-center gap-2 px-8 py-4 rounded-xl font-bold text-base transition-all hover:scale-105"
                                 style={{ background: "#c9a24a", color: "#12352a" }}>
                                 Book FREE Trial Class <ChevronRight size={18} />
-                            </a>
+                            </button>
                         </div>
 
                         {/* Honor card */}
@@ -147,11 +157,12 @@ export default function HifzCourse() {
                     <p className="mb-8" style={{ color: "#b3dfc7" }}>
                         Take the first step toward the most honorable title in Islam. Book a FREE trial class now.
                     </p>
-                    <a href="/contact"
+                    <button
+                        onClick={() => setPopupOpen(true)}
                         className="inline-flex items-center gap-2 px-10 py-4 rounded-xl font-bold text-lg transition-all hover:scale-105"
                         style={{ background: "#c9a24a", color: "#12352a" }}>
                         Book FREE Trial Class <ChevronRight size={20} />
-                    </a>
+                    </button>
                 </div>
             </section>
         </main>
