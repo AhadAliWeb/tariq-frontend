@@ -198,10 +198,7 @@ export default function Navbar() {
       {/* Mobile Menu */}
       <div
         className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out ${menuOpen ? "max-h-[600px] opacity-100" : "max-h-0 opacity-0"
-          } ${scrolled
-            ? "bg-white/10 backdrop-blur-xl backdrop-saturate-150"
-            : "bg-bg-primary/98 backdrop-blur-md"
-          } border-t border-white/20`}
+          } bg-bg-primary/98 backdrop-blur-md border-t border-white/20`}
       >
         <ul className="px-4 py-3 flex flex-col gap-1">
           {links.map(({ label, href, sublinks }) => (
@@ -221,7 +218,7 @@ export default function Navbar() {
                       <path d="M2 4l4 4 4-4" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" fill="none" />
                     </svg>
                   </button>
-                  <div className={`overflow-hidden transition-all duration-200 ${mobileOpen === label ? "max-h-40" : "max-h-0"}`}>
+                  <div className={`overflow-hidden transition-all duration-200 ${mobileOpen === label ? "max-h-80" : "max-h-0"}`}>
                     <ul className="ml-4 border-l-2 border-primary-100 pl-3 py-1 flex flex-col gap-0.5">
                       {sublinks.map((sub) => (
                         <li key={sub.label}>
