@@ -1,15 +1,16 @@
 import connectDB from "@/lib/mongodb";
 import Blog from "@/models/blog";
+import LeadForm from "@/models/leadform";
 import Link from "next/link";
 import NotificationToggle from "@/components/NotificationToggle";
 
 async function getStats() {
     await connectDB();
-    const [total, published, drafts, totalViews] = await Promise.all([
+    const [total, published, drafts, totalLeads] = await Promise.all([
         Blog.countDocuments(),
         Blog.countDocuments({ status: "published" }),
         Blog.countDocuments({ status: "draft" }),
-        Blog.aggregate([{ $group: { _id: null, views: { $sum: "$views" } } }]),
+        LeadForm.countDocuments(),
     ]);
     const recentBlogs = await Blog.find()
         .sort({ createdAt: -1 })
@@ -20,7 +21,7 @@ async function getStats() {
         total,
         published,
         drafts,
-        totalViews: totalViews[0]?.views || 0,
+        totalLeads,
         recentBlogs,
     };
 }
@@ -33,7 +34,16 @@ const StatCard = ({ label, value, icon, color, sub }) => (
                 <p className={`text-3xl font-bold ${color}`}>{value}</p>
                 {sub && <p className="text-xs text-[#a8a29e] mt-1">{sub}</p>}
             </div>
-            <div className={`w-12 h-12 rounded-xl flex items-center justify-center ${color === "text-[#2f8f68]" ? "bg-[#eef7f2]" : color === "text-[#c9a24a]" ? "bg-[#faf6ed]" : "bg-[#f5f5f4]"}`}>
+            <div
+                className={`w-12 h-12 rounded-xl flex items-center justify-center ${color === "text-[#2f8f68]"
+                    ? "bg-[#eef7f2]"
+                    : color === "text-[#c9a24a]"
+                        ? "bg-[#faf6ed]"
+                        : color === "text-[#7c5cbf]"
+                            ? "bg-[#f3f0fa]"
+                            : "bg-[#f5f5f4]"
+                    }`}
+            >
                 {icon}
             </div>
         </div>
@@ -88,14 +98,13 @@ export default async function AdminDashboard() {
                     }
                 />
                 <StatCard
-                    label="Total Views"
-                    value={stats.totalViews.toLocaleString()}
-                    color="text-[#44403c]"
-                    sub="Across all posts"
+                    label="Total Leads"
+                    value={stats.totalLeads.toLocaleString()}
+                    color="text-[#7c5cbf]"
+                    sub="All submissions"
                     icon={
-                        <svg className="w-6 h-6 text-[#78716c]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                        <svg className="w-6 h-6 text-[#7c5cbf]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" />
                         </svg>
                     }
                 />

@@ -3,6 +3,8 @@
 import { useState } from "react";
 import PhoneInput from "react-phone-number-input";
 import "react-phone-number-input/style.css";
+import { parsePhoneNumber } from "react-phone-number-input"
+
 
 
 export default function HeroSection() {
@@ -12,15 +14,42 @@ export default function HeroSection() {
   const handleSubmit = async () => {
     if (!phone) return;
 
-    const res = await fetch("/api/leads", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ phone }),
-    });
+    try {
 
-    const data = await res.json();
-    console.log(data);
-    setSubmitted(true);
+      const parsed = parsePhoneNumber(phone)
+
+      if (!parsed) {
+
+        setError("Inavlid Phone Number")
+        throw new Error("Invalid Phone Number")
+      }
+
+
+      const country = parsed.country;
+      const countryCode = `+${parsed.countryCallingCode}`
+
+      const res = await fetch("/api/leads", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ phone, country, countryCode })
+      });
+
+      // Handle non-2xx responses
+      if (!res.ok) {
+        throw new Error(`Request failed with status ${res.status}`);
+      }
+
+      const data = await res.json();
+      setSubmitted(true);
+
+    } catch (error) {
+      setError("Error Occured, Try again later")
+      console.error("Error submitting form:", error);
+    }
+
+    // finally {
+    //   setLoading(false);
+    // }
   };
 
   return (

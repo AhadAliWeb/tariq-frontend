@@ -6,8 +6,31 @@ import { useState } from "react";
 
 function LogoutButton() {
     const handleLogout = async () => {
+        // Unsubscribe from push notifications before signing out
+        try {
+            if ("serviceWorker" in navigator && "PushManager" in window) {
+                const registration = await navigator.serviceWorker.ready;
+                const subscription = await registration.pushManager.getSubscription();
+
+                if (subscription) {
+                    // Remove from server
+                    await fetch("/api/push/unsubscribe", {
+                        method: "POST",
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify({ endpoint: subscription.endpoint }),
+                    });
+
+                    // Unsubscribe in browser
+                    await subscription.unsubscribe();
+                }
+            }
+        } catch (err) {
+            console.error("Failed to unsubscribe from push:", err);
+            // Don't block logout even if unsubscribe fails
+        }
+
         const { signOut } = await import("next-auth/react");
-        await signOut({ callbackUrl: "/admin/login" });
+        await signOut({ callbackUrl: "/login" });
     };
 
     return (
@@ -51,15 +74,15 @@ const navItems = [
             </svg>
         ),
     },
-    // {
-    //     label: "Leads",
-    //     href: "/admin/leads",
-    //     icon: (
-    //         <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-    //             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-    //         </svg>
-    //     ),
-    // },
+    {
+        label: "Leads",
+        href: "/admin/leads",
+        icon: (
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+            </svg>
+        ),
+    },
     // {
     //     label: "Add New Admin",
     //     href: "/admin/add-admin",
