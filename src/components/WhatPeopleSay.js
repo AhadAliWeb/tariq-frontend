@@ -3,26 +3,10 @@
 import { useEffect, useRef, useState } from "react";
 
 const videos = [
-  {
-    id: 1,
-    embedId: "bolaQTIMN70",
-    title: "Student Testimonial 1",
-  },
-  {
-    id: 2,
-    embedId: "fH0_hItQ3c0",
-    title: "Student Testimonial 2",
-  },
-  {
-    id: 3,
-    embedId: "zgb_CNzewjA",
-    title: "Student Testimonial 3",
-  },
-  {
-    id: 4,
-    embedId: "cEQ6_AXyzAk",
-    title: "Student Testimonial 4",
-  },
+  { id: 1, embedId: "bolaQTIMN70", title: "Student Testimonial 1" },
+  { id: 2, embedId: "fH0_hItQ3c0", title: "Student Testimonial 2" },
+  { id: 3, embedId: "zgb_CNzewjA", title: "Student Testimonial 3" },
+  { id: 4, embedId: "cEQ6_AXyzAk", title: "Student Testimonial 4" },
 ];
 
 export default function WhatPeopleSay() {
@@ -33,13 +17,6 @@ export default function WhatPeopleSay() {
   const [activeIndex, setActiveIndex] = useState(0);
 
   useEffect(() => {
-    // Load YouTube IFrame API once
-    if (!window.YT) {
-      const tag = document.createElement("script");
-      tag.src = "https://www.youtube.com/iframe_api";
-      document.body.appendChild(tag);
-    }
-
     const initPlayers = () => {
       videos.forEach((video, i) => {
         const player = new window.YT.Player(`yt-player-${video.id}`, {
@@ -53,8 +30,9 @@ export default function WhatPeopleSay() {
           events: {
             onReady: (event) => {
               playersReady.current[i] = event.target;
-              // Autoplay first video when it's ready
+              // First video: mute + autoplay (mute is required by browser autoplay policy)
               if (i === 0) {
+                event.target.mute();
                 event.target.playVideo();
               }
             },
@@ -66,20 +44,22 @@ export default function WhatPeopleSay() {
                 userPaused.current = true;
               }
 
-              // User resumed manually
+              // User resumed or video started playing
               if (event.data === YT.PlayerState.PLAYING) {
                 userPaused.current = false;
                 currentIndex.current = i;
                 setActiveIndex(i);
               }
 
-              // Video ended — play next unless user paused
+              // Video ended — advance to next unless user paused
               if (event.data === YT.PlayerState.ENDED) {
                 if (!userPaused.current) {
                   const next = i + 1;
                   if (next < videos.length && playersReady.current[next]) {
                     currentIndex.current = next;
                     setActiveIndex(next);
+                    // Unmute subsequent videos — autoplay is already unblocked by this point
+                    playersReady.current[next].unMute();
                     playersReady.current[next].playVideo();
                   }
                 }
@@ -91,18 +71,29 @@ export default function WhatPeopleSay() {
       });
     };
 
-    if (window.YT && window.YT.Player) {
-      initPlayers();
-    } else {
+    const loadAPI = () => {
+      // Case 1: API already fully ready
+      if (window.YT && window.YT.Player) {
+        initPlayers();
+        return;
+      }
+      // Case 2: Script tag already in DOM but not finished loading yet
+      if (document.querySelector('script[src*="youtube.com/iframe_api"]')) {
+        window.onYouTubeIframeAPIReady = initPlayers;
+        return;
+      }
+      // Case 3: First load — inject script
       window.onYouTubeIframeAPIReady = initPlayers;
-    }
+      const tag = document.createElement("script");
+      tag.src = "https://www.youtube.com/iframe_api";
+      document.body.appendChild(tag);
+    };
+
+    loadAPI();
 
     return () => {
-      // Cleanup: destroy players on unmount
       playerRefs.current.forEach((p) => {
-        try {
-          p?.destroy?.();
-        } catch (_) { }
+        try { p?.destroy?.(); } catch (_) { }
       });
     };
   }, []);
@@ -153,7 +144,6 @@ export default function WhatPeopleSay() {
                 }`}
             >
               <div className="aspect-[9/16]">
-                {/* Placeholder div that YT IFrame API replaces */}
                 <div id={`yt-player-${video.id}`} className="w-full h-full" />
               </div>
             </div>
