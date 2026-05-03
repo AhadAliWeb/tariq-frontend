@@ -4,6 +4,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Chat from "@/components/Chat";
 import Script from "next/script";
+import AdsPageTracker from "@/components/AdsPageTracker";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -34,7 +35,24 @@ export default function RootLayout({ children }) {
       lang="en"
       className={`${geistSans.variable} ${montserrat.variable} ${geistMono.variable} h-full antialiased`}
     >
+      <head>
+        {/* Google Ads Global Site Tag */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=AW-11557520972"
+          strategy="afterInteractive"
+        />
+
+        <Script id="google-ads-init" strategy="afterInteractive">
+          {`
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'AW-11557520972');
+    `}
+        </Script>
+      </head>
       <body className="min-h-full flex flex-col">
+        <AdsPageTracker />
         {children}
       </body>
     </html>

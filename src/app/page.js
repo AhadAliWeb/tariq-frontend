@@ -8,7 +8,6 @@ import WhatPeopleSay from "@/components/WhatPeopleSay"
 import StudentTestimonials from "@/components/StudentTestimonials"
 import Pricing from "@/components/Pricing"
 import WhatsAppButton from "@/components/WhatsappButton"
-import RichTextEditor from "@/components/admin/RichTextEditor";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Chat from "@/components/Chat";
