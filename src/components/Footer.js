@@ -28,11 +28,11 @@ const footerLinks = [
   {
     heading: "Contact & Support",
     links: [
-      { label: "📧 info@quraninstruct.cloud", href: "mailto:info@quraninstruct.cloud" },
-      { label: "📞 +1 (332) 252-25428", href: "tel:+133225225428" },
-      { label: "💬 WhatsApp Us", href: "https://wa.me/133225225428?text=Assalam-o-Alaikum" },
+      { label: "📧 info@quraninstruct@gmail.com", href: "mailto:info@quraninstruct@gmail.com" },
+      { label: "📧 mt9304653@gmail.com", href: "mailto:mt9304653@gmail.com" },
+      { label: "📞 +44 7414 270 363", href: "tel:+447414270363" },
+      { label: "💬 WhatsApp Us", href: "https://wa.me/13322525428?text=Assalam-o-Alaikum" },
       { label: "Privacy Policy", href: "#" },
-      { label: "Terms of Service", href: "#" },
       { label: "Refund Policy", href: "#" },
     ],
   },

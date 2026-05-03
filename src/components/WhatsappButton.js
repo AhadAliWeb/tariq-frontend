@@ -1,6 +1,6 @@
 "use client";
 
-export default function WhatsAppButton({ phoneNumber = "133225225428", message = "Assalam-o-Alaikum" }) {
+export default function WhatsAppButton({ phoneNumber = "13322525428", message = "Assalam-o-Alaikum" }) {
   const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
 
   return (

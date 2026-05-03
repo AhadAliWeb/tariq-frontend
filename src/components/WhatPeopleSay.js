@@ -1,29 +1,112 @@
 "use client";
 
+import { useEffect, useRef, useState } from "react";
+
 const videos = [
   {
     id: 1,
-    embedId: "YOUR_VIDEO_ID_1",
+    embedId: "bolaQTIMN70",
     title: "Student Testimonial 1",
   },
   {
     id: 2,
-    embedId: "YOUR_VIDEO_ID_2",
+    embedId: "fH0_hItQ3c0",
     title: "Student Testimonial 2",
   },
   {
     id: 3,
-    embedId: "YOUR_VIDEO_ID_3",
+    embedId: "zgb_CNzewjA",
     title: "Student Testimonial 3",
   },
   {
     id: 4,
-    embedId: "YOUR_VIDEO_ID_4",
+    embedId: "cEQ6_AXyzAk",
     title: "Student Testimonial 4",
   },
 ];
 
 export default function WhatPeopleSay() {
+  const playerRefs = useRef([]);
+  const playersReady = useRef([]);
+  const currentIndex = useRef(0);
+  const userPaused = useRef(false);
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  useEffect(() => {
+    // Load YouTube IFrame API once
+    if (!window.YT) {
+      const tag = document.createElement("script");
+      tag.src = "https://www.youtube.com/iframe_api";
+      document.body.appendChild(tag);
+    }
+
+    const initPlayers = () => {
+      videos.forEach((video, i) => {
+        const player = new window.YT.Player(`yt-player-${video.id}`, {
+          videoId: video.embedId,
+          playerVars: {
+            rel: 0,
+            modestbranding: 1,
+            playsinline: 1,
+            controls: 1,
+          },
+          events: {
+            onReady: (event) => {
+              playersReady.current[i] = event.target;
+              // Autoplay first video when it's ready
+              if (i === 0) {
+                event.target.playVideo();
+              }
+            },
+            onStateChange: (event) => {
+              const YT = window.YT;
+
+              // User manually paused
+              if (event.data === YT.PlayerState.PAUSED) {
+                userPaused.current = true;
+              }
+
+              // User resumed manually
+              if (event.data === YT.PlayerState.PLAYING) {
+                userPaused.current = false;
+                currentIndex.current = i;
+                setActiveIndex(i);
+              }
+
+              // Video ended — play next unless user paused
+              if (event.data === YT.PlayerState.ENDED) {
+                if (!userPaused.current) {
+                  const next = i + 1;
+                  if (next < videos.length && playersReady.current[next]) {
+                    currentIndex.current = next;
+                    setActiveIndex(next);
+                    playersReady.current[next].playVideo();
+                  }
+                }
+              }
+            },
+          },
+        });
+        playerRefs.current[i] = player;
+      });
+    };
+
+    if (window.YT && window.YT.Player) {
+      initPlayers();
+    } else {
+      window.onYouTubeIframeAPIReady = initPlayers;
+    }
+
+    return () => {
+      // Cleanup: destroy players on unmount
+      playerRefs.current.forEach((p) => {
+        try {
+          p?.destroy?.();
+        } catch (_) { }
+      });
+    };
+  }, []);
+
   return (
     <section className="bg-[var(--color-wcu-bg)] py-20 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
@@ -32,37 +115,46 @@ export default function WhatPeopleSay() {
         <div className="text-center max-w-2xl mx-auto mb-12">
           {/* Hadith */}
           <div className="mb-6 bg-[var(--color-primary-800)] rounded-2xl px-6 py-5">
-            <p className="font-heading text-2xl sm:text-3xl text-[var(--color-secondary-300)] leading-relaxed" dir="rtl">
+            <p
+              className="font-heading text-2xl sm:text-3xl text-[var(--color-secondary-300)] leading-relaxed"
+              dir="rtl"
+            >
               «خَيْرُكُمْ مَنْ تَعَلَّمَ الْقُرْآنَ وَعَلَّمَهُ»
             </p>
             <p className="text-xs text-[var(--color-primary-200)] mt-2 text-center">
-              "The best of you are those who learn the Quran and teach it." — <em>Sahih al-Bukhari</em>
+              "The best of you are those who learn the Quran and teach it." —{" "}
+              <em>Sahih al-Bukhari</em>
             </p>
           </div>
 
           <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-black text-[var(--color-wcu-heading)] leading-tight">
             What Do{" "}
-            <span className="text-[var(--color-wcu-heading-accent)]">People Say</span>{" "}
+            <span className="text-[var(--color-wcu-heading-accent)]">
+              People Say
+            </span>{" "}
             About Us?
           </h2>
 
           <p className="mt-4 text-[var(--color-wcu-subtext)] text-base sm:text-lg leading-relaxed">
-            Don't take our word for it — hear directly from the students and families whose lives have been transformed through the light of the Quran.
+            Don't take our word for it — hear directly from the students and
+            families whose lives have been transformed through the light of the
+            Quran.
           </p>
         </div>
 
         {/* YouTube Embeds — single row, scrollable on mobile */}
         <div className="flex gap-4 overflow-x-auto pb-2 lg:grid lg:grid-cols-4 lg:overflow-visible">
-          {videos.map((video) => (
-            <div key={video.id} className="rounded-2xl overflow-hidden shadow-md flex-shrink-0 w-72 sm:w-80 lg:w-auto">
-              <div className="aspect-video">
-                <iframe
-                  className="w-full h-full"
-                  src={`https://www.youtube.com/embed/${video.embedId}?rel=0`}
-                  title={video.title}
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                />
+          {videos.map((video, i) => (
+            <div
+              key={video.id}
+              className={`rounded-2xl overflow-hidden shadow-md flex-shrink-0 w-72 sm:w-80 lg:w-auto transition-all duration-300 ${activeIndex === i
+                  ? "ring-2 ring-[var(--color-wcu-heading-accent)] ring-offset-2"
+                  : ""
+                }`}
+            >
+              <div className="aspect-[9/16]">
+                {/* Placeholder div that YT IFrame API replaces */}
+                <div id={`yt-player-${video.id}`} className="w-full h-full" />
               </div>
             </div>
           ))}

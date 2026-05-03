@@ -22,16 +22,16 @@ const CONTACT_CHANNELS = [
     {
         icon: MessageCircle,
         label: "WhatsApp",
-        value: "+1 (332) 252-25428",
-        href: "https://wa.me/133225225428?text=Hello%2C%20I%27d%20like%20to%20learn%20more%20about%20Quran%20classes",
+        value: "+1 (332) 252-5428",
+        href: "https://wa.me/13322525428?text=Hello%2C%20I%27d%20like%20to%20learn%20more%20about%20Quran%20classes",
         description: "Message us directly. We reply within minutes.",
         external: true,
     },
     {
         icon: Phone,
         label: "Phone",
-        value: "+1 (332) 252-25428",
-        href: "tel:+133225225428",
+        value: "+44 7414 270 363",
+        href: "tel:+447414270363",
         description: "Speak to our enrollment team directly.",
         external: false,
     },
@@ -40,6 +40,14 @@ const CONTACT_CHANNELS = [
         label: "Email",
         value: "info@quraninstruct.cloud",
         href: "mailto:info@quraninstruct.cloud",
+        description: "Send us your queries anytime.",
+        external: false,
+    },
+    {
+        icon: Mail,
+        label: "Assistant Email",
+        value: "mt9304653@gmail.com",
+        href: "mailto:mt9304653@gmail.com",
         description: "Send us your queries anytime.",
         external: false,
     },
@@ -260,7 +268,7 @@ export default function contact() {
                                                 <PhoneInput
                                                     international
                                                     id="phone"
-                                                    defaultCountry="PK"
+                                                    defaultCountry="US"
                                                     value={phoneValue}
                                                     onChange={setPhoneValue}
                                                     className="p-2"

@@ -143,7 +143,7 @@ export default function HeroSection() {
                     </label>
                     <PhoneInput
                       international
-                      defaultCountry="PK"
+                      defaultCountry="US"
                       value={phone}
                       onChange={setPhone}
                       className="p-2 border border-white/10 rounded-md"

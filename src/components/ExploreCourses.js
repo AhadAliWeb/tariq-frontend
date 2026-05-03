@@ -10,13 +10,13 @@ const courses = [
     id: 1,
     title: "Quran Basic Course",
     description: "Start from scratch. Learn Arabic letters, pronunciation, and basic Tajweed with expert guidance.",
-    imageUrl: "https://images.unsplash.com/photo-1585036156171-384164a8c675?auto=format&fit=crop&q=80&w=600",
+    imageUrl: "https://res.cloudinary.com/dqnjqcerb/image/upload/v1761369554/uploads/mpqiogcsjxslgiwhtlhu.png",
   },
   {
     id: 2,
     title: "Quran Recitation & Tajweed",
     description: "Perfect your recitation with proper Tajweed rules, articulation points, and fluency training.",
-    imageUrl: "https://res.cloudinary.com/dqnjqcerb/image/upload/v1761369554/uploads/mpqiogcsjxslgiwhtlhu.png",
+    imageUrl: "https://images.unsplash.com/photo-1585036156171-384164a8c675?auto=format&fit=crop&q=80&w=600",
   },
   {
     id: 3,
@@ -28,7 +28,7 @@ const courses = [
     id: 4,
     title: "Islamic Studies",
     description: "Learn core Islamic beliefs, daily Fiqh, Seerah, and essential duas in simple, engaging lessons.",
-    imageUrl: "https://res.cloudinary.com/dqnjqcerb/image/upload/v1761471305/uploads/y0sl8iu2myrvtz2fduez.jpg",
+    imageUrl: "https://images.unsplash.com/photo-1573483883644-d0b4b55eb25d?q=80&w=880&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   }
 ];
 

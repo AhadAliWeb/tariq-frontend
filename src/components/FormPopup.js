@@ -104,7 +104,7 @@ export default function FormPopup({ isOpen, onClose }) {
 
                         <PhoneInput
                             international
-                            defaultCountry="PK"
+                            defaultCountry="US"
                             value={phone}
                             onChange={setPhone}
                             className="p-2 border border-white/10 rounded-md"
