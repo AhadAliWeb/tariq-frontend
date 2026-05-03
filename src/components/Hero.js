@@ -10,19 +10,26 @@ import { parsePhoneNumber } from "react-phone-number-input"
 export default function HeroSection() {
   const [phone, setPhone] = useState("");
   const [submitted, setSubmitted] = useState(false);
+  const [error, setError] = useState(false)
 
   const handleSubmit = async () => {
     if (!phone) return;
+
+
+    setError(null);
 
     try {
 
       const parsed = parsePhoneNumber(phone)
 
+      console.log("Phone: ", parsed);
       if (!parsed) {
 
         setError("Inavlid Phone Number")
         throw new Error("Invalid Phone Number")
       }
+
+
 
 
       const country = parsed.country;
@@ -150,6 +157,12 @@ export default function HeroSection() {
                       numberInputProps={{ className: 'text-white focus:outline-none focus:ring-0' }}
                     />
                   </div>
+
+                  {error && (
+                    <p className="text-red-400 text-xs text-center font-[family-name:var(--font-sans)]">
+                      ⚠ {error}
+                    </p>
+                  )}
 
                   <button
                     onClick={handleSubmit}

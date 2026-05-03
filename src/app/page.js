@@ -12,6 +12,8 @@ import RichTextEditor from "@/components/admin/RichTextEditor";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Chat from "@/components/Chat";
+import AutoPopup from "@/components/AutoPopup";
+
 
 
 export default function RootLayout({ children }) {
@@ -29,6 +31,7 @@ export default function RootLayout({ children }) {
       <WhatsAppButton />
       <Footer />
       <Chat />
+      <AutoPopup />
     </>
   );
 }

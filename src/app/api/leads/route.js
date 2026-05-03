@@ -9,69 +9,39 @@ export async function POST(req) {
     try {
         await connectDB();
 
-        const { phone, countryCode, country } = await req.json();
+        const { fullName, email, phone, countryCode, country, question } = await req.json();
 
-        if (!phone || !countryCode || !country) {
+        const data = {};
+
+        if (fullName) data.fullName = fullName;
+        if (email) data.email = email;
+        if (question) data.question = question;
+
+        // optional fields
+        if (phone) data.phone = phone;
+        if (countryCode) data.countryCode = countryCode;
+        if (country) data.country = country;
+
+        // Optional: prevent completely empty document
+        if (Object.keys(data).length === 0) {
             return Response.json(
-                { error: "phone, countryCode, and country are required" },
+                { error: "No valid data provided" },
                 { status: 400 }
             );
         }
 
-        const leadform = await LeadForm.create({ phone, countryCode, country });
+        const leadform = await LeadForm.create(data);
 
         sendLeadNotifications(leadform).catch((err) =>
             console.error("Push notification error:", err)
         );
 
         return Response.json(leadform, { status: 201 });
+
     } catch (error) {
         return Response.json({ error: error.message }, { status: 400 });
     }
 }
-
-// export async function GET(req) {
-//     try {
-//         await connectDB();
-
-//         const { searchParams } = new URL(req.url);
-//         const search = searchParams.get("search")?.trim() || "";
-//         const page = Math.max(1, parseInt(searchParams.get("page") || "1", 10));
-//         const limit = Math.min(100, Math.max(1, parseInt(searchParams.get("limit") || "10", 10)));
-//         const skip = (page - 1) * limit;
-
-//         // Build filter
-//         const filter = search
-//             ? {
-//                 $or: [
-//                     { phone: { $regex: search, $options: "i" } },
-//                     { country: { $regex: search, $options: "i" } },
-//                     { countryCode: { $regex: search, $options: "i" } },
-//                 ],
-//             }
-//             : {};
-
-//         const [leads, total] = await Promise.all([
-//             LeadForm.find(filter).sort({ createdAt: -1 }).skip(skip).limit(limit),
-//             LeadForm.countDocuments(filter),
-//         ]);
-
-//         return Response.json(
-//             {
-//                 leads,
-//                 pagination: {
-//                     total,
-//                     page,
-//                     limit,
-//                     totalPages: Math.ceil(total / limit),
-//                 },
-//             },
-//             { status: 200 }
-//         );
-//     } catch (error) {
-//         return Response.json({ error: error.message }, { status: 400 });
-//     }
-// }
 
 export async function GET(req) {
     try {
@@ -92,9 +62,12 @@ export async function GET(req) {
         const filter = search
             ? {
                 $or: [
+                    { fullName: { $regex: search, $options: "i" } },
+                    { email: { $regex: search, $options: "i" } },
                     { phone: { $regex: search, $options: "i" } },
                     { country: { $regex: search, $options: "i" } },
                     { countryCode: { $regex: search, $options: "i" } },
+                    { question: { $regex: search, $options: "i" } },
                 ],
             }
             : {};
@@ -152,7 +125,7 @@ async function sendLeadNotifications(lead) {
 
     const payload = JSON.stringify({
         title: "📥 New Lead!",
-        body: `${lead.phone} — ${lead.country}`,
+        body: `(${lead.phone}) — ${lead.country}`,
         icon: "/images/notification.png",
         badge: "/images/logo.png",
         data: {

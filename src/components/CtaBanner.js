@@ -41,7 +41,7 @@ export default function CtaBanner() {
             Book My Free Trial Class →
           </button>
           <a
-            href="https://wa.me/13322525428"
+            href="https://wa.me/13322525428?text=Assalam o Aliakum. I want to enroll for the Demo Class."
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center justify-center gap-2 border-2 border-[var(--color-wcu-cta-outline-border)] text-[var(--color-wcu-cta-outline-text)] hover:bg-white/10 font-bold text-base px-8 py-4 rounded-xl transition-colors duration-200 font-[family-name:var(--font-sans)]"

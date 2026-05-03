@@ -121,6 +121,9 @@ export default function StudentTestimonials() {
 
       const parsed = parsePhoneNumber(phone)
 
+      console.log("parsed:", parsed);
+
+
       if (!parsed) {
 
         setError("Inavlid Phone Number")
@@ -297,7 +300,7 @@ export default function StudentTestimonials() {
               <>
                 <PhoneInput
                   international
-                  defaultCountry="PK"
+                  defaultCountry="US"
                   value={phone}
                   onChange={setPhone}
                   className="bg-white p-2 border border-white/10 rounded-3xl"

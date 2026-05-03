@@ -2,6 +2,15 @@ import mongoose from "mongoose"
 
 const leadFormSchema = new mongoose.Schema(
     {
+        fullName: {
+            type: String,
+            trim: true,
+        },
+        email: {
+            type: String,
+            trim: true,
+            lowercase: true,
+        },
         phone: {
             type: String,
             required: true,
@@ -9,12 +18,16 @@ const leadFormSchema = new mongoose.Schema(
         },
         countryCode: {
             type: String,
-            required: true, // change to false if optional
+            required: true,
             trim: true,
         },
         country: {
             type: String,
-            required: true, // change to false if optional
+            required: true,
+            trim: true,
+        },
+        question: {
+            type: String,
             trim: true,
         },
     },

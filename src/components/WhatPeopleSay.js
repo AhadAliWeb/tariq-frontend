@@ -139,8 +139,8 @@ export default function WhatPeopleSay() {
             <div
               key={video.id}
               className={`rounded-2xl overflow-hidden shadow-md flex-shrink-0 w-72 sm:w-80 lg:w-auto transition-all duration-300 ${activeIndex === i
-                  ? "ring-2 ring-[var(--color-wcu-heading-accent)] ring-offset-2"
-                  : ""
+                ? "ring-2 ring-[var(--color-wcu-heading-accent)] ring-offset-2"
+                : ""
                 }`}
             >
               <div className="aspect-[9/16]">

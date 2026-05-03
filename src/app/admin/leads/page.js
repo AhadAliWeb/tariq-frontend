@@ -1,7 +1,7 @@
 "use client";
-import { useState, useEffect, useCallback, useRef } from "react";
+import { useState, useEffect, useCallback } from "react";
 
-const LIMIT = 10;
+const LIMIT = 30;
 
 function useDebounce(value, delay = 400) {
     const [debounced, setDebounced] = useState(value);
@@ -22,6 +22,78 @@ function formatTime(dateStr) {
     });
 }
 
+function DetailRow({ label, value }) {
+    return (
+        <div className="flex flex-col gap-0.5">
+            <p className="text-xs font-semibold text-[#a8a29e] uppercase tracking-wide">{label}</p>
+            <p className="text-sm text-[#1c1917] break-words">{value || "N/A"}</p>
+        </div>
+    );
+}
+
+function LeadDetailModal({ lead, onClose }) {
+    if (!lead) return null;
+    return (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm p-4">
+            <div className="bg-white rounded-2xl shadow-2xl w-full max-w-sm">
+                {/* Modal Header */}
+                <div className="flex items-center justify-between px-6 pt-5 pb-4 border-b border-[#f5f5f4]">
+                    <div className="flex items-center gap-3">
+                        <div className="w-9 h-9 bg-[#eef7f2] rounded-full flex items-center justify-center">
+                            <svg className="w-4.5 h-4.5 text-[#2f8f68]" fill="none" stroke="currentColor" viewBox="0 0 24 24" style={{ width: 18, height: 18 }}>
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 className="font-bold text-[#1c1917] text-sm leading-tight">Lead Details</h3>
+                            <p className="text-xs text-[#a8a29e]">{formatTime(lead.createdAt)}</p>
+                        </div>
+                    </div>
+                    <button
+                        onClick={onClose}
+                        className="p-1.5 text-[#a8a29e] hover:text-[#1c1917] hover:bg-[#f5f5f4] rounded-lg transition-colors"
+                    >
+                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                </div>
+
+                {/* Modal Body */}
+                <div className="px-6 py-5 flex flex-col gap-4">
+                    <DetailRow label="Full Name" value={lead.fullName} />
+                    <DetailRow label="Email" value={lead.email} />
+                    <DetailRow label="Phone" value={lead.phone} />
+                    <div className="grid grid-cols-2 gap-4">
+                        <DetailRow label="Country" value={lead.country} />
+                        <DetailRow label="Country Code" value={lead.countryCode} />
+                    </div>
+                    <div className="flex flex-col gap-0.5">
+                        <p className="text-xs font-semibold text-[#a8a29e] uppercase tracking-wide">Question</p>
+                        {lead.question ? (
+                            <p className="text-sm text-[#1c1917] bg-[#fafaf9] border border-[#f5f5f4] rounded-xl px-3 py-2.5 leading-relaxed break-words">
+                                {lead.question}
+                            </p>
+                        ) : (
+                            <p className="text-sm text-[#1c1917]">N/A</p>
+                        )}
+                    </div>
+                </div>
+
+                {/* Modal Footer */}
+                <div className="px-6 pb-5">
+                    <button
+                        onClick={onClose}
+                        className="w-full px-4 py-2.5 border border-[#e7e5e4] rounded-xl text-sm text-[#57534e] hover:bg-[#f5f5f4] transition-colors"
+                    >
+                        Close
+                    </button>
+                </div>
+            </div>
+        </div>
+    );
+}
+
 export default function AdminLeadsPage() {
     const [leads, setLeads] = useState([]);
     const [search, setSearch] = useState("");
@@ -31,6 +103,7 @@ export default function AdminLeadsPage() {
     const [error, setError] = useState(null);
     const [confirmDelete, setConfirmDelete] = useState(null);
     const [deleting, setDeleting] = useState(false);
+    const [detailLead, setDetailLead] = useState(null);
 
     const debouncedSearch = useDebounce(search, 400);
 
@@ -38,11 +111,7 @@ export default function AdminLeadsPage() {
         setLoading(true);
         setError(null);
         try {
-            const params = new URLSearchParams({
-                search: searchVal,
-                page: pageVal,
-                limit: LIMIT,
-            });
+            const params = new URLSearchParams({ search: searchVal, page: pageVal, limit: LIMIT });
             const res = await fetch(`/api/leads?${params}`);
             if (!res.ok) throw new Error("Failed to fetch leads");
             const data = await res.json();
@@ -55,14 +124,8 @@ export default function AdminLeadsPage() {
         }
     }, []);
 
-    // Reset to page 1 when search changes
-    useEffect(() => {
-        setPage(1);
-    }, [debouncedSearch]);
-
-    useEffect(() => {
-        fetchLeads(debouncedSearch, page);
-    }, [debouncedSearch, page, fetchLeads]);
+    useEffect(() => { setPage(1); }, [debouncedSearch]);
+    useEffect(() => { fetchLeads(debouncedSearch, page); }, [debouncedSearch, page, fetchLeads]);
 
     const handleDelete = async () => {
         if (!confirmDelete) return;
@@ -71,15 +134,11 @@ export default function AdminLeadsPage() {
             const res = await fetch(`/api/leads?id=${confirmDelete._id}`, { method: "DELETE" });
             if (!res.ok) throw new Error("Failed to delete lead");
             setConfirmDelete(null);
-            // If deleting the last item on a page > 1, go back a page
             const newTotal = pagination.total - 1;
             const newTotalPages = Math.ceil(newTotal / LIMIT) || 1;
             const newPage = page > newTotalPages ? newTotalPages : page;
-            if (newPage !== page) {
-                setPage(newPage);
-            } else {
-                fetchLeads(debouncedSearch, page);
-            }
+            if (newPage !== page) setPage(newPage);
+            else fetchLeads(debouncedSearch, page);
         } catch (err) {
             setError(err.message);
         } finally {
@@ -113,10 +172,7 @@ export default function AdminLeadsPage() {
                         className="w-full pl-9 pr-4 py-2.5 bg-white border border-[#e7e5e4] rounded-xl text-sm text-[#1c1917] placeholder-[#a8a29e] focus:outline-none focus:ring-2 focus:ring-[#2f8f68]"
                     />
                     {search && (
-                        <button
-                            onClick={() => setSearch("")}
-                            className="absolute right-3 top-1/2 -translate-y-1/2 text-[#a8a29e] hover:text-[#1c1917]"
-                        >
+                        <button onClick={() => setSearch("")} className="absolute right-3 top-1/2 -translate-y-1/2 text-[#a8a29e] hover:text-[#1c1917]">
                             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                             </svg>
@@ -127,9 +183,7 @@ export default function AdminLeadsPage() {
 
             {/* Error */}
             {error && (
-                <div className="mb-4 px-4 py-3 bg-red-50 border border-red-200 rounded-xl text-sm text-red-600">
-                    {error}
-                </div>
+                <div className="mb-4 px-4 py-3 bg-red-50 border border-red-200 rounded-xl text-sm text-red-600">{error}</div>
             )}
 
             {/* Table */}
@@ -153,7 +207,7 @@ export default function AdminLeadsPage() {
                     <>
                         {/* Desktop Table */}
                         <div className="hidden md:block overflow-x-auto">
-                            <table className="w-full min-w-[500px]">
+                            <table className="w-full min-w-[600px]">
                                 <thead>
                                     <tr className="border-b border-[#f5f5f4] bg-[#fafaf9]">
                                         <th className="text-left px-5 py-3 text-xs font-semibold text-[#78716c] uppercase tracking-wide">Phone</th>
@@ -175,7 +229,19 @@ export default function AdminLeadsPage() {
                                             </td>
                                             <td className="px-4 py-3.5 text-sm text-[#78716c] whitespace-nowrap">{formatTime(lead.createdAt)}</td>
                                             <td className="px-5 py-3.5">
-                                                <div className="flex items-center justify-end">
+                                                <div className="flex items-center justify-end gap-1">
+                                                    {/* Details Button */}
+                                                    <button
+                                                        onClick={() => setDetailLead(lead)}
+                                                        className="p-1.5 text-[#a8a29e] hover:text-[#2f8f68] hover:bg-[#eef7f2] rounded-lg transition-colors"
+                                                        title="View details"
+                                                    >
+                                                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                                                        </svg>
+                                                    </button>
+                                                    {/* Delete Button */}
                                                     <button
                                                         onClick={() => setConfirmDelete(lead)}
                                                         className="p-1.5 text-[#a8a29e] hover:text-red-500 hover:bg-red-50 rounded-lg transition-colors"
@@ -199,14 +265,26 @@ export default function AdminLeadsPage() {
                                 <div key={lead._id} className="p-4">
                                     <div className="flex items-start justify-between gap-2">
                                         <p className="font-medium text-[#1c1917] text-sm">{lead.phone}</p>
-                                        <button
-                                            onClick={() => setConfirmDelete(lead)}
-                                            className="p-1.5 shrink-0 text-[#a8a29e] hover:text-red-500 hover:bg-red-50 rounded-lg transition-colors"
-                                        >
-                                            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
-                                            </svg>
-                                        </button>
+                                        <div className="flex items-center gap-1 shrink-0">
+                                            <button
+                                                onClick={() => setDetailLead(lead)}
+                                                className="p-1.5 text-[#a8a29e] hover:text-[#2f8f68] hover:bg-[#eef7f2] rounded-lg transition-colors"
+                                                title="View details"
+                                            >
+                                                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                                                </svg>
+                                            </button>
+                                            <button
+                                                onClick={() => setConfirmDelete(lead)}
+                                                className="p-1.5 text-[#a8a29e] hover:text-red-500 hover:bg-red-50 rounded-lg transition-colors"
+                                            >
+                                                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                                                </svg>
+                                            </button>
+                                        </div>
                                     </div>
                                     <div className="mt-2.5 grid grid-cols-2 gap-x-4 gap-y-2 text-xs text-[#57534e]">
                                         <div>
@@ -234,9 +312,7 @@ export default function AdminLeadsPage() {
             {/* Pagination */}
             {!loading && totalPages > 1 && (
                 <div className="flex items-center justify-between mt-4 text-sm">
-                    <p className="text-[#78716c]">
-                        Page {page} of {totalPages}
-                    </p>
+                    <p className="text-[#78716c]">Page {page} of {totalPages}</p>
                     <div className="flex items-center gap-1">
                         <button
                             onClick={() => setPage((p) => Math.max(1, p - 1))}
@@ -245,8 +321,6 @@ export default function AdminLeadsPage() {
                         >
                             ← Prev
                         </button>
-
-                        {/* Page numbers */}
                         {Array.from({ length: totalPages }, (_, i) => i + 1)
                             .filter((p) => p === 1 || p === totalPages || Math.abs(p - page) <= 1)
                             .reduce((acc, p, idx, arr) => {
@@ -261,16 +335,12 @@ export default function AdminLeadsPage() {
                                     <button
                                         key={item}
                                         onClick={() => setPage(item)}
-                                        className={`w-8 h-8 rounded-lg text-sm font-medium transition-colors ${page === item
-                                            ? "bg-[#2f8f68] text-white"
-                                            : "border border-[#e7e5e4] text-[#57534e] hover:bg-[#f5f5f4]"
-                                            }`}
+                                        className={`w-8 h-8 rounded-lg text-sm font-medium transition-colors ${page === item ? "bg-[#2f8f68] text-white" : "border border-[#e7e5e4] text-[#57534e] hover:bg-[#f5f5f4]"}`}
                                     >
                                         {item}
                                     </button>
                                 )
                             )}
-
                         <button
                             onClick={() => setPage((p) => Math.min(totalPages, p + 1))}
                             disabled={page === totalPages}
@@ -281,6 +351,9 @@ export default function AdminLeadsPage() {
                     </div>
                 </div>
             )}
+
+            {/* Lead Detail Modal */}
+            <LeadDetailModal lead={detailLead} onClose={() => setDetailLead(null)} />
 
             {/* Delete Confirm Modal */}
             {confirmDelete && (

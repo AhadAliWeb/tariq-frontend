@@ -28,10 +28,9 @@ const footerLinks = [
   {
     heading: "Contact & Support",
     links: [
-      { label: "📧 info@quraninstruct@gmail.com", href: "mailto:info@quraninstruct@gmail.com" },
-      { label: "📧 mt9304653@gmail.com", href: "mailto:mt9304653@gmail.com" },
+      { label: "📧 quraninstruct@gmail.com", href: "mailto:quraninstruct@gmail.com" },
       { label: "📞 +44 7414 270 363", href: "tel:+447414270363" },
-      { label: "💬 WhatsApp Us", href: "https://wa.me/13322525428?text=Assalam-o-Alaikum" },
+      { label: "💬 WhatsApp Us", href: "https://wa.me/13322525428?text=Assalam o Aliakum. I want to enroll for the Demo Class." },
       { label: "Privacy Policy", href: "#" },
       { label: "Refund Policy", href: "#" },
     ],
