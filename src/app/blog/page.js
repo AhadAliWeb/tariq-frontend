@@ -3,8 +3,8 @@ import Blog from "@/models/blog";
 import Link from "next/link";
 
 export const metadata = {
-    title: "Blog | Real Estate Insights",
-    description: "Expert tips, market analysis, and guides for real estate investment in Pakistan.",
+    title: "Blog | Learn Quran Online",
+    description: "Expert guidance, structured lessons, and clear learning pathways to help you understand and study the Quran with confidence.",
 };
 
 export const revalidate = 60; // ISR - revalidate every 60 seconds
@@ -43,10 +43,10 @@ export default async function BlogPage({ searchParams }) {
                         Insights & Resources
                     </span>
                     <h1 className="text-4xl md:text-5xl font-bold text-white mb-4 font-heading">
-                        Real Estate <span className="text-[#c9a24a]">Blog</span>
+                        Learn Quran <span className="text-[#c9a24a]">Online</span>
                     </h1>
                     <p className="text-[#80c9a6] text-lg max-w-2xl mx-auto">
-                        Expert analysis, investment tips, and market insights to help you make smarter real estate decisions.
+                        Expert guidance, structured lessons, and clear learning pathways to help you understand and study the Quran with confidence.
                     </p>
                 </div>
             </div>

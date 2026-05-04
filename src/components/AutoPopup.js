@@ -216,7 +216,7 @@ export default function FormPopup({ isOpen: controlledIsOpen, onClose: controlle
                     {/* Close */}
                     <button
                         onClick={handleClose}
-                        className="absolute top-4 right-4 z-10 text-primary-400 hover:text-white transition-colors duration-150 cursor-pointer p-1.5 rounded-lg hover:bg-white/5"
+                        className="cursor-pointer absolute z-50 top-4 right-4 z-10 text-primary-400 hover:text-white transition-colors duration-150 cursor-pointer p-1.5 rounded-lg hover:bg-white/5"
                     >
                         <X size={18} />
                     </button>

@@ -35,7 +35,7 @@ export default function RootLayout({ children }) {
       lang="en"
       className={`${geistSans.variable} ${montserrat.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <head>
+      <body className="min-h-full flex flex-col">
         {/* Google Ads Global Site Tag */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=AW-11557520972"
@@ -44,14 +44,12 @@ export default function RootLayout({ children }) {
 
         <Script id="google-ads-init" strategy="afterInteractive">
           {`
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'AW-11557520972');
-    `}
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'AW-11557520972');
+          `}
         </Script>
-      </head>
-      <body className="min-h-full flex flex-col">
         <AdsPageTracker />
         {children}
       </body>
