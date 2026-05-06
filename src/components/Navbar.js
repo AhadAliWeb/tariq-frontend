@@ -255,9 +255,9 @@ export default function Navbar() {
               <button
                 // onClick={() => setMenuOpen(false)}
                 onClick={() => setPopupOpen(true)}
-                className="relative flex items-center cursor-pointer justify-center gap-2 w-full px-4 py-3 text-sm font-bold text-white bg-primary-600 hover:bg-primary-500 rounded-xl shadow-md transition-all duration-200"
+                className="navbar-cta relative flex items-center cursor-pointer justify-center gap-2 w-full px-4 py-3 text-sm font-bold text-white bg-primary-600 hover:bg-primary-500 rounded-xl shadow-md transition-all duration-200"
               >
-                <span className="navbar-cta w-1.5 h-1.5 rounded-full bg-secondary-300 animate-pulse shrink-0" />
+                <span className="w-1.5 h-1.5 rounded-full bg-secondary-300 animate-pulse shrink-0" />
                 Get a free trial
               </button>
             </div>
