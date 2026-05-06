@@ -49,21 +49,18 @@
 'use client'
 
 import { useEffect } from 'react'
-import { usePathname, useSearchParams } from 'next/navigation'
+import { usePathname } from 'next/navigation'
 
 export default function GTMPageView() {
     const pathname = usePathname()
-    const searchParams = useSearchParams()
 
     useEffect(() => {
-        const url = pathname + (searchParams?.toString() ? `?${searchParams}` : '')
-
         window.dataLayer = window.dataLayer || []
         window.dataLayer.push({
             event: 'pageview',
-            page: url,
+            page: pathname,
         })
-    }, [pathname, searchParams])
+    }, [pathname])
 
     return null
 }
