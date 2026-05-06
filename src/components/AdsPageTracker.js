@@ -26,22 +26,44 @@
 //     return null;
 // }
 
-'use client';
+// 'use client';
 
-import { useEffect } from 'react';
-import { usePathname } from 'next/navigation';
+// import { useEffect } from 'react';
+// import { usePathname } from 'next/navigation';
 
-export default function AdsPageTracker() {
-    const pathname = usePathname();
+// export default function AdsPageTracker() {
+//     const pathname = usePathname();
+
+//     useEffect(() => {
+//         if (typeof window !== "undefined" && window.gtag) {
+//             window.gtag('event', 'page_view', {
+//                 page_path: pathname,
+//                 page_location: window.location.href,
+//             });
+//         }
+//     }, [pathname]);
+
+//     return null;
+// }
+
+'use client'
+
+import { useEffect } from 'react'
+import { usePathname, useSearchParams } from 'next/navigation'
+
+export default function GTMPageView() {
+    const pathname = usePathname()
+    const searchParams = useSearchParams()
 
     useEffect(() => {
-        if (typeof window !== "undefined" && window.gtag) {
-            window.gtag('event', 'page_view', {
-                page_path: pathname,
-                page_location: window.location.href,
-            });
-        }
-    }, [pathname]);
+        const url = pathname + (searchParams?.toString() ? `?${searchParams}` : '')
 
-    return null;
+        window.dataLayer = window.dataLayer || []
+        window.dataLayer.push({
+            event: 'pageview',
+            page: url,
+        })
+    }, [pathname, searchParams])
+
+    return null
 }

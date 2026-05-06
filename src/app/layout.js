@@ -66,7 +66,9 @@ export default function RootLayout({ children }) {
             gtag('config', 'AW-11557520972');
           `}
         </Script>
-        <AdsPageTracker /> */}
+        */}
+
+        <AdsPageTracker />
         {children}
       </body>
     </html>
