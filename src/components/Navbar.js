@@ -171,7 +171,7 @@ export default function Navbar() {
           <div className="relative hidden sm:block">
             <span className="absolute inset-0 rounded-md bg-primary-400 opacity-60 animate-ping-soft" />
             <button
-              className="relative inline-flex cursor-pointer items-center gap-2 px-5 py-2.5 text-sm font-bold bg-primary-600 hover:bg-primary-500 rounded-md shadow-md hover:shadow-lg transition-all duration-200 active:scale-95"
+              className="navbar-cta relative inline-flex cursor-pointer items-center gap-2 px-5 py-2.5 text-sm font-bold bg-primary-600 hover:bg-primary-500 rounded-md shadow-md hover:shadow-lg transition-all duration-200 active:scale-95"
               onClick={() => setPopupOpen(true)}
             >
               <span className="w-1.5 h-1.5 rounded-full bg-secondary-300 animate-pulse shrink-0" />
