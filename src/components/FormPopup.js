@@ -7,7 +7,7 @@ import { parsePhoneNumber } from "react-phone-number-input"
 import "react-phone-number-input/style.css"
 
 
-export default function FormPopup({ isOpen, onClose }) {
+export default function FormPopup({ isOpen, onClose, popupSource }) {
     const [phone, setPhone] = useState("")
     const [submitted, setSubmitted] = useState(false)
     const [loading, setLoading] = useState(false)
@@ -53,6 +53,14 @@ export default function FormPopup({ isOpen, onClose }) {
 
             const data = await res.json();
             setSubmitted(true);
+
+            window.dataLayer = window.dataLayer || [];
+
+            window.dataLayer.push({
+                event: "popup_form_submit",
+                form_source: popupSource,
+                page_path: window.location.pathname,
+            });
 
         } catch (error) {
             setError("Error Occured, Try again later")

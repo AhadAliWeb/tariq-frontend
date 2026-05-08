@@ -6,10 +6,11 @@ import FormPopup from "./FormPopup";
 export default function CtaBanner() {
 
   const [popupOpen, setPopupOpen] = useState(false)
+  const [popupSource, setPopupSource] = useState("")
 
   return (
     <div className="relative overflow-hidden bg-wcu-cta-bg rounded-3xl px-8 py-12 sm:px-12 lg:px-16 lg:py-14 text-center shadow-2xl">
-      <FormPopup isOpen={popupOpen} onClose={() => setPopupOpen(false)} />
+      <FormPopup isOpen={popupOpen} onClose={() => setPopupOpen(false)} popupSource={popupSource} />
       {/* Background glow blobs */}
       <div className="absolute -top-16 -left-16 w-64 h-64 rounded-full bg-wcu-cta-glow/30 blur-3xl pointer-events-none" />
       <div className="absolute -bottom-16 -right-16 w-64 h-64 rounded-full bg-secondary-500/20 blur-3xl pointer-events-none" />
@@ -36,7 +37,10 @@ export default function CtaBanner() {
         <div className="flex flex-col sm:flex-row gap-3 w-full sm:w-auto mt-1">
           <button
             className="inline-flex items-center justify-center gap-2 bg-[var(--color-wcu-cta-btn-bg)] hover:bg-[var(--color-wcu-cta-btn-hover)] text-[var(--color-wcu-cta-btn-text)] font-extrabold text-base px-8 py-4 rounded-xl transition-colors duration-200 font-[family-name:var(--font-heading)] shadow-lg shadow-black/20"
-            onClick={() => setPopupOpen(true)}
+            onClick={() => {
+              setPopupOpen(true)
+              setPopupSource("home_cta_banner")
+            }}
           >
             Book My Free Trial Class →
           </button>
