@@ -106,6 +106,16 @@ export default function Contact() {
             setForm({ name: "", email: "", question: "" });
             setPhoneValue("");
             setSubmitted(true);
+
+            window.dataLayer = window.dataLayer || [];
+
+            window.dataLayer.push({
+                event: "contact_page_form_fill",
+                form_source: popupSource,
+                page_path: window.location.pathname,
+            });
+
+
         } catch (err) {
             console.error("Lead submission network error:", err);
             setError("Unable to reach the server. Please check your connection and try again.");
@@ -312,7 +322,7 @@ export default function Contact() {
                                         <button
                                             type="submit"
                                             disabled={loading}
-                                            className="contact_page_form_fill cursor-pointer flex w-full items-center justify-center gap-2 rounded-xl px-6 py-3.5 text-sm font-bold disabled:opacity-70 bg-hero-cta-bg text-hero-cta-text shadow-[0_4px_14px_rgba(201,162,74,0.35)] transition-colors duration-150 hover:bg-hero-cta-bg-hover"
+                                            className="cursor-pointer flex w-full items-center justify-center gap-2 rounded-xl px-6 py-3.5 text-sm font-bold disabled:opacity-70 bg-hero-cta-bg text-hero-cta-text shadow-[0_4px_14px_rgba(201,162,74,0.35)] transition-colors duration-150 hover:bg-hero-cta-bg-hover"
                                         >
                                             {loading ? (
                                                 <>
