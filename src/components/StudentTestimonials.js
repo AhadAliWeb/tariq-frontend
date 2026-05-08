@@ -148,6 +148,12 @@ export default function StudentTestimonials() {
       const data = await res.json();
       setSubmitted(true);
 
+      window.dataLayer = window.dataLayer || [];
+
+      window.dataLayer.push({
+        event: "form_submit",
+      });
+
     } catch (error) {
       setError("Error Occured, Try again later")
       console.error("Error submitting form:", error);

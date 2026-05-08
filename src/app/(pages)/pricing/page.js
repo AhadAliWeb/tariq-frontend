@@ -311,7 +311,7 @@ export default function PricingPage() {
                 href="https://wa.me/133225225428"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 border-2 border-[var(--color-wcu-cta-outline-border)] text-[var(--color-wcu-cta-outline-text)] hover:bg-white/10 font-bold text-base px-8 py-4 rounded-xl transition-colors duration-200 font-[family-name:var(--font-sans)]"
+                className="whatsapp-chat inline-flex items-center justify-center gap-2 border-2 border-[var(--color-wcu-cta-outline-border)] text-[var(--color-wcu-cta-outline-text)] hover:bg-white/10 font-bold text-base px-8 py-4 rounded-xl transition-colors duration-200 font-[family-name:var(--font-sans)]"
               >
                 Talk to an Advisor
               </a>

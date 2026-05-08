@@ -110,7 +110,7 @@ export default function Contact() {
             window.dataLayer = window.dataLayer || [];
 
             window.dataLayer.push({
-                event: "contact_page_form_fill",
+                event: "form_submit",
             });
 
 
@@ -187,7 +187,7 @@ export default function Contact() {
                                     href={href}
                                     target={external ? "_blank" : undefined}
                                     rel={external ? "noopener noreferrer" : undefined}
-                                    className="group flex items-start gap-4 rounded-2xl border p-5 bg-wcu-card-bg hover:bg-primary-50 shadow-[0_4px_20px_rgba(47,143,104,0.12)] hover:shadow-none border-[var(--color-wcu-card-border)] hover:border-[var(--color-wcu-card-border-hover)] transform hover:-translate-y-[2px] transition-all duration-200 ease-in-out"
+                                    className={`${label === "WhatsApp" && "whatsapp-chat"} group flex items-start gap-4 rounded-2xl border p-5 bg-wcu-card-bg hover:bg-primary-50 shadow-[0_4px_20px_rgba(47,143,104,0.12)] hover:shadow-none border-[var(--color-wcu-card-border)] hover:border-[var(--color-wcu-card-border-hover)] transform hover:-translate-y-[2px] transition-all duration-200 ease-in-out`}
                                 >
                                     <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-wcu-card-icon-bg text-wcu-card-icon-color">
                                         <Icon size={20} />
@@ -374,6 +374,6 @@ export default function Contact() {
 
                 </div>
             </section>
-        </main>
+        </main >
     );
 }
