@@ -111,8 +111,6 @@ export default function Contact() {
 
             window.dataLayer.push({
                 event: "contact_page_form_fill",
-                form_source: popupSource,
-                page_path: window.location.pathname,
             });
 
 
