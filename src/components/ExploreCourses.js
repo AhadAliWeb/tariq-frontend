@@ -11,18 +11,21 @@ const courses = [
     title: "Quran Basic Course",
     description: "Start from scratch. Learn Arabic letters, pronunciation, and basic Tajweed with expert guidance.",
     imageUrl: "https://res.cloudinary.com/dqnjqcerb/image/upload/v1761369554/uploads/mpqiogcsjxslgiwhtlhu.png",
+    source: "home_qurani_qaida_course"
   },
   {
     id: 2,
     title: "Quran Recitation & Tajweed",
     description: "Perfect your recitation with proper Tajweed rules, articulation points, and fluency training.",
     imageUrl: "https://images.unsplash.com/photo-1585036156171-384164a8c675?auto=format&fit=crop&q=80&w=600",
+    source: "home_recitation_course"
   },
   {
     id: 3,
     title: "Quran Memorization (Hifz)",
     description: "Memorize the Quran with a personalized plan, daily revision sessions, and experienced Huffaz teachers.",
     imageUrl: "https://res.cloudinary.com/dqnjqcerb/image/upload/v1761471265/uploads/krrariibgllamoqg0kyq.jpg",
+    source: "home_quran_memorization_course"
   },
   {
     id: 4,
