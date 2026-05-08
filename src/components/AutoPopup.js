@@ -152,6 +152,14 @@ export default function FormPopup({ isOpen: controlledIsOpen, onClose: controlle
             })
             if (!res.ok) throw new Error(`Status ${res.status}`)
             setSubmitted(true)
+
+            window.dataLayer = window.dataLayer || [];
+
+            window.dataLayer.push({
+                event: "form_submit",
+            });
+
+
         } catch (err) {
             setServerError("Something went wrong. Please try again.")
             console.error(err)

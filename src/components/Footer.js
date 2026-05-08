@@ -30,7 +30,7 @@ const footerLinks = [
     links: [
       { label: "📧 quraninstruct@gmail.com", href: "mailto:quraninstruct@gmail.com" },
       { label: "📞 +44 7414 270 363", href: "tel:+447414270363" },
-      { label: "💬 WhatsApp Us", href: "https://wa.me/13322525428?text=Assalam o Aliakum. I want to enroll for the Demo Class." },
+      { label: "💬 WhatsApp Us", href: "https://wa.me/13322525428?text=Assalam o Aliakum. I want to enroll for the Demo Class.", whatsapp: true },
       { label: "Privacy Policy", href: "#" },
       { label: "Refund Policy", href: "#" },
     ],
@@ -138,11 +138,11 @@ export default function Footer() {
                 {heading}
               </h4>
               <ul className="space-y-3">
-                {links.map(({ label, href }) => (
+                {links.map(({ label, href, whatsapp }) => (
                   <li key={label}>
                     <a
                       href={href}
-                      className="text-white font-bold hover:text-secondary-400 text-sm transition-colors duration-150"
+                      className={`${whatsapp === true && "whatsapp-chat"} text-white font-bold hover:text-secondary-400 text-sm transition-colors duration-150`}
                     >
                       {label}
                     </a>
