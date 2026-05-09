@@ -51,7 +51,7 @@ export default function RootLayout({ children }) {
       <body className="min-h-full flex flex-col">
         {/* Google Ads Global Site Tag */}
         <Script
-          src="https://www.googletagmanager.com/gtag/js?id=AW-11557520972"
+          src="https://www.googletagmanager.com/gtag/js?id=AW-18136013159"
           strategy="afterInteractive"
         />
 
@@ -63,7 +63,7 @@ export default function RootLayout({ children }) {
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
-            gtag('config', 'AW-11557520972');
+            gtag('config', 'AW-18136013159');
           `}
         </Script>
 
