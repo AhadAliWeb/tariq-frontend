@@ -32,15 +32,22 @@
 import { useEffect } from 'react'
 import { usePathname } from 'next/navigation'
 
-export default function GTMPageView() {
+export default function AdsPageTracker() {
     const pathname = usePathname()
 
     useEffect(() => {
+        // GTM / DataLayer
         window.dataLayer = window.dataLayer || []
         window.dataLayer.push({
             event: 'pageview',
             page: pathname,
         })
+
+        // Meta Pixel
+        if (typeof window !== 'undefined' && window.fbq) {
+            window.fbq('track', 'PageView')
+        }
+
     }, [pathname])
 
     return null
