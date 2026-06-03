@@ -146,7 +146,7 @@ export default function FormPopup({ isOpen: controlledIsOpen, onClose: controlle
             if (!isValidPhoneNumber(phone)) {
                     setErrors(prev => ({ ...prev, phone: "Please enter a valid phone number" }));
                     return;
-                  }
+            }
             const country = parsed?.country ?? ""
             const countryCode = parsed ? `+${parsed.countryCallingCode}` : ""
             const res = await fetch("/api/leads", {

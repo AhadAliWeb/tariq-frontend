@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react"
 import { X, CheckCircle } from "lucide-react"
 import PhoneInput from "react-phone-number-input"
-import { parsePhoneNumber } from "react-phone-number-input"
+import { parsePhoneNumber, isValidPhoneNumber } from "react-phone-number-input"
 import "react-phone-number-input/style.css"
 
 
@@ -33,10 +33,10 @@ export default function FormPopup({ isOpen, onClose }) {
 
             const parsed = parsePhoneNumber(phone)
 
-            if (!parsed) {
-
-                setError("Inavlid Phone Number")
-                throw new Error("Invalid Phone Number")
+            if(!isValidPhoneNumber(phone))
+            {
+                setError("Please enter a valid phone number");
+                return;
             }
 
 
