@@ -1,7 +1,7 @@
 "use client";
 
-import { useState } from "react";
-import PhoneInput, { parsePhoneNumber } from "react-phone-number-input";
+import { useEffect, useState } from "react";
+import PhoneInput, { parsePhoneNumber, isValidPhoneNumber } from "react-phone-number-input";
 import "react-phone-number-input/style.css";
 import {
     Phone, Mail, MessageCircle, Send, User,
@@ -53,12 +53,13 @@ export default function Contact() {
     const handleChange = (e) =>
         setForm({ ...form, [e.target.name]: e.target.value });
 
+
     const handleSubmit = async (e) => {
         e.preventDefault();
         setLoading(true);
         setError("");
 
-        if (!phoneValue) {
+        if (!phoneValue || !isValidPhoneNumber(phoneValue)) {
             setError("Please enter a valid phone number.");
             setLoading(false);
             return;

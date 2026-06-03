@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useCallback } from "react"
 import { X, CheckCircle, User, Mail, MessageSquare, Phone } from "lucide-react"
-import PhoneInput from "react-phone-number-input"
+import PhoneInput, { isValidPhoneNumber } from "react-phone-number-input"
 import { parsePhoneNumber } from "react-phone-number-input"
 import "react-phone-number-input/style.css"
 
@@ -143,6 +143,10 @@ export default function FormPopup({ isOpen: controlledIsOpen, onClose: controlle
         setServerError("")
         try {
             const parsed = parsePhoneNumber(phone)
+            if (!isValidPhoneNumber(phone)) {
+                    setErrors(prev => ({ ...prev, phone: "Please enter a valid phone number" }));
+                    return;
+                  }
             const country = parsed?.country ?? ""
             const countryCode = parsed ? `+${parsed.countryCallingCode}` : ""
             const res = await fetch("/api/leads", {

@@ -1,9 +1,9 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import PhoneInput from "react-phone-number-input";
 import "react-phone-number-input/style.css";
-import { parsePhoneNumber } from "react-phone-number-input";
+import { parsePhoneNumber, isValidPhoneNumber } from "react-phone-number-input";
 
 export default function HeroSection() {
   const [phone, setPhone] = useState("");
@@ -11,20 +11,29 @@ export default function HeroSection() {
   const [error, setError] = useState(null);
 
   const handleSubmit = async () => {
+
+
     if (!phone) return;
+
+
+    
 
     setError(null);
 
     try {
-      const parsed = parsePhoneNumber(phone);
 
-      if (!parsed) {
-        setError("Invalid Phone Number");
-        throw new Error("Invalid Phone Number");
+      const parsed = parsePhoneNumber(phone);
+      
+      
+
+      if (!isValidPhoneNumber(phone)) {
+        setError("Please enter a valid phone number");
+        return;
       }
 
       const country = parsed.country;
       const countryCode = `+${parsed.countryCallingCode}`;
+
 
       const res = await fetch("/api/leads", {
         method: "POST",
