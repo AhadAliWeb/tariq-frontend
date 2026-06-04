@@ -108,19 +108,18 @@ export default function HeroSection() {
 
             <h1 className="font-[family-name:var(--font-heading)] font-extrabold text-white leading-[1.1]">
               <span className="text-3xl sm:text-5xl xl:text-6xl block">
-                Learn the Quran
-              </span>
-              <span className="text-3xl sm:text-5xl xl:text-6xl block text-[var(--color-hero-headline-accent)] mt-1">
-                From Home.
+                Learn Quran Online
               </span>
               <span className="text-3xl sm:text-5xl xl:text-6xl block mt-1">
-                At Your Pace.
+                Live, Personal &
+              </span>
+              <span className="text-3xl sm:text-5xl xl:text-6xl block text-[var(--color-hero-headline-accent)] mt-1">
+                Truly Effective
               </span>
             </h1>
 
             <p className="text-[var(--color-hero-body)]/75 text-sm sm:text-lg leading-relaxed max-w-lg font-[family-name:var(--font-sans)]">
-              Live 1-on-1 classes with certified male & female tutors. Tajweed,
-              Memorization & Islamic Studies — for kids and adults.
+              Join 2,000+ families across the USA, UK, UAE, and Saudi Arabia who learn Quran online with QuranInstruct. Certified Ijazah tutors, flexible scheduling, and live 1-on-1 classes for kids and adults — from the comfort of your home.
               <span className="text-[var(--color-hero-headline-accent)] font-semibold">
                 {" "}
                 First class is FREE.
@@ -129,10 +128,12 @@ export default function HeroSection() {
 
             <ul className="grid grid-cols-2 gap-2 sm:gap-3 max-w-md">
               {[
-                "✦ Flexible Schedule",
-                "✦ Certified Tutors",
-                "✦ Ages 5 – Adult",
-                "✦ All Levels Welcome",
+                "✦ Online Tajweed Classes",
+                "✦ Quran Hifz Program",
+                "✦ Arabic for Beginners",
+                "✦ Islamic Studies Online",
+                "✦ Ages 5 - Adult",
+                "✦ Male & Female Tutors",
               ].map((point) => (
                 <li
                   key={point}
@@ -236,7 +237,7 @@ export default function HeroSection() {
             ))}
           </div>
           <p className="text-[var(--color-hero-list)]/80 text-sm font-[family-name:var(--font-sans)]">
-            <span className="text-white font-semibold">500+ students</span>{" "}
+            <span className="text-white font-semibold">2000+ students</span>{" "}
             enrolled this month
           </p>
           <div className="flex items-center gap-1">
@@ -249,6 +250,10 @@ export default function HeroSection() {
               4.9/5 from 300+ reviews
             </span>
           </div>
+          <p className="text-[var(--color-hero-list)]/80 text-sm font-[family-name:var(--font-sans)]">
+            <span className="text-white font-semibold">30+ Countries</span>{" "}
+            Served
+          </p>
         </div>
       </div>
     </section>

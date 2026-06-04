@@ -12,6 +12,8 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Chat from "@/components/Chat";
 import AutoPopup from "@/components/AutoPopup";
+import CountrySlider from "@/components/CountrySlider";
+import AboutComponent from "@/components/AboutComponent";
 
 
 
@@ -20,6 +22,8 @@ export default function RootLayout({ children }) {
     <>
       <Navbar />
       <Hero />
+      <CountrySlider />
+      <AboutComponent />
       <WhyChooseUs />
       <CtaBanner />
       <ExploreCourses />

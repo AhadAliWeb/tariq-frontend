@@ -2,50 +2,47 @@
 
 const reasons = [
   {
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className="w-6 h-6">
-        <path strokeLinecap="round" strokeLinejoin="round" d="M12 3c-1.5 3-5 4.5-8 4.5 0 7 3.5 12 8 13.5C17.5 19.5 21 14.5 21 7.5 18 7.5 13.5 6 12 3z" />
-      </svg>
-    ),
-    tag: "Most Popular",
-    title: "Certified & Verified Tutors",
-    body: "Every tutor is hand-screened, Ijazah-certified, and background-checked. Male & female tutors available so you choose who teaches your family — someone you fully trust.",
+    icon: "🏆",
+    tag: "Certified",
+    title: "Ijazah-Certified Quran Tutors",
+    body: "Every tutor holds an Ijazah — the highest traditional Quranic certification, passed through an unbroken chain for over 1,400 years. All tutors are also background-checked and formally trained in online teaching.",
     cta: "Certified Tutors",
   },
   {
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className="w-6 h-6">
-        <circle cx="12" cy="12" r="9" strokeLinecap="round" />
-        <path strokeLinecap="round" strokeLinejoin="round" d="M12 7v5l3 3" />
-      </svg>
-    ),
+    icon: "👨‍👩‍👧",
+    tag: "Your Choice",
+    title: "Male & Female Tutors — You Choose",
+    body: "We offer both qualified male Ustadhs and female Ustadhas. Parents can select the right tutor for their child. Sisters and ladies can learn comfortably with female-only instructors.",
+    cta: "Choose Your Tutor",
+  },
+  {
+    icon: "🕐",
     tag: "Flexible",
-    title: "Classes That Fit Your Life",
-    body: "Mornings, evenings, or weekends — you set the time. Reschedule anytime, no penalties. Whether you're a busy parent or a working professional, we work around you.",
+    title: "Flexible Scheduling — Your Time Zone",
+    body: "Morning, evening, or weekend — we work around your schedule. Students in the USA, UK, UAE, and Saudi Arabia can book classes across all time zones without disrupting school or work.",
     cta: "Flexible Timing",
   },
   {
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className="w-6 h-6">
-        <path strokeLinecap="round" strokeLinejoin="round" d="M17 20h5v-2a4 4 0 0 0-5.56-3.69M9 20H4v-2a4 4 0 0 1 5.56-3.69M15 7a4 4 0 1 1-8 0 4 4 0 0 1 8 0z" />
-      </svg>
-    ),
-    tag: "All Ages",
-    title: "For Kids, Teens & Adults",
-    body: "Tailored learning paths starting from age 5, all the way to adults. Begin from Noorani Qaida or pick up mid-journey — we assess your level and build a plan just for you.",
-    cta: "No Age Limit",
+    icon: "🔒",
+    tag: "Safe",
+    title: "Safe & Monitored Classes for Children",
+    body: "All sessions are recorded and parent-observable. Our online Quran classes for kids follow strict Islamic guidelines and child safety standards — giving parents complete peace of mind.",
+    cta: "Child Safety First",
   },
   {
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className="w-6 h-6">
-        <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m5.4-3A9 9 0 1 1 3 12a9 9 0 0 1 18 0z" />
-      </svg>
-    ),
-    tag: "Zero Risk",
-    title: "Your First Class Is FREE",
-    body: "No credit card. No contracts. No pressure. Your first session is completely free so you can experience the quality, the tutor, and the teaching style before you commit to anything.",
-    cta: "First Class Is On Us",
+    icon: "📈",
+    tag: "Personalized",
+    title: "Personalized Learning Plan for Every Student",
+    body: "No two students learn at the same pace. We assess every student before their first paid session and build a custom curriculum around their level, goals, and learning style.",
+    cta: "Custom Plan",
   },
+];
+
+const stats = [
+  { value: "2,000+", label: "Families Enrolled" },
+  { value: "30+",    label: "Countries Served"  },
+  { value: "4.9★",   label: "Average Rating"    },
+  { value: "100%",   label: "Certified Tutors"  },
 ];
 
 export default function WhyChooseUs() {
@@ -53,73 +50,116 @@ export default function WhyChooseUs() {
     <section className="bg-[var(--color-wcu-bg)] py-20 lg:py-28 overflow-hidden">
       <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-16">
 
-        {/* ── Section header ── */}
-        <div className="text-center mb-14 max-w-3xl mx-auto">
-          <span className="inline-block bg-[var(--color-wcu-label-bg)] text-[var(--color-wcu-label-text)] text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full mb-4 font-[family-name:var(--font-sans)]">
-            Why Families Choose Us
-          </span>
+        {/* ── Two-column layout ── */}
+        <div className="grid lg:grid-cols-2 gap-14 items-start">
 
-          <h2 className="font-[family-name:var(--font-heading)] font-extrabold text-3xl sm:text-4xl lg:text-5xl text-[var(--color-wcu-heading)] leading-tight">
-            Not Just Another{" "}
-            <span className="text-[var(--color-wcu-heading-accent)] relative inline-block">
-              Online Quran Class
-              <svg className="absolute -bottom-1 left-0 w-full" viewBox="0 0 200 8" preserveAspectRatio="none" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M1 5.5 C50 1.5, 150 1.5, 199 5.5" stroke="var(--color-wcu-heading-accent)" strokeWidth="2.5" strokeLinecap="round" opacity="0.5" />
-              </svg>
+          {/* ── LEFT: header + reason list ── */}
+          <div>
+            {/* Section header */}
+            <span className="inline-block bg-[var(--color-wcu-label-bg)] text-[var(--color-wcu-label-text)] text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full mb-4 font-[family-name:var(--font-sans)]">
+              Why QuranInstruct
             </span>
-          </h2>
 
-          <p className="mt-6 text-[var(--color-wcu-subtext)] text-base sm:text-lg leading-relaxed font-[family-name:var(--font-sans)]">
-            Most online Quran platforms assign you a random tutor and leave you to figure the rest out.
-            We do things differently. From your very first free class, you&apos;ll feel the difference —
-            a personalised experience built around your goals, your schedule, and your family&apos;s needs.
-          </p>
+            <h2 className="font-[family-name:var(--font-heading)] font-extrabold text-3xl sm:text-4xl lg:text-5xl text-[var(--color-wcu-heading)] leading-tight mb-5">
+              Not Just Another{" "}
+              <span className="text-[var(--color-wcu-heading-accent)] relative inline-block">
+                Quran Platform
+                <svg className="absolute -bottom-1 left-0 w-full" viewBox="0 0 200 8" preserveAspectRatio="none" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M1 5.5 C50 1.5, 150 1.5, 199 5.5" stroke="var(--color-wcu-heading-accent)" strokeWidth="2.5" strokeLinecap="round" opacity="0.5" />
+                </svg>
+              </span>
+            </h2>
 
-          <p className="mt-3 text-[var(--color-wcu-subtext)]/80 text-sm sm:text-base leading-relaxed font-[family-name:var(--font-sans)]">
-            Over{" "}
-            <span className="font-semibold text-[var(--color-wcu-heading)]">2,000 students</span>{" "}
-            across 15+ countries have started their Quran journey with us.
-            Here&apos;s exactly what makes us the platform they stay with.
-          </p>
-        </div>
+            <p className="text-[var(--color-wcu-subtext)] text-base sm:text-lg leading-relaxed font-[family-name:var(--font-sans)] mb-10">
+              We built QuranInstruct around one belief: every Muslim family deserves a genuine, personal connection with the Holy Quran — regardless of where they live.
+            </p>
 
-        {/* ── Feature cards grid ── */}
-        <div className="grid sm:grid-cols-2 gap-5">
-          {reasons.map(({ icon, tag, title, body, cta, href }) => (
-            <div
-              key={title}
-              className="group bg-[var(--color-wcu-card-bg)] border border-[var(--color-wcu-card-border)] hover:border-[var(--color-wcu-card-border-hover)] rounded-2xl p-7 shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col gap-5"
-            >
-              {/* Icon + tag row */}
-              <div className="flex items-start justify-between">
-                <div className="w-12 h-12 rounded-xl bg-[var(--color-wcu-card-icon-bg)] text-[var(--color-wcu-card-icon-color)] flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
-                  {icon}
+            {/* Reason list */}
+            <div className="flex flex-col gap-6">
+              {reasons.map(({ icon, tag, title, body }) => (
+                <div key={title} className="flex gap-4 group">
+                  {/* Icon */}
+                  <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-[var(--color-wcu-card-icon-bg)] flex items-center justify-center text-xl shadow-sm group-hover:scale-110 transition-transform duration-300">
+                    {icon}
+                  </div>
+
+                  {/* Text */}
+                  <div>
+                    <div className="flex items-center gap-2 mb-1">
+                      <h4 className="font-[family-name:var(--font-heading)] font-bold text-base text-[var(--color-wcu-card-title)] leading-snug">
+                        {title}
+                      </h4>
+                      <span className="hidden sm:inline-block text-[10px] font-bold uppercase tracking-wider bg-[var(--color-wcu-card-tag-bg)] text-[var(--color-wcu-card-tag-text)] px-2 py-0.5 rounded-full font-[family-name:var(--font-sans)]">
+                        {tag}
+                      </span>
+                    </div>
+                    <p className="text-[var(--color-wcu-card-text)] text-sm leading-relaxed font-[family-name:var(--font-sans)]">
+                      {body}
+                    </p>
+                  </div>
                 </div>
-                <span className="text-[10px] font-bold uppercase tracking-wider bg-[var(--color-wcu-card-tag-bg)] text-[var(--color-wcu-card-tag-text)] px-2.5 py-1 rounded-full font-[family-name:var(--font-sans)]">
-                  {tag}
-                </span>
-              </div>
-
-              {/* Text */}
-              <div className="flex-1">
-                <h3 className="font-[family-name:var(--font-heading)] font-bold text-lg text-[var(--color-wcu-card-title)] mb-2 leading-snug">
-                  {title}
-                </h3>
-                <p className="text-[var(--color-wcu-card-text)] text-sm leading-relaxed font-[family-name:var(--font-sans)]">
-                  {body}
-                </p>
-              </div>
-
-              {/* Per-card CTA button */}
-              <div
-                className="mt-auto inline-flex items-center justify-center w-full bg-[var(--color-wcu-cta-btn-bg)] hover:bg-[var(--color-wcu-cta-btn-hover)] text-[var(--color-wcu-cta-btn-text)] font-bold text-sm px-6 py-3 rounded-xl transition-colors duration-200 font-[family-name:var(--font-sans)] shadow-sm"
-              >
-                {cta}
-              </div>
+              ))}
             </div>
-          ))}
-        </div>
+          </div>
 
+          {/* ── RIGHT: Hadith + stats box ── */}
+          <div className="lg:sticky lg:top-28">
+            <div className="bg-[var(--color-wcu-card-bg)] border border-[var(--color-wcu-card-border)] rounded-3xl p-8 shadow-lg flex flex-col gap-8">
+
+              {/* Hadith block */}
+              <div className="text-center">
+                {/* Decorative top line */}
+                <div className="flex items-center gap-3 mb-6">
+                  <div className="flex-1 h-px bg-[var(--color-wcu-card-border)]" />
+                  <span className="text-[var(--color-wcu-heading-accent)] text-lg">✦</span>
+                  <div className="flex-1 h-px bg-[var(--color-wcu-card-border)]" />
+                </div>
+
+                <p
+                  className="text-2xl sm:text-3xl font-bold text-[var(--color-wcu-heading)] leading-snug mb-4 tracking-wide"
+                  dir="rtl"
+                  lang="ar"
+                  style={{ fontFamily: "'Amiri', 'Noto Naskh Arabic', serif" }}
+                >
+                  خَيْرُكُمْ مَنْ تَعَلَّمَ الْقُرْآنَ وَعَلَّمَهُ
+                </p>
+
+                <p className="text-[var(--color-wcu-subtext)] text-base sm:text-lg leading-relaxed font-[family-name:var(--font-sans)] italic">
+                  "The best among you are those who learn the Quran and teach it."
+                </p>
+                <p className="text-[var(--color-wcu-card-tag-text)] text-sm font-semibold mt-2 font-[family-name:var(--font-sans)]">
+                  — Sahih Al-Bukhari, 5027
+                </p>
+
+                {/* Decorative bottom line */}
+                <div className="flex items-center gap-3 mt-6">
+                  <div className="flex-1 h-px bg-[var(--color-wcu-card-border)]" />
+                  <span className="text-[var(--color-wcu-heading-accent)] text-lg">✦</span>
+                  <div className="flex-1 h-px bg-[var(--color-wcu-card-border)]" />
+                </div>
+              </div>
+
+              {/* Stats grid */}
+              <div className="grid grid-cols-2 gap-4">
+                {stats.map(({ value, label }) => (
+                  <div
+                    key={label}
+                    className="bg-[var(--color-wcu-card-icon-bg)] rounded-2xl px-4 py-5 text-center border border-[var(--color-wcu-card-border)]"
+                  >
+                    <p className="font-[family-name:var(--font-heading)] font-extrabold text-2xl text-[var(--color-wcu-heading-accent)] leading-none mb-1">
+                      {value}
+                    </p>
+                    <p className="text-[var(--color-wcu-card-text)] text-xs font-semibold uppercase tracking-wide font-[family-name:var(--font-sans)]">
+                      {label}
+                    </p>
+                  </div>
+                ))}
+              </div>
+
+            </div>
+          </div>
+
+        </div>
       </div>
     </section>
   );
