@@ -7,7 +7,7 @@ import FormPopup from "./FormPopup";
 const courses = [
   {
     id: 1,
-    title: "Quran Basic Reading — Noorani Qaida",
+    title: "Quran Basic Reading Noorani Qaida",
     description: "Start from scratch with Noorani Qaida. Learn Arabic letters, vowels, and basic pronunciation with an expert tutor. Perfect for complete beginners and young children aged 5+.",
     imageUrl: "https://res.cloudinary.com/dqnjqcerb/image/upload/v1761369554/uploads/mpqiogcsjxslgiwhtlhu.png",
     tag: "Beginner Friendly",
@@ -17,7 +17,7 @@ const courses = [
   {
     id: 2,
     title: "Online Tajweed Classes",
-    description: "Learn correct Quran recitation with proper Tajweed rules — Makhraj, Sifaat, Madd, Ghunna, and more. Live 1-on-1 classes with real-time audio correction by Ijazah-certified tutors.",
+    description: "Learn correct Quran recitation with proper Tajweed rules Makhraj, Sifaat, Madd, Ghunna, and more. Live 1-on-1 classes with real-time audio correction by Ijazah-certified tutors.",
     imageUrl: "https://images.unsplash.com/photo-1585036156171-384164a8c675?auto=format&fit=crop&q=80&w=600",
     tag: "All Levels",
     // icon: "🎙️",
@@ -26,7 +26,7 @@ const courses = [
   },
   {
     id: 3,
-    title: "Quran Memorization — Hifz Program",
+    title: "Quran Memorization Hifz Program",
     description: "Memorize the Holy Quran with a structured, personalized Hifz plan. Daily revision, Murajaah sessions, and guidance from experienced Huffaz teachers for kids and adults.",
     imageUrl: "https://res.cloudinary.com/dqnjqcerb/image/upload/v1761471265/uploads/krrariibgllamoqg0kyq.jpg",
     tag: "Kids & Adults",
@@ -44,20 +44,20 @@ const courses = [
   {
     id: 5,
     title: "Islamic Studies Online",
-    description: "Build a strong Islamic foundation — Aqeedah, Fiqh, Seerah, essential Duas, and daily ibadah. Structured lessons for children and adults, taught in simple, engaging English.",
+    description: "Build a strong Islamic foundation Aqeedah, Fiqh, Seerah, essential Duas, and daily ibadah. Structured lessons for children and adults, taught in simple, engaging English.",
     imageUrl: "https://images.unsplash.com/photo-1585036156171-384164a8c675?auto=format&fit=crop&q=80&w=600",
     tag: "All Ages",
     // icon: "📚",
   },
   {
     id: 6,
-    title: "Tafseer — Quran Explanation Course",
+    title: "Tafseer Quran Explanation Course",
     description: "Go beyond recitation. Learn the meaning, context, and wisdom behind every verse of the Holy Quran through our structured Tafseer course led by qualified Islamic scholars.",
     imageUrl: "https://images.unsplash.com/photo-1585036156171-384164a8c675?auto=format&fit=crop&q=80&w=600",
     tag: "Intermediate & Advanced",
     // icon: "💡",
   },
-  // Hidden initially — shown after "View More"
+  // Hidden initially shown after "View More"
   {
     id: 7,
     title: "Quran Translation Course",
@@ -69,7 +69,7 @@ const courses = [
   {
     id: 8,
     title: "Online Quran Classes for Kids",
-    description: "Fun, age-appropriate Quran classes for children aged 5+. Patient certified teachers use child-friendly methods — short Surahs, storytelling, and interactive recitation practice.",
+    description: "Fun, age-appropriate Quran classes for children aged 5+. Patient certified teachers use child-friendly methods short Surahs, storytelling, and interactive recitation practice.",
     imageUrl: "https://images.unsplash.com/photo-1585036156171-384164a8c675?auto=format&fit=crop&q=80&w=600",
     tag: "Ages 5–14",
     // icon: "👩‍🏫",
@@ -77,7 +77,7 @@ const courses = [
   {
     id: 9,
     title: "Online Quran Classes for Adults",
-    description: "It is never too late. Our adult Quran classes are designed for working professionals, new Muslims, and anyone reconnecting with the Quran — at your own pace, your own schedule.",
+    description: "It is never too late. Our adult Quran classes are designed for working professionals, new Muslims, and anyone reconnecting with the Quran at your own pace, your own schedule.",
     imageUrl: "https://images.unsplash.com/photo-1585036156171-384164a8c675?auto=format&fit=crop&q=80&w=600",
     tag: "Flexible Timing",
     // icon: "🕌",
@@ -123,7 +123,7 @@ export default function ExploreCourses() {
             </span>
           </h2>
           <p className="text-lg text-[var(--color-neutral-600)] leading-relaxed">
-            From your child's first Arabic letter to full Hifz — our certified tutors guide every student with patience, structure, and genuine care.
+            From your child's first Arabic letter to full Hifz our certified tutors guide every student with patience, structure, and genuine care.
             <strong className="block mt-2 text-[var(--color-primary-800)] font-semibold">Join thousands of global students and start with a 100% Free Trial Class today.</strong>
           </p>
         </div>

@@ -5,28 +5,28 @@ const reasons = [
     icon: "🏆",
     tag: "Certified",
     title: "Ijazah-Certified Quran Tutors",
-    body: "Every tutor holds an Ijazah — the highest traditional Quranic certification, passed through an unbroken chain for over 1,400 years. All tutors are also background-checked and formally trained in online teaching.",
+    body: "Every tutor holds an Ijazah the highest traditional Quranic certification, passed through an unbroken chain for over 1,400 years. All tutors are also background-checked and formally trained in online teaching.",
     cta: "Certified Tutors",
   },
   {
     icon: "👨‍👩‍👧",
     tag: "Your Choice",
-    title: "Male & Female Tutors — You Choose",
+    title: "Male & Female Tutors You Choose",
     body: "We offer both qualified male Ustadhs and female Ustadhas. Parents can select the right tutor for their child. Sisters and ladies can learn comfortably with female-only instructors.",
     cta: "Choose Your Tutor",
   },
   {
     icon: "🕐",
     tag: "Flexible",
-    title: "Flexible Scheduling — Your Time Zone",
-    body: "Morning, evening, or weekend — we work around your schedule. Students in the USA, UK, UAE, and Saudi Arabia can book classes across all time zones without disrupting school or work.",
+    title: "Flexible Scheduling Your Time Zone",
+    body: "Morning, evening, or weekend we work around your schedule. Students in the USA, UK, UAE, and Saudi Arabia can book classes across all time zones without disrupting school or work.",
     cta: "Flexible Timing",
   },
   {
     icon: "🔒",
     tag: "Safe",
     title: "Safe & Monitored Classes for Children",
-    body: "All sessions are recorded and parent-observable. Our online Quran classes for kids follow strict Islamic guidelines and child safety standards — giving parents complete peace of mind.",
+    body: "All sessions are recorded and parent-observable. Our online Quran classes for kids follow strict Islamic guidelines and child safety standards giving parents complete peace of mind.",
     cta: "Child Safety First",
   },
   {
@@ -71,7 +71,7 @@ export default function WhyChooseUs() {
             </h2>
 
             <p className="text-[var(--color-wcu-subtext)] text-base sm:text-lg leading-relaxed font-[family-name:var(--font-sans)] mb-10">
-              We built QuranInstruct around one belief: every Muslim family deserves a genuine, personal connection with the Holy Quran — regardless of where they live.
+              We built QuranInstruct around one belief: every Muslim family deserves a genuine, personal connection with the Holy Quran regardless of where they live.
             </p>
 
             {/* Reason list */}
@@ -128,7 +128,7 @@ export default function WhyChooseUs() {
                   "The best among you are those who learn the Quran and teach it."
                 </p>
                 <p className="text-[var(--color-wcu-card-tag-text)] text-sm font-semibold mt-2 font-[family-name:var(--font-sans)]">
-                  — Sahih Al-Bukhari, 5027
+                 Sahih Al-Bukhari, 5027
                 </p>
 
                 {/* Decorative bottom line */}

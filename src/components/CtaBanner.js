@@ -25,7 +25,7 @@ export default function CtaBanner() {
         </span>
 
         <h3 className="font-(family-name:--font-heading) font-extrabold text-2xl sm:text-3xl lg:text-4xl text-white leading-tight">
-          Start Your Quran Journey Today —<br className="hidden sm:block" />
+          Start Your Quran Journey Today<br className="hidden sm:block" />
           <span className="text-secondary-300"> First Class is FREE</span>
         </h3>
 

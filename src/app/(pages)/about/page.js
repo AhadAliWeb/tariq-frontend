@@ -95,7 +95,7 @@ const VALUES = [
       </svg>
     ),
     title: "For All Ages",
-    desc: "Dedicated programs for kids (5+), adults, and senior learners — each designed for their unique needs.",
+    desc: "Dedicated programs for kids (5+), adults, and senior learners each designed for their unique needs.",
   },
   {
     icon: (
@@ -105,7 +105,7 @@ const VALUES = [
       </svg>
     ),
     title: "Certified Instructors",
-    desc: "Every tutor holds Ijazah certification — the gold standard credential in Quranic education.",
+    desc: "Every tutor holds Ijazah certification the gold standard credential in Quranic education.",
   },
 ];
 
@@ -210,7 +210,7 @@ export default function AboutPage() {
             style={{ color: "var(--color-hero-body)" }}
           >
             We connect Muslims worldwide with certified Quran tutors for personalized,
-            flexible online classes — for every age, every level, every schedule.
+            flexible online classes for every age, every level, every schedule.
           </p>
 
           {/* CTA */}
@@ -315,18 +315,18 @@ export default function AboutPage() {
             </h2>
             <p className="text-base leading-relaxed mb-4" style={{ color: "var(--color-wcu-subtext)" }}>
               We started in 2012 with a simple belief: every Muslim deserves access to high-quality
-              Quran education — regardless of where they live or how busy their schedule is.
+              Quran education regardless of where they live or how busy their schedule is.
             </p>
             <p className="text-base leading-relaxed mb-6" style={{ color: "var(--color-wcu-subtext)" }}>
               What began as a small team of dedicated tutors has grown into a globally trusted academy
               with over 5,000 active students across 30+ countries. Our tutors are certified scholars
-              with Ijazah — an unbroken chain of transmission from the Prophet ﷺ himself.
+              with Ijazah an unbroken chain of transmission from the Prophet ﷺ himself.
             </p>
             <ul className="space-y-3">
               {[
                 "One-on-one live sessions via Zoom or Skype",
                 "Structured curriculum from Noorani Qaida to Hifz",
-                "Free trial class — no commitment required",
+                "Free trial class no commitment required",
               ].map((item) => (
                 <li key={item} className="flex items-start gap-3 text-sm" style={{ color: "var(--color-wcu-subtext)" }}>
                   <span

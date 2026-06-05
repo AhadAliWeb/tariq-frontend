@@ -119,7 +119,7 @@ export default function HeroSection() {
             </h1>
 
             <p className="text-[var(--color-hero-body)]/75 text-sm sm:text-lg leading-relaxed max-w-lg font-[family-name:var(--font-sans)]">
-              Join 2,000+ families across the USA, UK, UAE, and Saudi Arabia who learn Quran online with QuranInstruct. Certified Ijazah tutors, flexible scheduling, and live 1-on-1 classes for kids and adults — from the comfort of your home.
+              Join 2,000+ families across the USA, UK, UAE, and Saudi Arabia who learn Quran online with QuranInstruct. Certified Ijazah tutors, flexible scheduling, and live 1-on-1 classes for kids and adults from the comfort of your home.
               <span className="text-[var(--color-hero-headline-accent)] font-semibold">
                 {" "}
                 First class is FREE.
@@ -191,7 +191,7 @@ export default function HeroSection() {
                     </label>
                     <PhoneInput
                       international
-                      defaultCountry="US"
+                      defaultCountry="GB"
                       value={phone}
                       onChange={setPhone}
                       className="p-2 border border-white/10 rounded-md"

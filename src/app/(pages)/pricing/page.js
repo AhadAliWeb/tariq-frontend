@@ -158,7 +158,7 @@ export default function PricingPage() {
         <div className="text-center mb-12">
           <div className="inline-flex items-center gap-2 bg-[#2f8f68]/20 border border-[#2f8f68]/30 rounded-full px-4 py-1.5 mb-5">
             <span className="w-1.5 h-1.5 rounded-full bg-[#4caf83] animate-ping" />
-            <span className="text-[#80c9a6] text-xs font-semibold tracking-widest uppercase">Enrolling Now — Limited Spots</span>
+            <span className="text-[#80c9a6] text-xs font-semibold tracking-widest uppercase">Enrolling Now Limited Spots</span>
           </div>
 
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-4">
@@ -198,7 +198,7 @@ export default function PricingPage() {
         {/* Savings Banner */}
         <div className="text-center mb-8">
           <span className="inline-flex items-center gap-2 bg-[#c9a24a]/10 border border-[#c9a24a]/30 rounded-lg px-4 py-2 text-[#c9a24a] text-sm font-medium">
-            🎉 <strong>Launch Offer:</strong> Save up to 30% — Limited time only!
+            🎉 <strong>Launch Offer:</strong> Save up to 30% Limited time only!
           </span>
         </div>
 
@@ -277,7 +277,7 @@ export default function PricingPage() {
           <div className="inline-flex items-center gap-3 bg-[#12352a]/80 border border-[#2f8f68]/30 rounded-2xl px-5 py-4 max-w-xl text-center">
             <span className="text-2xl shrink-0" aria-hidden>🤲</span>
             <p className="text-sm text-[#b3dfc7] leading-relaxed">
-              <strong className="text-[#c9a24a]">Supporting every family —</strong>{" "}
+              <strong className="text-[#c9a24a]">Supporting every family</strong>{" "}
               Low-income families are offered a{" "}
               <strong className="text-white">10% discount</strong> on any plan.
               Reach out via WhatsApp or the contact form to apply.

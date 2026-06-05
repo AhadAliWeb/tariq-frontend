@@ -298,7 +298,7 @@ export default function FormPopup({ isOpen: controlledIsOpen, onClose: controlle
                                             <Phone size={15} className={`shrink-0 transition-colors duration-200 ${errors.phone ? "text-red-400" : "text-primary-400"}`} />
                                             <PhoneInput
                                                 international
-                                                defaultCountry="US"
+                                                defaultCountry="GB"
                                                 value={phone}
                                                 onChange={(v) => { setPhone(v ?? ""); clearError("phone") }}
                                                 numberInputProps={{ className: "PhoneInputInput", placeholder: "WhatsApp Number" }}

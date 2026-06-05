@@ -27,7 +27,7 @@ const FEATURES = [
     tag: "Flexible Schedule",
     title: "Learn at Your Own Pace",
     desc:
-      "Morning, evening, or weekend — our scholars adapt to your timezone and lifestyle. No rigid timetables, just consistent spiritual growth on your terms.",
+      "Morning, evening, or weekend our scholars adapt to your timezone and lifestyle. No rigid timetables, just consistent spiritual growth on your terms.",
     proof: "Available 24/7 across all timezones",
   },
   {
@@ -42,7 +42,7 @@ const FEATURES = [
     tag: "Certified Scholars",
     title: "One-on-One with Real Ustadhs",
     desc:
-      "Every lesson is live and personal. Our Huffaz and certified scholars from Al-Azhar and Madinah University give you undivided attention — no pre-recordings, no bots.",
+      "Every lesson is live and personal. Our Huffaz and certified scholars from Al-Azhar and Madinah University give you undivided attention no pre-recordings, no bots.",
     proof: "Ijazah-certified teachers",
   },
   {
@@ -56,7 +56,7 @@ const FEATURES = [
     tag: "Full Curriculum",
     title: "From Qaida to Full Hifz",
     desc:
-      "Whether your child is reading their first letter or an adult reclaiming their connection to the Quran — we have a structured, proven path for every level.",
+      "Whether your child is reading their first letter or an adult reclaiming their connection to the Quran we have a structured, proven path for every level.",
     proof: "Beginner → Hifz programs",
   },
   {
@@ -93,7 +93,7 @@ const FEATURES = [
     tag: "Affordable",
     title: "World-Class at Honest Prices",
     desc:
-      "Premium Islamic education shouldn't be a luxury. We offer flexible payment plans, sibling discounts, and a full 7-day free trial — no credit card required.",
+      "Premium Islamic education shouldn't be a luxury. We offer flexible payment plans, sibling discounts, and a full 7-day free trial no credit card required.",
     proof: "Free trial, no commitment",
   },
 ];
@@ -194,7 +194,7 @@ export default function WhyStudyWithUs() {
               "{HADITH.translation}"
             </p>
             <p className="text-xs mt-1 font-semibold tracking-wide" style={{ color: "var(--color-secondary-600)" }}>
-              — {HADITH.source}
+              {HADITH.source}
             </p>
           </div>
 
@@ -217,7 +217,7 @@ export default function WhyStudyWithUs() {
                 <path d="M0 8 Q75 2 150 6 Q225 10 300 4" stroke="var(--color-secondary-400)" strokeWidth="2.5" strokeLinecap="round" />
               </svg>
             </span>
-            {" "}— and We Deliver It.
+            {" "}and We Deliver It.
           </h2>
 
           <p
@@ -226,7 +226,7 @@ export default function WhyStudyWithUs() {
           >
             Thousands of Muslims in the UK, USA, Canada & Australia have already transformed
             their relationship with the Holy Quran through our live, one-on-one online classes.
-            Here's exactly why they chose us — and why you should too.
+            Here's exactly why they chose us and why you should too.
           </p>
 
           <p

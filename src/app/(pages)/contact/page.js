@@ -262,7 +262,7 @@ export default function Contact() {
                                                 <PhoneInput
                                                     international
                                                     id="phone"
-                                                    defaultCountry="US"
+                                                    defaultCountry="GB"
                                                     value={phoneValue}
                                                     onChange={setPhoneValue}
                                                     className="p-2"

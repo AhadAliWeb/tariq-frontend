@@ -276,7 +276,7 @@ export default function PricingSection() {
               «خَيْرُكُمْ مَنْ تَعَلَّمَ الْقُرْآنَ وَعَلَّمَهُ»
             </p>
             <p className="mt-1.5 text-xs text-[var(--color-neutral-500)] tracking-wide">
-              "The best among you are those who learn the Quran and teach it." — Sahih al-Bukhari 5027
+              "The best among you are those who learn the Quran and teach it." Sahih al-Bukhari 5027
             </p>
           </div>
 
@@ -291,12 +291,12 @@ export default function PricingSection() {
           <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[var(--color-primary-900)] leading-tight mb-4">
             Invest in Your Child&apos;s{" "}
             <span className="text-[var(--color-secondary-500)]">Quranic Journey</span>
-            <br className="hidden sm:block" /> — Less Than a Cup of Coffee a Day
+            <br className="hidden sm:block" /> Less Than a Cup of Coffee a Day
           </h2>
 
           <p className="max-w-2xl mx-auto text-[var(--color-neutral-600)] text-base sm:text-lg leading-relaxed">
             Live 1-on-1 sessions with certified tutors. No hidden fees, no long-term lock-in.
-            Choose the schedule that fits your family — and start with a{" "}
+            Choose the schedule that fits your family and start with a{" "}
             <strong className="text-[var(--color-primary-700)]">100% free trial class</strong> today.
           </p>
 
@@ -350,7 +350,7 @@ export default function PricingSection() {
           <div className="inline-flex items-start gap-3 px-5 py-4 rounded-2xl bg-[var(--color-primary-50)] border border-[var(--color-primary-100)] max-w-xl text-center sm:text-left sm:flex-row flex-col sm:items-center">
             <span className="text-2xl shrink-0" aria-hidden>🤲</span>
             <p className="text-sm text-[var(--color-neutral-600)] leading-relaxed">
-              <strong className="text-[var(--color-primary-700)]">Supporting every family —</strong>{" "}
+              <strong className="text-[var(--color-primary-700)]">Supporting every family</strong>{" "}
               Low-income families are offered a{" "}
               <strong className="text-[var(--color-primary-700)]">10% discount</strong> on any plan.
               Reach out to us via WhatsApp or the contact form to apply.

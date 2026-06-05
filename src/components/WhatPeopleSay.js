@@ -51,14 +51,14 @@ export default function WhatPeopleSay() {
                 setActiveIndex(i);
               }
 
-              // Video ended — advance to next unless user paused
+              // Video ended advance to next unless user paused
               if (event.data === YT.PlayerState.ENDED) {
                 if (!userPaused.current) {
                   const next = i + 1;
                   if (next < videos.length && playersReady.current[next]) {
                     currentIndex.current = next;
                     setActiveIndex(next);
-                    // Unmute subsequent videos — autoplay is already unblocked by this point
+                    // Unmute subsequent videos autoplay is already unblocked by this point
                     playersReady.current[next].unMute();
                     playersReady.current[next].playVideo();
                   }
@@ -82,7 +82,7 @@ export default function WhatPeopleSay() {
         window.onYouTubeIframeAPIReady = initPlayers;
         return;
       }
-      // Case 3: First load — inject script
+      // Case 3: First load inject script
       window.onYouTubeIframeAPIReady = initPlayers;
       const tag = document.createElement("script");
       tag.src = "https://www.youtube.com/iframe_api";
@@ -113,7 +113,7 @@ export default function WhatPeopleSay() {
               «خَيْرُكُمْ مَنْ تَعَلَّمَ الْقُرْآنَ وَعَلَّمَهُ»
             </p>
             <p className="text-xs text-[var(--color-primary-200)] mt-2 text-center">
-              "The best of you are those who learn the Quran and teach it." —{" "}
+              "The best of you are those who learn the Quran and teach it."{" "}
               <em>Sahih al-Bukhari</em>
             </p>
           </div>
@@ -127,13 +127,13 @@ export default function WhatPeopleSay() {
           </h2>
 
           <p className="mt-4 text-[var(--color-wcu-subtext)] text-base sm:text-lg leading-relaxed">
-            Don't take our word for it — hear directly from the students and
+            Don't take our word for it hear directly from the students and
             families whose lives have been transformed through the light of the
             Quran.
           </p>
         </div>
 
-        {/* YouTube Embeds — single row, scrollable on mobile */}
+        {/* YouTube Embeds single row, scrollable on mobile */}
         <div className="flex gap-4 overflow-x-auto pb-2 lg:grid lg:grid-cols-4 lg:overflow-visible">
           {videos.map((video, i) => (
             <div

@@ -25,7 +25,7 @@ const testimonials = [
     rating: 5,
     course: "Tajweed Intensive",
     quote:
-      "I tried learning Tajweed from YouTube for years — nothing clicked. Within 4 weeks here, my recitation transformed completely. The one-on-one sessions are a game changer. Highly recommend to every Muslim professional.",
+      "I tried learning Tajweed from YouTube for years nothing clicked. Within 4 weeks here, my recitation transformed completely. The one-on-one sessions are a game changer. Highly recommend to every Muslim professional.",
   },
   {
     id: 3,
@@ -36,7 +36,7 @@ const testimonials = [
     rating: 5,
     course: "Beginner Course",
     quote:
-      "I grew up not knowing how to read Arabic. At 22, I finally took the leap. My teacher never made me feel embarrassed — only encouraged. Now I pray with full understanding. This is the best investment I've ever made.",
+      "I grew up not knowing how to read Arabic. At 22, I finally took the leap. My teacher never made me feel embarrassed only encouraged. Now I pray with full understanding. This is the best investment I've ever made.",
   },
   {
     id: 4,
@@ -58,7 +58,7 @@ const testimonials = [
     rating: 5,
     course: "Tafseer Program",
     quote:
-      "Learning Tafseer changed how I connect with the Quran in salah. I cry in my prayers now because I understand what Allah is saying to me. This course is not just education — it is spiritual healing.",
+      "Learning Tafseer changed how I connect with the Quran in salah. I cry in my prayers now because I understand what Allah is saying to me. This course is not just education it is spiritual healing.",
   },
   {
     id: 6,
@@ -182,7 +182,7 @@ export default function StudentTestimonials() {
             </p>
             <p className="text-xs text-[var(--color-neutral-500)] mt-3 text-center">
               "Whoever treads a path seeking knowledge, Allah will make easy for
-              him a path to Paradise." — <em>Sahih Muslim</em>
+              him a path to Paradise." <em>Sahih Muslim</em>
             </p>
           </div>
 
@@ -306,7 +306,7 @@ export default function StudentTestimonials() {
               <>
                 <PhoneInput
                   international
-                  defaultCountry="US"
+                  defaultCountry="GB"
                   value={phone}
                   onChange={setPhone}
                   className="bg-white p-2 border border-white/10 rounded-3xl"

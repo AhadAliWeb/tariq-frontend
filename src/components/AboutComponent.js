@@ -5,7 +5,7 @@ import { useState } from "react";
 const qaItems = [
   {
     q: "Is QuranInstruct suitable for complete beginners?",
-    a: "Yes. QuranInstruct offers beginner Quran courses starting from Noorani Qaida — the foundational Arabic reading guide. Tutors assess each student's current level before the first paid session and build a personalized learning plan accordingly. No prior knowledge of Arabic is required.",
+    a: "Yes. QuranInstruct offers beginner Quran courses starting from Noorani Qaida the foundational Arabic reading guide. Tutors assess each student's current level before the first paid session and build a personalized learning plan accordingly. No prior knowledge of Arabic is required.",
   },
   {
     q: "How does QuranInstruct work for kids in the USA, UK, or UAE?",
@@ -13,7 +13,7 @@ const qaItems = [
   },
   {
     q: "Are the tutors at QuranInstruct qualified?",
-    a: "Every tutor at QuranInstruct holds an Ijazah — the highest traditional Islamic certification in Quranic teaching, transmitted through an unbroken chain from the Prophet ﷺ. Tutors are also background-checked and trained in modern online pedagogy. Both male and female tutors are available.",
+    a: "Every tutor at QuranInstruct holds an Ijazah the highest traditional Islamic certification in Quranic teaching, transmitted through an unbroken chain from the Prophet ﷺ. Tutors are also background-checked and trained in modern online pedagogy. Both male and female tutors are available.",
   },
   {
     q: "What is the cost of online Quran classes at QuranInstruct?",
@@ -67,7 +67,7 @@ function QAItem({ item, index }) {
         </span>
       </button>
 
-      {/* Answer — animated expand */}
+      {/* Answer animated expand */}
       <div
         className={`grid transition-all duration-300 ease-in-out ${open ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"}`}
       >
@@ -132,17 +132,17 @@ export default function AboutComponent() {
               className="text-white font-bold text-base md:text-lg"
               
             >
-              QuranInstruct — Online Quran Academy
+              QuranInstruct Online Quran Academy
             </h3>
           </div>
 
           {/* Card body */}
           <div className="px-6 py-6 space-y-4 text-emerald-100/85 text-sm md:text-base leading-relaxed" >
             <p>
-              <strong className="text-white">QuranInstruct</strong> is an online Quran academy offering live, one-on-one Quran classes for children and adults across the USA, UK, United Arab Emirates, and Saudi Arabia. The platform connects students with Ijazah-certified male and female Quran tutors who deliver personalized lessons in Quran recitation, Tajweed, Hifz (memorization), Arabic language, Islamic Studies, and Tafseer — all from the comfort of the student's home.
+              <strong className="text-white">QuranInstruct</strong> is an online Quran academy offering live, one-on-one Quran classes for children and adults across the USA, UK, United Arab Emirates, and Saudi Arabia. The platform connects students with Ijazah-certified male and female Quran tutors who deliver personalized lessons in Quran recitation, Tajweed, Hifz (memorization), Arabic language, Islamic Studies, and Tafseer all from the comfort of the student's home.
             </p>
             <p>
-              Unlike recorded video courses, QuranInstruct uses real-time, interactive sessions via secure video platforms. Each student is matched with a tutor suited to their level, age, and goals — whether they are a complete beginner starting with Noorani Qaida, a child memorizing Juz Amma, or an adult seeking to perfect their Makhraj and Tajweed rules. All sessions are conducted under strict Islamic guidelines with a safe, monitored environment for children.
+              Unlike recorded video courses, QuranInstruct uses real-time, interactive sessions via secure video platforms. Each student is matched with a tutor suited to their level, age, and goals whether they are a complete beginner starting with Noorani Qaida, a child memorizing Juz Amma, or an adult seeking to perfect their Makhraj and Tajweed rules. All sessions are conducted under strict Islamic guidelines with a safe, monitored environment for children.
             </p>
             <p>
               Students in the United States, United Kingdom, Canada, Australia, UAE, and Saudi Arabia benefit from flexible time zones, affordable pricing starting from{" "}
