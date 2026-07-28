@@ -30,7 +30,7 @@ const footerLinks = [
     links: [
       { label: "📧 quraninstruct@gmail.com", href: "mailto:quraninstruct@gmail.com" },
       { label: "📞 +44 7414 270 363", href: "tel:+447414270363" },
-      { label: "💬 WhatsApp Us", href: "https://wa.me/13322525428?text=Assalam o Aliakum. I want to enroll for the Demo Class.", whatsapp: true },
+      { label: "💬 +1 3322525428 (Whatsapp)", href: "https://wa.me/13322525428?text=Assalam o Aliakum. I want to enroll for the Demo Class.", whatsapp: true },
       { label: "Privacy Policy", href: "#" },
       { label: "Refund Policy", href: "#" },
     ],
