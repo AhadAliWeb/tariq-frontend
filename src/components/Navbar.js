@@ -4,6 +4,7 @@ import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image"
 import FormPopup from "./FormPopup";
+import ContactStrip from "./ContactStrip";
 
 const links = [
   { label: "Home", href: "/" },
@@ -134,6 +135,8 @@ export default function Navbar() {
         : "bg-transparent text-white"
         }`}
     >
+       {/* Contact Strip — sits right below the main nav row, part of the same fixed header */}
+      <ContactStrip />
       <FormPopup isOpen={popupOpen} onClose={() => setPopupOpen(false)} />
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
 
@@ -194,6 +197,8 @@ export default function Navbar() {
           </button>
         </div>
       </nav>
+
+     
 
       {/* Mobile Menu */}
       <div

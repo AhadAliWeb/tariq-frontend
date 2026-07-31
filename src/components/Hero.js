@@ -94,7 +94,7 @@ export default function HeroSection() {
       </div>
 
       {/* ── Content ── */}
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-8 lg:px-16 py-10 sm:py-14 lg:py-20 mt-14 sm:mt-16 lg:mt-20">
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-8 lg:px-16 py-10 sm:py-14 lg:py-20 mt-14 sm:mt-16 lg:mt-20" style={{paddingTop: "150px"}}>
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-20 items-center">
 
           {/* LEFT — Copy */}

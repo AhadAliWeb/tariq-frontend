@@ -14,6 +14,7 @@ import Chat from "@/components/Chat";
 import AutoPopup from "@/components/AutoPopup";
 import CountrySlider from "@/components/CountrySlider";
 import AboutComponent from "@/components/AboutComponent";
+import ContactStrip from "@/components/ContactStrip";
 
 
 
