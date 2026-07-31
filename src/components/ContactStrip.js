@@ -7,32 +7,36 @@ export default function ContactStrip() {
       className="flex flex-wrap items-center justify-center gap-x-7 gap-y-2 px-4 py-2.5 text-[0.9rem] font-semibold"
       style={{ backgroundColor: BG_COLOR }}
     >
-      <a
-        href="tel:+447414270363"
-        aria-label="Call UK number"
-        className="inline-flex items-center gap-2 whitespace-nowrap no-underline transition-opacity hover:underline hover:opacity-70"
-        style={{ color: TEXT_COLOR }}
-      >
-        <PhoneIcon />
-        <span>UK: +44 7414 270 363</span>
-      </a>
+      {/* Group 1: Phone + WhatsApp stay on the same line */}
+      <div className="flex flex-nowrap items-center gap-x-5">
+        <a
+          href="tel:+447414270363"
+          aria-label="Call UK number"
+          className="inline-flex items-center gap-2 whitespace-nowrap no-underline transition-opacity hover:underline hover:opacity-70"
+          style={{ color: TEXT_COLOR }}
+        >
+          <PhoneIcon />
+          <span>UK: +44 7414 270 363</span>
+        </a>
 
-      <a
-        href="https://wa.me/13322525428?text=Assalam o Aliakum. I want to enroll for the Demo Class."
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="Message US number on WhatsApp"
-        className="inline-flex items-center gap-2 whitespace-nowrap no-underline transition-opacity hover:underline hover:opacity-70 ml-2"
-        style={{ color: TEXT_COLOR }}
-      >
-        <WhatsAppIcon />
-        <span>US: +1 332 252 5428</span>
-      </a>
+        <a
+          href="https://wa.me/13322525428?text=Assalam o Aliakum. I want to enroll for the Demo Class."
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Message US number on WhatsApp"
+          className="inline-flex items-center gap-2 whitespace-nowrap no-underline transition-opacity hover:underline hover:opacity-70"
+          style={{ color: TEXT_COLOR }}
+        >
+          <WhatsAppIcon />
+          <span>US: +1 332 252 5428</span>
+        </a>
+      </div>
 
+      {/* Group 2: Email on its own line when wrapped */}
       <a
         href="mailto:quraninstruct@gmail.com"
         aria-label="Email us"
-        className="inline-flex items-center gap-2 whitespace-nowrap no-underline transition-opacity hover:underline hover:opacity-70 ml-2"
+        className="inline-flex items-center gap-2 whitespace-nowrap no-underline transition-opacity hover:underline hover:opacity-70"
         style={{ color: TEXT_COLOR }}
       >
         <MailIcon />
