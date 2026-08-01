@@ -15,6 +15,7 @@ import AutoPopup from "@/components/AutoPopup";
 import CountrySlider from "@/components/CountrySlider";
 import AboutComponent from "@/components/AboutComponent";
 import ContactStrip from "@/components/ContactStrip";
+import ContactForm from "@/components/ContactForm";
 
 
 
@@ -25,6 +26,7 @@ export default function RootLayout({ children }) {
       <Hero />
       <CountrySlider />
       <AboutComponent />
+      <ContactForm />
       <WhyChooseUs />
       <CtaBanner />
       <ExploreCourses />
