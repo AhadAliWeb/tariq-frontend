@@ -4,18 +4,20 @@ import { useEffect, useState } from "react";
 import PhoneInput from "react-phone-number-input";
 import "react-phone-number-input/style.css";
 import { parsePhoneNumber, isValidPhoneNumber } from "react-phone-number-input";
+import { useCountry } from "@/hooks/useCountry";
 
 export default function HeroSection() {
   const [phone, setPhone] = useState("");
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState(null);
+  const country = useCountry();
+
+  console.log(country);
 
   const handleSubmit = async () => {
 
 
     if (!phone) return;
-
-
     
 
     setError(null);
@@ -191,7 +193,7 @@ export default function HeroSection() {
                     </label>
                     <PhoneInput
                       international
-                      defaultCountry="GB"
+                      defaultCountry={country}
                       value={phone}
                       onChange={setPhone}
                       className="p-2 border border-white/10 rounded-md"
