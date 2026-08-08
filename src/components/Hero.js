@@ -110,7 +110,7 @@ export default function HeroSection() {
 
             <h1 className="font-[family-name:var(--font-heading)] font-extrabold text-white leading-[1.1]">
               <span className="text-3xl sm:text-5xl xl:text-6xl block">
-                Learn Quran Online
+                Learn Quran Online, this is testing
               </span>
               <span className="text-3xl sm:text-5xl xl:text-6xl block mt-1">
                 Live, Personal &
