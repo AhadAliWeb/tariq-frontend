@@ -12,7 +12,6 @@ export default function HeroSection() {
   const [error, setError] = useState(null);
   const country = useCountry();
 
-  console.log(country);
 
   const handleSubmit = async () => {
 
@@ -110,7 +109,7 @@ export default function HeroSection() {
 
             <h1 className="font-[family-name:var(--font-heading)] font-extrabold text-white leading-[1.1]">
               <span className="text-3xl sm:text-5xl xl:text-6xl block">
-                Learn Quran Online, this is testing
+                Learn Quran Online
               </span>
               <span className="text-3xl sm:text-5xl xl:text-6xl block mt-1">
                 Live, Personal &

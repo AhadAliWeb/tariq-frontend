@@ -7,6 +7,8 @@ import {
     Phone, Mail, MessageCircle, Send, User,
     CheckCircle, Star, BookOpen, HelpCircle,
 } from "lucide-react";
+import { useCountry } from "@/hooks/useCountry";
+
 
 const CONTACT_CHANNELS = [
     {
@@ -49,6 +51,7 @@ export default function Contact() {
     const [submitted, setSubmitted] = useState(false);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState("");
+    const country = useCountry();
 
     const handleChange = (e) =>
         setForm({ ...form, [e.target.name]: e.target.value });
@@ -262,7 +265,7 @@ export default function Contact() {
                                                 <PhoneInput
                                                     international
                                                     id="phone"
-                                                    defaultCountry="GB"
+                                                    defaultCountry={country}
                                                     value={phoneValue}
                                                     onChange={setPhoneValue}
                                                     className="p-2"

@@ -3,6 +3,7 @@ import { useState } from "react";
 import PhoneInput from "react-phone-number-input"
 import "react-phone-number-input/style.css"
 import { parsePhoneNumber } from "react-phone-number-input"
+import { useCountry } from "@/hooks/useCountry";
 
 const testimonials = [
   {
@@ -99,6 +100,7 @@ export default function StudentTestimonials() {
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState("")
+  const country = useCountry()
 
   const prev = () =>
     setCurrent((c) => (c - 1 + testimonials.length) % testimonials.length);
@@ -306,7 +308,7 @@ export default function StudentTestimonials() {
               <>
                 <PhoneInput
                   international
-                  defaultCountry="GB"
+                  defaultCountry={country}
                   value={phone}
                   onChange={setPhone}
                   className="bg-white p-2 border border-white/10 rounded-3xl"

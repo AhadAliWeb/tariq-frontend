@@ -5,6 +5,8 @@ import { X, CheckCircle } from "lucide-react"
 import PhoneInput from "react-phone-number-input"
 import { parsePhoneNumber, isValidPhoneNumber } from "react-phone-number-input"
 import "react-phone-number-input/style.css"
+import { useCountry } from "@/hooks/useCountry"
+
 
 
 export default function FormPopup({ isOpen, onClose }) {
@@ -12,6 +14,7 @@ export default function FormPopup({ isOpen, onClose }) {
     const [submitted, setSubmitted] = useState(false)
     const [loading, setLoading] = useState(false)
     const [error, setError] = useState("")
+    const country = useCountry();
 
     useEffect(() => {
         if (!isOpen) { setPhone(""); setSubmitted(false) }
@@ -113,7 +116,7 @@ export default function FormPopup({ isOpen, onClose }) {
 
                         <PhoneInput
                             international
-                            defaultCountry="GB"
+                            defaultCountry={country}
                             value={phone}
                             onChange={setPhone}
                             className="p-2 border border-white/10 rounded-md"

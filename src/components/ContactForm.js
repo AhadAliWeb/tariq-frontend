@@ -12,6 +12,8 @@ import {
 } from "lucide-react";
 import PhoneInput, { isValidPhoneNumber } from "react-phone-number-input";
 import "react-phone-number-input/style.css";
+import { useCountry } from "@/hooks/useCountry";
+
 
 const INITIAL_FORM = {
     name: "",
@@ -25,6 +27,7 @@ export default function TrialClassForm() {
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState("");
     const [submitted, setSubmitted] = useState(false);
+    const country = useCountry();
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -132,7 +135,7 @@ export default function TrialClassForm() {
                                     <PhoneInput
                                         international
                                         id="phone"
-                                        defaultCountry="GB"
+                                        defaultCountry={country}
                                         value={phoneValue}
                                         onChange={setPhoneValue}
                                         className="p-2"

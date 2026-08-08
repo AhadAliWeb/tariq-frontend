@@ -5,6 +5,7 @@ import { X, CheckCircle, User, Mail, MessageSquare, Phone } from "lucide-react"
 import PhoneInput, { isValidPhoneNumber } from "react-phone-number-input"
 import { parsePhoneNumber } from "react-phone-number-input"
 import "react-phone-number-input/style.css"
+import { useCountry } from "@/hooks/useCountry"
 
 const AUTO_SHOW_DELAY = 8000
 const SESSION_KEY = "free_trial_popup_shown"
@@ -71,6 +72,7 @@ export default function FormPopup({ isOpen: controlledIsOpen, onClose: controlle
     const [submitted, setSubmitted] = useState(false)
     const [loading, setLoading] = useState(false)
     const [serverError, setServerError] = useState("")
+    const country = useCountry();
 
     const isControlled = controlledIsOpen !== undefined
     const isOpen = isControlled ? controlledIsOpen : autoOpen
@@ -298,7 +300,7 @@ export default function FormPopup({ isOpen: controlledIsOpen, onClose: controlle
                                             <Phone size={15} className={`shrink-0 transition-colors duration-200 ${errors.phone ? "text-red-400" : "text-primary-400"}`} />
                                             <PhoneInput
                                                 international
-                                                defaultCountry="GB"
+                                                defaultCountry={country}
                                                 value={phone}
                                                 onChange={(v) => { setPhone(v ?? ""); clearError("phone") }}
                                                 numberInputProps={{ className: "PhoneInputInput", placeholder: "WhatsApp Number" }}
