@@ -7,7 +7,7 @@ import { parsePhoneNumber } from "react-phone-number-input"
 import "react-phone-number-input/style.css"
 import { useCountry } from "@/hooks/useCountry"
 
-const AUTO_SHOW_DELAY = 8000
+const AUTO_SHOW_DELAY = 60000
 const SESSION_KEY = "free_trial_popup_shown"
 
 function FieldWrapper({ children, error }) {

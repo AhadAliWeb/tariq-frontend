@@ -16,6 +16,8 @@ import CountrySlider from "@/components/CountrySlider";
 import AboutComponent from "@/components/AboutComponent";
 import ContactStrip from "@/components/ContactStrip";
 import ContactForm from "@/components/ContactForm";
+import BottomStrip from "@/components/BottomStrip";
+import CallButton from "@/components/CallButton";
 
 
 
@@ -33,11 +35,13 @@ export default function RootLayout({ children }) {
       <WhyStudyWithUs />
       <WhatPeopleSay />
       <StudentTestimonials />
-      <Pricing />
-      <WhatsAppButton />
+      {/* <Pricing /> */}
+      {/* <CallButton /> */}
       <Footer />
       <Chat />
       <AutoPopup />
+      <BottomStrip />
+      <WhatsAppButton />
     </>
   );
 }
