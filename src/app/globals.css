@@ -307,3 +307,12 @@
 
   --animate-ping-soft: ping-soft 1.5s ease-out infinite;
 }
+
+
+.us-page {
+--color-primary: #0F5132;
+--color-secondary: #C9A24A;
+--color-background: #FAF8F1;
+--color-text: #1F2933;
+--color-surface: #FFFFFF;
+}
