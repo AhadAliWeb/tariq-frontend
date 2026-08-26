@@ -88,14 +88,14 @@ export default function HeroSection() {
             Where Kids Fall in Love with the Qur&apos;an
           </div>
 
-          <h1 className="us-page mt-6 text-4xl font-extrabold leading-tight text-[var(--color-text)] sm:text-5xl lg:text-[3.25rem]">
+          <h1 className="us-page mt-6 text-3xl font-extrabold leading-tight text-[var(--color-text)] sm:text-4xl lg:text-5xl xl:text-[3.25rem]">
             Quran Classes Your Child Will{' '}
             <span className="us-page text-[var(--color-primary)] underline decoration-wavy decoration-4 underline-offset-8 decoration-[var(--color-secondary)]">
               Actually Look Forward To
             </span>
           </h1>
 
-          <p className="us-page mx-auto mt-5 max-w-lg text-lg text-[var(--color-text)] opacity-70 lg:mx-0">
+          <p className="us-page mx-auto mt-5 max-w-lg text-base text-[var(--color-text)] opacity-70 sm:text-lg lg:mx-0">
             Live 1-on-1 online classes with certified, kid-friendly tutors — Qaida, Tajweed, Hifz &amp; more.
             Fun for your child, trusted by parents.
           </p>
@@ -151,7 +151,7 @@ export default function HeroSection() {
             <p className="us-page mt-4 text-sm font-semibold uppercase tracking-wide text-[var(--color-primary)]">
               Free Trial Class
             </p>
-            <h2 className="us-page mt-1 text-2xl font-extrabold text-[var(--color-text)] sm:text-3xl">
+            <h2 className="us-page mt-1 text-xl font-extrabold text-[var(--color-text)] sm:text-2xl lg:text-3xl">
               Claim Your Child&apos;s Free Trial!
             </h2>
             <p className="us-page mt-2 text-sm text-[var(--color-text)] opacity-70">

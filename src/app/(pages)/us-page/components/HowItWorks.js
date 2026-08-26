@@ -62,7 +62,7 @@ export default function HowItWorks() {
           <p className="us-page text-sm font-semibold uppercase tracking-wide text-[var(--color-primary)]">
             How it works
           </p>
-          <h2 className="us-page mt-2 text-3xl font-extrabold text-[var(--color-text)] sm:text-4xl">
+          <h2 className="us-page mt-2 text-2xl font-extrabold text-[var(--color-text)] sm:text-3xl lg:text-4xl">
             Three Steps to Your First Live Class
           </h2>
         </div>
@@ -79,7 +79,7 @@ export default function HowItWorks() {
                 style={{ transitionDelay: revealed ? `${i * 120}ms` : '0ms' }}
               >
                 <span
-                  className="us-page block text-6xl font-extrabold leading-none"
+                  className="us-page block text-4xl font-extrabold leading-none sm:text-5xl lg:text-6xl"
                   style={{ color: step.color, opacity: 0.14 }}
                 >
                   {String(i + 1).padStart(2, '0')}
@@ -92,7 +92,7 @@ export default function HowItWorks() {
                   <Icon className="us-page h-6 w-6" style={{ color: step.color }} />
                 </div>
 
-                <h3 className="us-page text-lg font-bold text-[var(--color-text)]">{step.title}</h3>
+                <h3 className="us-page text-base font-bold text-[var(--color-text)] sm:text-lg">{step.title}</h3>
                 <p className="us-page mt-2 text-sm leading-relaxed text-[var(--color-text)] opacity-70">
                   {step.desc}
                 </p>

@@ -65,7 +65,7 @@ export default function Testimonials() {
           <p className="us-page text-sm font-semibold uppercase tracking-wide text-[var(--color-primary)]">
             Families across the USA
           </p>
-          <h2 className="us-page mt-2 text-3xl font-extrabold text-[var(--color-text)] sm:text-4xl">
+          <h2 className="us-page mt-2 text-2xl font-extrabold text-[var(--color-text)] sm:text-3xl lg:text-4xl">
             What Parents Are Saying
           </h2>
         </div>

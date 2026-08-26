@@ -95,7 +95,7 @@ export default function TrialCountdownBand() {
             <p className="us-page text-sm font-semibold uppercase tracking-wide text-[var(--color-secondary)]">
               Limited trial spots this week
             </p>
-            <h2 className="us-page mt-2 text-2xl font-extrabold leading-tight text-white sm:text-3xl">
+            <h2 className="us-page mt-2 text-xl font-extrabold leading-tight text-white sm:text-2xl lg:text-3xl">
               Book Your Family&apos;s Free Trial Class Today
             </h2>
             <p className="us-page mx-auto mt-2 max-w-md text-sm text-white/70 lg:mx-0">
@@ -119,7 +119,7 @@ export default function TrialCountdownBand() {
                   <div className="us-page flex h-16 w-16 items-center justify-center rounded-2xl border border-white/15 bg-white/10 backdrop-blur-sm">
                     <span
                       key={unit.value}
-                      className="us-page countdown-tick font-mono text-2xl font-bold tabular-nums text-white"
+                      className="us-page countdown-tick font-mono text-lg font-bold tabular-nums text-white sm:text-xl lg:text-2xl"
                     >
                       {unit.value}
                     </span>
