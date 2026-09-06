@@ -280,7 +280,7 @@ function Step({ step, index, isFirst }) {
   );
 }
 
-export default function HowItWorks() {
+export default function HowItWorks({STEPS=STEPS}) {
   return (
     <section className="bg-[#FAF8F3] py-10 md:py-14">
       <style>{`

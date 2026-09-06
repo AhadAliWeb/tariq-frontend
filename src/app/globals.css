@@ -305,7 +305,21 @@
     }
   }
 
+  @keyframes shine-sweep {
+  0% {
+    transform: translateX(-150%) skewX(-12deg);
+  }
+  50% {
+    transform: translateX(250%) skewX(-12deg);
+  }
+  100% {
+    transform: translateX(250%) skewX(-12deg);
+  }
+
+}
+
   --animate-ping-soft: ping-soft 1.5s ease-out infinite;
+  --animate-shine-sweep: shine-sweep 2s ease-in-out infinite;
 }
 
 
@@ -315,4 +329,25 @@
 --color-background: #FAF8F1;
 --color-text: #1F2933;
 --color-surface: #FFFFFF;
+}
+
+
+.lady-page {
+  /* Deep berry — primary brand color */
+  --color-primary: #8E3A5D;
+
+  /* Champagne gold — premium accent */
+  --color-secondary: #C9A24A;
+
+  /* Warm blush ivory — page background */
+  --color-background: #FFF8F8;
+
+  /* Deep warm charcoal — readable text */
+  --color-text: #2F252A;
+
+  /* Clean warm white — cards/surfaces */
+  --color-surface: #FFFFFF;
+
+  /* Soft rose — secondary accent / strips */
+  --color-strip: #D98FA3;
 }

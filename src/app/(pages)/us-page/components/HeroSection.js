@@ -1,7 +1,8 @@
 import Image from 'next/image'
 import { Sparkles, Star, PhoneCall, ArrowRight } from 'lucide-react'
+import React from 'react'
 
-export default function HeroSection() {
+export default function HeroSection({heading, subheading}) {
   return (
     <section className="us-page relative overflow-hidden bg-[var(--color-background)] pt-26 sm:pt-20">
       {/* Background image */}
@@ -45,19 +46,33 @@ export default function HeroSection() {
 
           {/* Heading */}
           <h1 className="us-page mt-5 text-[1.75rem] font-extrabold leading-[1.15] text-[var(--color-text)] sm:text-3xl sm:leading-tight md:text-4xl lg:text-5xl">
-            Quran classes your child will actually look forward to
+            {heading ? (
+              heading.split("|").map((line, index, arr) => (
+                <React.Fragment key={index}>
+                  {line}
+                  {index < arr.length - 1 && <br />}
+                </React.Fragment>
+              ))
+            ) : (
+              "Quran classes your child will actually look forward to"
+            )}
           </h1>
 
           {/* Description */}
           <p className="us-page mt-4 max-w-md text-sm leading-relaxed text-[var(--color-text)] opacity-70 sm:text-base sm:leading-relaxed lg:text-lg">
-            Live 1-on-1 online classes with certified, kid-friendly tutors — Qaida, Tajweed, Hifz
-            and more. Fun for your child, trusted by parents in 30+ countries.
+            {subheading ? subheading : "Live 1-on-1 online classes with certified, kid-friendly tutors — Qaida, Tajweed, Hifz and more. Fun for your child, trusted by parents in 30+ countries."}
           </p>
 
-          {/* Rating, kept as a small standalone line since it's a distinct signal from the trust banner */}
-          <div className="us-page mt-4 inline-flex items-center gap-1.5 text-sm font-medium text-[var(--color-text)]">
-            <Star className="us-page h-4 w-4 text-[var(--color-secondary)]" fill="currentColor" />
-            4.9/5 from parents
+          <div className="lady-page group relative mt-4 inline-flex items-center gap-1.5 overflow-hidden rounded-full border border-white/25 bg-white/10 px-3 py-1.5 text-sm font-medium text-[var(--color-text)] shadow-[0_4px_24px_rgba(0,0,0,0.08)] backdrop-blur-md">
+            {/* shine sweep overlay */}
+            <span
+              aria-hidden="true"
+              className="pointer-events-none absolute inset-y-0 left-0 w-1/3 -skew-x-12 bg-gradient-to-r from-transparent via-white/60 to-transparent"
+              style={{animation: "var(--animate-shine-sweep)"}}
+            />
+
+            <Star className="lady-page relative z-10 h-4 w-4 text-[var(--color-secondary)]" fill="#FF1595" />
+            <span className="relative z-10">4.9/5 from parents</span>
           </div>
 
           {/* CTAs */}
