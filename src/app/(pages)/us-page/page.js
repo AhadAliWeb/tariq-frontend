@@ -14,8 +14,8 @@ const page = () => {
         <HeroSection />
         <TrialForm />
         {/* <Slider /> */}
-        <HowItWorks />
         <Courses />
+        <HowItWorks />
         <Testimonials />
         {/* <TrialCountdown /> */}
         {/* <FAQ /> */}
