@@ -1,5 +1,6 @@
 import React from 'react'
 import HeroSection from './components/HeroSection'
+import TrialForm from './components/BookTrialUsPageForm'
 import Slider from '@/components/Slider'
 import HowItWorks from './components/HowItWorks'
 import Testimonials from './components/Testimonials'
@@ -11,12 +12,14 @@ const page = () => {
   return (
     <>
         <HeroSection />
-        <Slider />
+        <TrialForm />
+        {/* <Slider /> */}
         <HowItWorks />
         <Courses />
         <Testimonials />
-        <TrialCountdown />
-        <FAQ />
+        {/* <TrialCountdown /> */}
+        {/* <FAQ /> */}
+        <TrialForm />
     </>
   )
 }

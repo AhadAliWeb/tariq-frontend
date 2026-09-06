@@ -1,7 +1,7 @@
 "use client";
 
 const TEXT_COLOR = "#ffffff";
-const BG_COLOR = "#C9A24A";
+const BG_COLOR = "#FF7100";
 
 export default function ContactStrip() {
   return (

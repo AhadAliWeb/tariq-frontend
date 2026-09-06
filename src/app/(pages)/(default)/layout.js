@@ -1,4 +1,4 @@
-// app/(main)/layout.js
+// app/(pages)/(default)/layout.js
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsappButton";
