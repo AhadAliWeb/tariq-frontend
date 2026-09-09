@@ -18,7 +18,35 @@ import ContactStrip from "@/components/ContactStrip";
 import ContactForm from "@/components/ContactForm";
 import BottomStrip from "@/components/BottomStrip";
 import CallButton from "@/components/CallButton";
+import HowItWorks from "./(pages)/us-page/components/HowItWorks";
 
+
+const STEPS = [
+  {
+    number: "1st",
+    title: "Register",
+    description:
+      "Create your account in a couple of minutes with your name, phone, and email.",
+  },
+  {
+    number: "2nd",
+    title: "Demo Classes",
+    description:
+      "Sit in on a free demo class and meet the teacher before you commit.",
+  },
+  {
+    number: "3rd",
+    title: "Admission",
+    description:
+      "Liked the demo? Lock in your seat and finish the admission paperwork.",
+  },
+  {
+    number: "4th",
+    title: "Achieve Certificate",
+    description:
+      "Finish the course, sit the final assessment, and collect your certificate.",
+  },
+];
 
 
 export default function RootLayout({ children }) {
@@ -32,6 +60,7 @@ export default function RootLayout({ children }) {
       <WhyChooseUs />
       <CtaBanner />
       <ExploreCourses />
+      <HowItWorks STEPS={STEPS}/>
       <WhyStudyWithUs />
       <WhatPeopleSay />
       <StudentTestimonials />

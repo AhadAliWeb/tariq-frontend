@@ -7,8 +7,8 @@ const weekdayPlans = [
   {
     days: "2 Days / Week",
     sessions: "8 sessions/mo",
-    originalPrice: 59,
-    price: 39,
+    originalPrice: 39,
+    price: 24,
     popular: false,
     badge: null,
     features: [
@@ -22,8 +22,8 @@ const weekdayPlans = [
   {
     days: "3 Days / Week",
     sessions: "12 sessions/mo",
-    originalPrice: 69,
-    price: 49,
+    originalPrice: 54,
+    price: 34,
     popular: true,
     badge: "Most Popular",
     features: [
@@ -37,8 +37,8 @@ const weekdayPlans = [
   {
     days: "4 Days / Week",
     sessions: "16 sessions/mo",
-    originalPrice: 79,
-    price: 55,
+    originalPrice: 69,
+    price: 44,
     popular: false,
     badge: "Best Value",
     features: [
@@ -52,8 +52,8 @@ const weekdayPlans = [
   {
     days: "5 Days / Week",
     sessions: "20 sessions/mo",
-    originalPrice: 89,
-    price: 59,
+    originalPrice: 79,
+    price: 49,
     popular: false,
     badge: "Accelerated",
     features: [
@@ -70,8 +70,8 @@ const weekendPlans = [
   {
     duration: "30 Min Session",
     sessions: "8 sessions/mo",
-    originalPrice: 80,
-    price: 60,
+    originalPrice: 70,
+    price: 45,
     popular: false,
     badge: null,
     features: [
@@ -83,10 +83,10 @@ const weekendPlans = [
     ],
   },
   {
-    duration: "45 Min Session",
+    duration: "60 Min Session",
     sessions: "8 sessions/mo",
-    originalPrice: 110,
-    price: 82,
+    originalPrice: 99,
+    price: 69,
     popular: true,
     badge: "Best Choice",
     features: [

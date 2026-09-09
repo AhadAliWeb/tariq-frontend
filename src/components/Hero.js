@@ -156,17 +156,17 @@ export default function HeroSection() {
           {/* RIGHT — Lead Capture Form */}
           <div
             id="lead-form"
-            className="bg-white/[0.05] backdrop-blur-md border border-white/10 rounded-2xl p-5 sm:p-8 shadow-2xl"
+            className="bg-white border border-gray-200 rounded-2xl p-5 sm:p-8 shadow-2xl"
           >
             {submitted ? (
               <div className="flex flex-col items-center justify-center gap-4 py-8 text-center">
-                <div className="w-16 h-16 rounded-full bg-[var(--color-hero-success-bg)]/30 flex items-center justify-center text-3xl text-white">
+                <div className="w-16 h-16 rounded-full bg-[var(--color-hero-success-bg)]/20 flex items-center justify-center text-3xl text-[var(--color-hero-success-bg)]">
                   ✓
                 </div>
-                <h3 className="text-white font-bold text-xl font-[family-name:var(--font-heading)]">
+                <h3 className="text-gray-900 font-bold text-xl font-[family-name:var(--font-heading)]">
                   JazakAllah Khair!
                 </h3>
-                <p className="text-[var(--color-hero-list)] text-sm font-[family-name:var(--font-sans)]">
+                <p className="text-gray-600 text-sm font-[family-name:var(--font-sans)]">
                   We&apos;ve received your request. A tutor will contact you
                   within 24 hours to schedule your free trial class.
                 </p>
@@ -174,20 +174,20 @@ export default function HeroSection() {
             ) : (
               <>
                 <div className="mb-5">
-                  <div className="inline-block bg-[var(--color-hero-urgency-bg)]/20 text-[var(--color-hero-urgency-text)] text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full mb-2 font-[family-name:var(--font-sans)]">
+                  <div className="inline-block bg-[var(--color-hero-urgency-bg)]/10 text-[var(--color-hero-urgency-text)] text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full mb-2 font-[family-name:var(--font-sans)]">
                     🎁 Limited Free Trial Slots
                   </div>
-                  <h2 className="text-white font-bold text-xl sm:text-2xl font-[family-name:var(--font-heading)] leading-snug">
+                  <h2 className="text-gray-900 font-bold text-xl sm:text-2xl font-[family-name:var(--font-heading)] leading-snug">
                     Book Your Free Trial Class
                   </h2>
-                  <p className="text-[var(--color-hero-list)]/70 text-sm mt-1 font-[family-name:var(--font-sans)]">
+                  <p className="text-gray-500 text-sm mt-1 font-[family-name:var(--font-sans)]">
                     No credit card required. No commitment.
                   </p>
                 </div>
 
                 <div className="flex flex-col gap-3 sm:gap-4">
                   <div className="flex flex-col gap-1.5">
-                    <label className="text-[var(--color-hero-list)] text-xs font-semibold uppercase tracking-wider font-[family-name:var(--font-sans)]">
+                    <label className="text-gray-700 text-xs font-semibold uppercase tracking-wider font-[family-name:var(--font-sans)]">
                       WhatsApp / Phone *
                     </label>
                     <PhoneInput
@@ -195,15 +195,15 @@ export default function HeroSection() {
                       defaultCountry={country}
                       value={phone}
                       onChange={setPhone}
-                      className="p-2 border border-white/10 rounded-md"
+                      className="p-2 border border-gray-300 rounded-md bg-white"
                       numberInputProps={{
-                        className: "text-white focus:outline-none focus:ring-0",
+                        className: "text-gray-900 focus:outline-none focus:ring-0 bg-white",
                       }}
                     />
                   </div>
 
                   {error && (
-                    <p className="text-red-400 text-xs text-center font-[family-name:var(--font-sans)]">
+                    <p className="text-red-500 text-xs text-center font-[family-name:var(--font-sans)]">
                       ⚠ {error}
                     </p>
                   )}
@@ -216,7 +216,7 @@ export default function HeroSection() {
                     Book My FREE Trial →
                   </button>
 
-                  <p className="text-center text-white/30 text-xs font-[family-name:var(--font-sans)]">
+                  <p className="text-center text-gray-400 text-xs font-[family-name:var(--font-sans)]">
                     🔒 Your information is 100% private & secure.
                   </p>
                 </div>

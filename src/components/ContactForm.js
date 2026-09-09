@@ -14,6 +14,7 @@ import {
 import PhoneInput, { isValidPhoneNumber } from "react-phone-number-input";
 import "react-phone-number-input/style.css";
 import { useCountry } from "@/hooks/useCountry";
+import { parsePhoneNumber } from "libphonenumber-js/min";
 
 const INITIAL_FORM = {
     name: "",
@@ -68,9 +69,23 @@ export default function TrialClassForm() {
             return;
         }
 
+        let phoneCountry = "";
+        let countryCode = "";
+            try {
+              const parsed = parsePhoneNumber(phoneValue);
+              phoneCountry = parsed?.country ?? "";
+              countryCode = parsed?.countryCallingCode
+                ? `+${parsed.countryCallingCode}`
+                : "";
+            } catch {
+              setError("Invalid phone number. Please check and try again.");
+              setLoading(false);
+              return;
+            }
+
         setLoading(true);
         try {
-            const res = await fetch("/api/trial-class", {
+            const res = await fetch("/api/leads", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({
@@ -78,6 +93,11 @@ export default function TrialClassForm() {
                     email: form.email,
                     question: form.question,
                     phone: phoneValue,
+                    countryCode,
+                    country: phoneCountry,
+
+
+
                 }),
             });
 
@@ -94,7 +114,7 @@ export default function TrialClassForm() {
     };
 
     return (
-        <div className="flex justify-center px-4 py-6 my-12 md:my-20">
+        <div className="flex justify-center px-4 py-6 my-12 md:my-20 bg-(--color-hero-bg)">
             <div
                 className={`relative w-full max-w-xl overflow-hidden rounded-3xl border border-wcu-card-border bg-white p-7 shadow-[0_8px_40px_rgba(30,89,66,0.10)] transition-all duration-700 ease-out md:p-9 ${
                     mounted

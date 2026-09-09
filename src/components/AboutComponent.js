@@ -28,8 +28,8 @@ function QAItem({ item, index }) {
     <div
       className={`rounded-xl border transition-all duration-300 overflow-hidden
         ${open
-          ? "border-emerald-500/50 bg-emerald-950/60 shadow-lg shadow-emerald-900/30"
-          : "border-emerald-800/40 bg-emerald-950/30 hover:border-emerald-600/40"
+          ? "border-emerald-400 bg-emerald-50 shadow-lg shadow-emerald-900/10"
+          : "border-emerald-200 bg-white hover:border-emerald-300"
         }`}
     >
       <button
@@ -40,10 +40,10 @@ function QAItem({ item, index }) {
         {/* Question */}
         <span
           className={`font-semibold text-sm md:text-base leading-snug transition-colors duration-200
-            ${open ? "text-amber-300" : "text-emerald-100 group-hover:text-amber-200"}`}
+            ${open ? "text-amber-600" : "text-emerald-900 group-hover:text-amber-600"}`}
           
         >
-          <span className="text-emerald-500 mr-2 font-bold">Q.</span>
+          <span className="text-emerald-600 mr-2 font-bold">Q.</span>
           {item.q}
         </span>
 
@@ -52,11 +52,11 @@ function QAItem({ item, index }) {
           className={`flex-shrink-0 w-7 h-7 rounded-full flex items-center justify-center border transition-all duration-300
             ${open
               ? "bg-amber-400 border-amber-300 rotate-180"
-              : "bg-emerald-800/60 border-emerald-700 group-hover:bg-emerald-700"
+              : "bg-emerald-100 border-emerald-200 group-hover:bg-emerald-200"
             }`}
         >
           <svg
-            className={`w-3.5 h-3.5 transition-colors duration-200 ${open ? "text-emerald-950" : "text-emerald-300"}`}
+            className={`w-3.5 h-3.5 transition-colors duration-200 ${open ? "text-emerald-950" : "text-emerald-600"}`}
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
@@ -73,10 +73,10 @@ function QAItem({ item, index }) {
       >
         <div className="overflow-hidden">
           <p
-            className="px-5 pb-5 text-emerald-200/85 text-sm md:text-base leading-relaxed"
+            className="px-5 pb-5 text-emerald-800/85 text-sm md:text-base leading-relaxed"
             
           >
-            <span className="text-amber-400/70 font-semibold mr-2">A.</span>
+            <span className="text-amber-600 font-semibold mr-2">A.</span>
             {item.a}
           </p>
         </div>
@@ -87,7 +87,7 @@ function QAItem({ item, index }) {
 
 export default function AboutComponent() {
   return (
-    <section className="relative w-full bg-gradient-to-b from-emerald-950 via-[#0a1f18] to-emerald-950 py-20 px-4 overflow-hidden">
+    <section className="relative w-full bg-white py-20 px-4 overflow-hidden">
 
       {/* Background geometric decoration */}
       <div className="pointer-events-none absolute inset-0 overflow-hidden opacity-[0.04]">
@@ -101,35 +101,35 @@ export default function AboutComponent() {
         {/* Section header */}
         <div className="text-center mb-12">
           <span
-            className="inline-block text-xs font-bold uppercase tracking-[0.25em] text-amber-400 border border-amber-500/40 rounded-full px-4 py-1.5 mb-5 bg-amber-400/10"
+            className="inline-block text-xs font-bold uppercase tracking-[0.25em] text-amber-600 border border-amber-400/60 rounded-full px-4 py-1.5 mb-5 bg-amber-50"
           >
             About QuranInstruct
           </span>
           <h2
-            className="text-3xl md:text-4xl font-bold text-white mb-4 leading-tight"
+            className="text-3xl md:text-4xl font-bold text-emerald-950 mb-4 leading-tight"
             
           >
             What Is{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-300 to-amber-500">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-500 to-amber-600">
               QuranInstruct
             </span>
             ?
           </h2>
-          <p className="text-emerald-300/80 text-base md:text-lg max-w-xl mx-auto leading-relaxed" >
+          <p className="text-emerald-700/80 text-base md:text-lg max-w-xl mx-auto leading-relaxed" >
             A trusted online Quran academy connecting Muslim families worldwide with certified, Ijazah-qualified Quran teachers.
           </p>
         </div>
 
         {/* AI-style overview card */}
-        <div className="rounded-2xl border border-emerald-700/50 bg-emerald-950/70 backdrop-blur-sm shadow-xl shadow-black/30 overflow-hidden mb-6">
+        <div className="rounded-2xl border border-emerald-200 bg-white shadow-xl shadow-black/5 overflow-hidden mb-6">
 
           {/* Card header */}
-          <div className="flex items-center gap-3 px-6 py-4 border-b border-emerald-800/50 bg-emerald-900/40">
+          <div className="flex items-center gap-3 px-6 py-4 border-b border-emerald-100 bg-emerald-50">
             <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-amber-400 to-amber-600 flex items-center justify-center text-xl shadow-md">
               📖
             </div>
             <h3
-              className="text-white font-bold text-base md:text-lg"
+              className="text-emerald-950 font-bold text-base md:text-lg"
               
             >
               QuranInstruct Online Quran Academy
@@ -137,16 +137,16 @@ export default function AboutComponent() {
           </div>
 
           {/* Card body */}
-          <div className="px-6 py-6 space-y-4 text-emerald-100/85 text-sm md:text-base leading-relaxed" >
+          <div className="px-6 py-6 space-y-4 text-emerald-900/85 text-sm md:text-base leading-relaxed" >
             <p>
-              <strong className="text-white">QuranInstruct</strong> is an online Quran academy offering live, one-on-one Quran classes for children and adults across the USA, UK, United Arab Emirates, and Saudi Arabia. The platform connects students with Ijazah-certified male and female Quran tutors who deliver personalized lessons in Quran recitation, Tajweed, Hifz (memorization), Arabic language, Islamic Studies, and Tafseer all from the comfort of the student's home.
+              <strong className="text-emerald-950">QuranInstruct</strong> is an online Quran academy offering live, one-on-one Quran classes for children and adults across the USA, UK, United Arab Emirates, and Saudi Arabia. The platform connects students with Ijazah-certified male and female Quran tutors who deliver personalized lessons in Quran recitation, Tajweed, Hifz (memorization), Arabic language, Islamic Studies, and Tafseer all from the comfort of the student's home.
             </p>
             <p>
               Unlike recorded video courses, QuranInstruct uses real-time, interactive sessions via secure video platforms. Each student is matched with a tutor suited to their level, age, and goals whether they are a complete beginner starting with Noorani Qaida, a child memorizing Juz Amma, or an adult seeking to perfect their Makhraj and Tajweed rules. All sessions are conducted under strict Islamic guidelines with a safe, monitored environment for children.
             </p>
             <p>
               Students in the United States, United Kingdom, Canada, Australia, UAE, and Saudi Arabia benefit from flexible time zones, affordable pricing starting from{" "}
-              <strong className="text-amber-300">$39/month</strong>, and a risk-free first trial class at no charge.
+              <strong className="text-amber-600">$39/month</strong>, and a risk-free first trial class at no charge.
             </p>
           </div>
         </div>
