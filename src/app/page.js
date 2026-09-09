@@ -58,9 +58,9 @@ export default function RootLayout({ children }) {
       <AboutComponent />
       <ContactForm />
       <WhyChooseUs />
+      <HowItWorks STEPS={STEPS}/>
       <CtaBanner />
       <ExploreCourses />
-      <HowItWorks STEPS={STEPS}/>
       <WhyStudyWithUs />
       <WhatPeopleSay />
       <StudentTestimonials />
