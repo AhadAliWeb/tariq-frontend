@@ -18,7 +18,7 @@ import {
   // ChevronDown, // uncomment if you switch either field to the dropdown version below
 } from "lucide-react";
 import { useCountry } from "@/hooks/useCountry";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 
 export default function TrialClassForm() {
   const [form, setForm] = useState({
