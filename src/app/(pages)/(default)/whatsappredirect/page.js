@@ -149,7 +149,7 @@ export default function WhatsAppRedirectPage() {
           href={WHATSAPP_URL}
           target="_blank"
           rel="noopener noreferrer"
-          className="group w-full flex items-center justify-center gap-3 font-[family-name:var(--font-heading)] font-extrabold text-white text-base sm:text-lg py-4 sm:py-5 rounded-xl transition-all duration-200 shadow-lg"
+          className="whatsapp-chat group w-full flex items-center justify-center gap-3 font-[family-name:var(--font-heading)] font-extrabold text-white text-base sm:text-lg py-4 sm:py-5 rounded-xl transition-all duration-200 shadow-lg"
           style={{
             background: "linear-gradient(135deg, #25D366 0%, #128C7E 100%)",
             boxShadow: "0 8px 32px rgba(37,211,102,0.30)",

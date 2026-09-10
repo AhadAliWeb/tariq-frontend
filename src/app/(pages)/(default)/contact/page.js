@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import PhoneInput, { parsePhoneNumber, isValidPhoneNumber } from "react-phone-number-input";
 import "react-phone-number-input/style.css";
+import { useRouter } from "next/navigation";
 import {
     Phone, Mail, MessageCircle, Send, User,
     CheckCircle, Star, BookOpen, HelpCircle,
@@ -52,6 +53,7 @@ export default function Contact() {
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState("");
     const country = useCountry();
+    const router = useRouter()
 
     const handleChange = (e) =>
         setForm({ ...form, [e.target.name]: e.target.value });
@@ -116,6 +118,8 @@ export default function Contact() {
             window.dataLayer.push({
                 event: "form_submit",
             });
+
+            router.push("/thank-you")
 
 
         } catch (err) {
@@ -366,7 +370,7 @@ export default function Contact() {
                                         href="https://wa.me/13322525428?text=Assalam o Aliakum. I want to enroll for the Demo Class."
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className="mt-4 inline-flex bg-hero-cta-bg text-hero-cta-text items-center gap-2 rounded-xl px-5 py-2.5 text-sm font-bold"
+                                        className="whatsapp-chat mt-4 inline-flex bg-hero-cta-bg text-hero-cta-text items-center gap-2 rounded-xl px-5 py-2.5 text-sm font-bold"
                                     >
                                         <MessageCircle size={16} />
                                         Open WhatsApp

@@ -159,7 +159,7 @@ export default function Courses() {
                     href={`https://wa.me/${WHATSAPP_NUMBER}?text=${waText}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="us-page flex flex-1 items-center justify-center gap-1.5 rounded-full border-2 border-[var(--color-primary)] px-3 py-2.5 text-sm font-semibold text-[var(--color-primary)] transition-all duration-300 hover:bg-[var(--color-primary)] hover:text-white"
+                    className="whatsapp-chat us-page flex flex-1 items-center justify-center gap-1.5 rounded-full border-2 border-[var(--color-primary)] px-3 py-2.5 text-sm font-semibold text-[var(--color-primary)] transition-all duration-300 hover:bg-[var(--color-primary)] hover:text-white"
                   >
                     <MessageCircle className="us-page h-4 w-4" />
                     WhatsApp

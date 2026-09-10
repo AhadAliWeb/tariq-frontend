@@ -45,7 +45,7 @@ export default function LadyCTASection() {
             className="us-page group inline-flex w-full items-center justify-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-semibold text-[var(--color-primary)] shadow-lg shadow-black/10 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl sm:w-auto sm:px-7 sm:py-3.5 sm:text-base"
           >
             Book a Free Trial Class for Your Child
-            <ArrowRight className="us-page h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+            <ArrowRight className="whatsapp-chat us-page h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
           </a>
           <a
             href="tel:+15552345678" // TODO: replace with your real phone number

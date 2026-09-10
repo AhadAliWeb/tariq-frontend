@@ -22,7 +22,7 @@ export default function ContactButtons({
       <a
         href={`tel:${phoneNumber}`}
         aria-label="Call us"
-        className="
+        className="whatsapp-chat
           flex items-center justify-center
           rounded-full
           block

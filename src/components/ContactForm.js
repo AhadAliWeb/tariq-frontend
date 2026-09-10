@@ -15,6 +15,7 @@ import PhoneInput, { isValidPhoneNumber } from "react-phone-number-input";
 import "react-phone-number-input/style.css";
 import { useCountry } from "@/hooks/useCountry";
 import { parsePhoneNumber } from "libphonenumber-js/min";
+import { useRouter } from "next/navigation";
 
 const INITIAL_FORM = {
     name: "",
@@ -34,6 +35,7 @@ export default function TrialClassForm() {
     const [focusedField, setFocusedField] = useState(null);
     const [mounted, setMounted] = useState(false);
     const country = useCountry();
+    const router = useRouter()
 
     useEffect(() => {
         // Trigger the entrance animation once the card is on screen
@@ -106,6 +108,13 @@ export default function TrialClassForm() {
             }
 
             setSubmitted(true);
+            window.dataLayer = window.dataLayer || [];
+
+            window.dataLayer.push({
+                event: "form_submit",
+            });
+
+            router.push("/thank-you")
         } catch (err) {
             flashError("Something went wrong. Please try again in a moment.");
         } finally {
@@ -391,7 +400,7 @@ export default function TrialClassForm() {
                             href="https://wa.me/13322525428?text=Assalam%20o%20Aliakum.%20I%20want%20to%20enroll%20for%20the%20Demo%20Class."
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="mt-4 inline-flex items-center gap-2 rounded-xl bg-hero-cta-bg px-5 py-2.5 text-sm font-bold text-hero-cta-text transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[0_8px_22px_rgba(201,162,74,0.35)]"
+                            className="whatsapp-chat mt-4 inline-flex items-center gap-2 rounded-xl bg-hero-cta-bg px-5 py-2.5 text-sm font-bold text-hero-cta-text transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[0_8px_22px_rgba(201,162,74,0.35)]"
                         >
                             <MessageCircle size={16} />
                             Open WhatsApp

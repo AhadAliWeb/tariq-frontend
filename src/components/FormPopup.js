@@ -6,6 +6,9 @@ import PhoneInput from "react-phone-number-input"
 import { parsePhoneNumber, isValidPhoneNumber } from "react-phone-number-input"
 import "react-phone-number-input/style.css"
 import { useCountry } from "@/hooks/useCountry"
+import { useRouter } from "next/navigation"
+
+
 
 
 
@@ -15,6 +18,7 @@ export default function FormPopup({ isOpen, onClose }) {
     const [loading, setLoading] = useState(false)
     const [error, setError] = useState("")
     const country = useCountry();
+    const router = useRouter()
 
     useEffect(() => {
         if (!isOpen) { setPhone(""); setSubmitted(false) }
@@ -65,6 +69,8 @@ export default function FormPopup({ isOpen, onClose }) {
             window.dataLayer.push({
                 event: "form_submit",
             });
+
+            router.push("/thank-you")
 
         } catch (error) {
             setError("Error Occured, Try again later")

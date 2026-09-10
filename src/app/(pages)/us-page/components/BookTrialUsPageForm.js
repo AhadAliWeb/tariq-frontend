@@ -18,6 +18,7 @@ import {
   // ChevronDown, // uncomment if you switch either field to the dropdown version below
 } from "lucide-react";
 import { useCountry } from "@/hooks/useCountry";
+import { useRouter } from "next/router";
 
 export default function TrialClassForm() {
   const [form, setForm] = useState({
@@ -31,6 +32,7 @@ export default function TrialClassForm() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [submitted, setSubmitted] = useState(false);
+  const router = useRouter()
 
   const handleChange = (e) =>
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -94,6 +96,8 @@ export default function TrialClassForm() {
 
       window.dataLayer = window.dataLayer || [];
       window.dataLayer.push({ event: "form_submit" });
+
+      router.push("/thank-you")
     } catch (err) {
       console.error("Lead submission network error:", err);
       setError(
@@ -420,7 +424,7 @@ export default function TrialClassForm() {
                 href="https://wa.me/13322525428?text=Assalam%20o%20Alaikum.%20I%20want%20to%20enroll%20for%20the%20Demo%20Class."
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-4 inline-flex bg-hero-cta-bg text-hero-cta-text items-center gap-2 rounded-xl px-5 py-2.5 text-sm font-bold"
+                className="whatsapp-chat mt-4 inline-flex bg-hero-cta-bg text-hero-cta-text items-center gap-2 rounded-xl px-5 py-2.5 text-sm font-bold"
               >
                 <MessageCircle size={16} />
                 Open WhatsApp

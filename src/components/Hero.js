@@ -5,12 +5,14 @@ import PhoneInput from "react-phone-number-input";
 import "react-phone-number-input/style.css";
 import { parsePhoneNumber, isValidPhoneNumber } from "react-phone-number-input";
 import { useCountry } from "@/hooks/useCountry";
+import { useRouter } from "next/navigation";
 
 export default function HeroSection() {
   const [phone, setPhone] = useState("");
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState(null);
   const country = useCountry();
+  const router = useRouter()
 
 
   const handleSubmit = async () => {
@@ -55,6 +57,8 @@ export default function HeroSection() {
       window.dataLayer.push({
         event: "form_submit",
       });
+
+      router.push("/thank-you")
 
     } catch (error) {
       setError("Error Occurred, Try again later");

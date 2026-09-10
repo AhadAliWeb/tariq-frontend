@@ -82,7 +82,7 @@ export default function HeroSection({heading, subheading}) {
               className="us-page group inline-flex items-center justify-center gap-2 rounded-full bg-[var(--color-primary)] px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-[var(--color-primary)]/20 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl sm:px-7 sm:py-3.5 sm:text-base"
             >
               Book Free Trial Class
-              <ArrowRight className="us-page h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+              <ArrowRight className="whatsapp-chat us-page h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
             </a>
             <a
               href="tel:+15552345678" // TODO: replace with your real phone number

@@ -6,6 +6,7 @@ import PhoneInput, { isValidPhoneNumber } from "react-phone-number-input"
 import { parsePhoneNumber } from "react-phone-number-input"
 import "react-phone-number-input/style.css"
 import { useCountry } from "@/hooks/useCountry"
+import { useRouter } from "next/navigation"
 
 const AUTO_SHOW_DELAY = 60000
 const SESSION_KEY = "free_trial_popup_shown"
@@ -73,6 +74,7 @@ export default function FormPopup({ isOpen: controlledIsOpen, onClose: controlle
     const [loading, setLoading] = useState(false)
     const [serverError, setServerError] = useState("")
     const country = useCountry();
+    const router = useRouter()
 
     const isControlled = controlledIsOpen !== undefined
     const isOpen = isControlled ? controlledIsOpen : autoOpen
@@ -164,6 +166,8 @@ export default function FormPopup({ isOpen: controlledIsOpen, onClose: controlle
             window.dataLayer.push({
                 event: "form_submit",
             });
+
+            router.push("/thank-you")
 
 
         } catch (err) {

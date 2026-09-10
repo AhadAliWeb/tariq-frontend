@@ -45,7 +45,7 @@ export default function ContactStrip() {
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Message US number on WhatsApp"
-          className="contact-link whatsapp-link inline-flex items-center gap-1.5 sm:gap-2 whitespace-nowrap no-underline transition-opacity duration-200 hover:underline hover:opacity-80"
+          className="whatsapp-chat contact-link whatsapp-link inline-flex items-center gap-1.5 sm:gap-2 whitespace-nowrap no-underline transition-opacity duration-200 hover:underline hover:opacity-80"
           style={{ color: TEXT_COLOR }}
         >
           <WhatsAppIcon />
