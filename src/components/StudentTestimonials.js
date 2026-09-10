@@ -4,6 +4,8 @@ import PhoneInput from "react-phone-number-input"
 import "react-phone-number-input/style.css"
 import { parsePhoneNumber } from "react-phone-number-input"
 import { useCountry } from "@/hooks/useCountry";
+import { useRouter } from "next/navigation";
+
 
 const testimonials = [
   {
@@ -101,6 +103,7 @@ export default function StudentTestimonials() {
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState("")
   const country = useCountry()
+  const router = useRouter();
 
   const prev = () =>
     setCurrent((c) => (c - 1 + testimonials.length) % testimonials.length);
@@ -155,6 +158,8 @@ export default function StudentTestimonials() {
       window.dataLayer.push({
         event: "form_submit",
       });
+
+      router.push("/thank-you")
 
     } catch (error) {
       setError("Error Occured, Try again later")
