@@ -129,6 +129,8 @@ export default function Navbar() {
   }, []);
 
   return (
+    <>
+    <FormPopup isOpen={popupOpen} onClose={() => setPopupOpen(false)} />
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled
         ? "bg-white/10 backdrop-blur-xl backdrop-saturate-150 shadow-[0_4px_24px_0_rgba(0,0,0,0.12)] border-b border-white/20 text-black"
@@ -137,7 +139,6 @@ export default function Navbar() {
     >
        {/* Contact Strip — sits right below the main nav row, part of the same fixed header */}
       <ContactStrip />
-      <FormPopup isOpen={popupOpen} onClose={() => setPopupOpen(false)} />
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
 
         {/* Logo */}
@@ -270,5 +271,6 @@ export default function Navbar() {
         </ul>
       </div>
     </header>
+  </>
   );
 }

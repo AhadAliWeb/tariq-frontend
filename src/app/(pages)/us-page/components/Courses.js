@@ -13,9 +13,11 @@ import {
   MessageCircle,
   ArrowRight,
 } from 'lucide-react'
+import FormPopup from '@/components/FormPopup'
+FormPopup
 
 // TODO: replace with your real WhatsApp business number
-const WHATSAPP_NUMBER = '18005551212'
+const WHATSAPP_NUMBER = '13322525428'
 
 const courses = [
   {
@@ -71,6 +73,7 @@ const courses = [
 export default function Courses() {
   const sectionRef = useRef(null)
   const [revealed, setRevealed] = useState(false)
+  const [popupOpen, setPopupOpen] = useState(false)
 
   useEffect(() => {
     if (typeof window === 'undefined') return
@@ -96,12 +99,10 @@ export default function Courses() {
     return () => observer.disconnect()
   }, [])
 
-  function scrollToForm(e) {
-    e.preventDefault()
-    document.getElementById('trial-form')?.scrollIntoView({ behavior: 'smooth', block: 'center' })
-  }
 
   return (
+    <>
+      <FormPopup isOpen={popupOpen} onClose={() => setPopupOpen(false)}/>
     <section ref={sectionRef} id="courses" className="us-page bg-[var(--color-background)] py-20 sm:py-24">
       <div className="us-page mx-auto max-w-6xl px-6">
         <div className="us-page mx-auto max-w-xl text-center">
@@ -164,15 +165,14 @@ export default function Courses() {
                     <MessageCircle className="us-page h-4 w-4" />
                     WhatsApp
                   </a>
-                  <a
-                    href="#trial-form"
+                  <button
                     data-course={course.title}
-                    onClick={scrollToForm}
+                    onClick={() => setPopupOpen(true)}
                     className="us-page group/enroll flex flex-1 items-center justify-center gap-1.5 rounded-full bg-[var(--color-primary)] px-3 py-2.5 text-sm font-semibold text-white shadow-md transition-all duration-300 hover:shadow-lg"
                   >
                     Enroll
                     <ArrowRight className="us-page h-3.5 w-3.5 transition-transform duration-300 group-hover/enroll:translate-x-1" />
-                  </a>
+                  </button>
                 </div>
               </div>
             )
@@ -182,7 +182,7 @@ export default function Courses() {
         <div className="us-page mt-14 text-center">
           <a
             href="#trial-form"
-            onClick={scrollToForm}
+            onClick={() => setPopupOpen(true)}
             className="us-page group inline-flex items-center gap-2 rounded-full bg-[var(--color-primary)] px-7 py-3.5 font-semibold text-white shadow-lg shadow-[var(--color-primary)]/20 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl"
           >
             Book Free Trial Class
@@ -191,5 +191,7 @@ export default function Courses() {
         </div>
       </div>
     </section>
+    </>
+
   )
 }

@@ -120,13 +120,13 @@ export default function Testimonials() {
     {/* Soft outer pulse */}
     <span className="us-page absolute inset-0 rounded-full bg-[var(--color-primary)] opacity-40 animate-ping-soft" />
 
-    <a
+    {/* <a
       href="#trial-form"
       className="us-page group relative inline-flex items-center gap-2 rounded-full bg-[var(--color-primary)] px-7 py-3.5 font-semibold text-white shadow-lg shadow-[var(--color-primary)]/20 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl"
     >
       Book Free Trial Class
       <ArrowRight className="us-page h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
-    </a>
+    </a> */}
   </div>
 </div>
       </div>
