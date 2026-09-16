@@ -4,14 +4,15 @@
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 
-import HeroSection from '../us-page/components/HeroSection'
+import HeroSection from '../online-quran-classes-usa/components/HeroSection'
 import KidsFeaturesSection from './components/KidsFeaturesSection'
 import KidsCurriculumSection from './components/KidsCurriculumSection'
 import KidsTrustSection from './components/KidsTrustSection'
 import KidsCTASection from './components/KidsCTASection'
 import KidsFAQSection from './components/KidsFAQSection'
 import KidsHowItWorks from './components/KidsHowItWorks'
-import TrialClassForm from '../us-page/components/BookTrialUsPageForm'
+import TrialClassForm from '../online-quran-classes-usa/components/BookTrialUsPageForm'
+import Courses from '../online-quran-classes-usa/components/Courses'
 
 export const metadata = {
   title: 'Online Quran Classes for Kids | Fun, Safe & Interactive Learning',
@@ -33,6 +34,7 @@ export default function OnlineQuranClassesForKidsPage() {
       <Navbar />
       <HeroSection heading={"Online Quran Classes for Kids | Where Learning Feels Like Fun"} subheading={"Keeping a child engaged in Quran learning takes more than just a teacher — it takes patience, warmth, and a method built specifically for young minds."}/>
       <TrialClassForm />
+      <Courses />
       <KidsFeaturesSection />
       <KidsCurriculumSection />
       <KidsTrustSection />

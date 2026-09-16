@@ -4,14 +4,15 @@
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 
-import HeroSection from '../us-page/components/HeroSection'
+import HeroSection from '../online-quran-classes-usa/components/HeroSection'
 import HifzProgramSection from './components/HifzProgramSection'
 import HifzSuitableForSection from './components/HifzSuitableForSection'
 import HifzMethodSection from './components/HifzMethodSection'
 import HifzHowItWorks from './components/HifzHowItWorks'
 import HifzCTASection from './components/HifzCTASection'
 import HifzFAQSection from './components/HifzFAQSection'
-import TrialClassForm from '../us-page/components/BookTrialUsPageForm'
+import TrialClassForm from '../online-quran-classes-usa/components/BookTrialUsPageForm'
+import Courses from '../online-quran-classes-usa/components/Courses'
 
 export const metadata = {
   title: 'Online Hifz Classes | Structured Quran Memorization Program',
@@ -38,6 +39,7 @@ export default function OnlineHifzClassesPage() {
         }
       />
       <TrialClassForm />
+      <Courses />
       <HifzProgramSection />
       <HifzSuitableForSection />
       <HifzMethodSection />

@@ -4,13 +4,14 @@
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 
-import HeroSection from '../us-page/components/HeroSection'
+import HeroSection from '../online-quran-classes-usa/components/HeroSection'
 import OnClassWhySection from './components/OnClassWhySection'
 import OnClassAudienceSection from './components/OnClassAudienceSection'
 import OnClassHowItWorks from './components/OnClassHowItWorks'
 import OnClassCTASection from './components/OnClassCTASection'
 import OnClassFAQSection from './components/OnClassFAQSection'
-import TrialClassForm from '../us-page/components/BookTrialUsPageForm'
+import TrialClassForm from '../online-quran-classes-usa/components/BookTrialUsPageForm'
+import Courses from '../online-quran-classes-usa/components/Courses'
 
 export const metadata = {
   title: 'Online Islamic Classes | Quran, Fiqh, Seerah & More – Free Trial',
@@ -37,6 +38,7 @@ export default function OnlineIslamicClassesPage() {
         }
       />
       <TrialClassForm />
+      <Courses />
       <OnClassWhySection />
       <OnClassAudienceSection />
       <OnClassHowItWorks />

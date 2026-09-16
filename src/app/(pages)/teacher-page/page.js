@@ -4,7 +4,7 @@
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 
-import HeroSection from '../us-page/components/HeroSection'
+import HeroSection from '../online-quran-classes-usa/components/HeroSection'
 import TeacherCredentialsBar from './components/TeacherCredentialsBar'
 import TeacherFeaturesSection from './components/TeacherFeaturesSection'
 import TeacherExpertiseSection from './components/TeacherExpertiseSection'
@@ -12,7 +12,8 @@ import TeacherMatchingSteps from './components/TeacherMatchingSteps'
 import TeacherWhyItMattersSection from './components/TeacherWhyItMattersSection'
 import TeacherCTASection from './components/TeacherCTASection'
 import TeacherFAQSection from './components/TeacherFAQSection'
-import TrialClassForm from '../us-page/components/BookTrialUsPageForm'
+import TrialClassForm from '../online-quran-classes-usa/components/BookTrialUsPageForm'
+import Courses from '../online-quran-classes-usa/components/Courses'
 
 export const metadata = {
   title: 'Online Quran Teacher | Certified 1-on-1 Instructors – Free Trial Class',
@@ -39,6 +40,7 @@ export default function OnlineQuranTeacherPage() {
         }
       />
       <TrialClassForm />
+      <Courses />
       <TeacherCredentialsBar />
       <TeacherFeaturesSection />
       <TeacherExpertiseSection />

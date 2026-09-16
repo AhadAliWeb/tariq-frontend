@@ -1,8 +1,8 @@
 // NOTE: Adjust these three import paths if your existing Navbar, HeroSection,
 // and Footer live somewhere other than '@/components/...' in your project.
 // They are not included in this delivery since you already have them built.
-import Navbar from '../us-page/components/Navbar'
-import HeroSection from '../us-page/components/HeroSection'
+import Navbar from '../online-quran-classes-usa/components/Navbar'
+import HeroSection from '../online-quran-classes-usa/components/HeroSection'
 import Footer from '@/components/Footer'
 
 import AdultFeaturesSection from './components/AdultFeaturesSection'
@@ -11,6 +11,8 @@ import AdultWhyChooseSection from './components/AdultWhyChooseSection'
 import AdultCTASection from './components/AdultCTASection'
 import AdultFAQSection from './components/AdultFAQSection'
 import AdultHowItWorks from './components/AdultHowItWorks'
+import TrialClassForm from '../online-quran-classes-usa/components/BookTrialUsPageForm'
+import Courses from '../online-quran-classes-usa/components/Courses'
 
 export const metadata = {
   title: 'Online Quran Classes for Adults | Learn at Your Own Pace, No Judgment',
@@ -31,12 +33,15 @@ export default function OnlineQuranClassesForAdultsPage() {
     <main className="us-page">
       <Navbar />
       <HeroSection heading={"Online Quran Classes for Adults | It's Never Too Late to Start"} subheading={"Our adult Quran classes are built entirely around that reality — private, patient, and completely judgment-free, so you can learn at whatever pace feels right for you."}/>
+      <TrialClassForm />
+      <Courses />
       <AdultFeaturesSection />
       <AdultCurriculumSection />
       <AdultWhyChooseSection />
       <AdultHowItWorks />
       <AdultCTASection />
       <AdultFAQSection />
+      <TrialClassForm />
       <Footer />
     </main>
   )

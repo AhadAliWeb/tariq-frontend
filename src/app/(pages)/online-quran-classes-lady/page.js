@@ -1,13 +1,14 @@
 import Footer from "@/components/Footer"
-import Navbar from "../us-page/components/Navbar"
+import Navbar from "../online-quran-classes-usa/components/Navbar"
 import LadyCTASection from "./components/LadyCTASection"
 import LadyCurriculumSection from "./components/LadyCurriculumSection"
 import LadyFAQSection from "./components/LadyFAQSection"
 import LadyFeaturesSection from "./components/LadyFeaturesSection"
 import LadyHeroSection from "./components/LadyHeroSection"
 import LadyLifestyleSection from "./components/LadyLifestyleSection"
-import TrialClassForm from "../us-page/components/BookTrialUsPageForm"
+import TrialClassForm from "../online-quran-classes-usa/components/BookTrialUsPageForm"
 import LadyHowItWorks from "./components/LadyHowItWorks"
+import Courses from "../online-quran-classes-usa/components/Courses"
 
 
 export const metadata = {
@@ -33,6 +34,7 @@ const page = () => {
         <Navbar />
         <LadyHeroSection />
         <TrialClassForm />
+        <Courses />
         <LadyFeaturesSection />
         <LadyHowItWorks />
         <LadyCurriculumSection />

@@ -4,14 +4,15 @@
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 
-import HeroSection from '../us-page/components/HeroSection'
+import HeroSection from '../online-quran-classes-usa/components/HeroSection'
 import LearnQuranCurriculumSection from './components/LearnQuranCurriculumSection'
 import LearnQuranWhySection from './components/LearnQuranWhySection'
 import LearnQuranAudienceSection from './components/LearnQuranAudienceSection'
 import LearnQuranHowItWorks from './components/LearnQuranHowItWorks'
 import LearnQuranCTASection from './components/LearnQuranCTASection'
 import LearnQuranFAQSection from './components/LearnQuranFAQSection'
-import TrialClassForm from '../us-page/components/BookTrialUsPageForm'
+import TrialClassForm from '../online-quran-classes-usa/components/BookTrialUsPageForm'
+import Courses from '../online-quran-classes-usa/components/Courses'
 
 export const metadata = {
   title: 'Learn Quran Online | 1-on-1 Live Classes with Certified Teachers',
@@ -38,6 +39,7 @@ export default function LearnQuranOnlinePage() {
         }
       />
       <TrialClassForm />
+      <Courses />
       <LearnQuranCurriculumSection />
       <LearnQuranWhySection />
       <LearnQuranAudienceSection />

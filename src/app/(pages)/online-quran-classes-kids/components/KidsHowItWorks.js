@@ -1,4 +1,4 @@
-import HowItWorks from "../../us-page/components/HowItWorks";
+import HowItWorks from "../../online-quran-classes-usa/components/HowItWorks";
 
 export const STEPS = [
   {

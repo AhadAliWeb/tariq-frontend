@@ -179,7 +179,7 @@ export default function Courses() {
           })}
         </div>
 
-        <div className="us-page mt-14 text-center">
+        {/* <div className="us-page mt-14 text-center">
           <a
             href="#trial-form"
             onClick={() => setPopupOpen(true)}
@@ -188,7 +188,7 @@ export default function Courses() {
             Book Free Trial Class
             <ArrowRight className="us-page h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
           </a>
-        </div>
+        </div> */}
       </div>
     </section>
     </>

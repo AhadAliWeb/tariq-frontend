@@ -1,5 +1,5 @@
-import Navbar from "../us-page/components/Navbar"
-import HeroSection from '../us-page/components/HeroSection' // adjust to your actual import path
+import Navbar from "../online-quran-classes-usa/components/Navbar"
+import HeroSection from '../online-quran-classes-usa/components/HeroSection' // adjust to your actual import path
 import TajweedCurriculumSection from './components/TajweedCurriculumSection'
 import TajweedBenefitsSection from './components/TajweedBenefitsSection'
 import TajweedAudienceSection from './components/TajweedAudienceSection'
@@ -7,7 +7,8 @@ import TajweedCTASection from './components/TajweedCTASection'
 import TajweedFAQSection from './components/TajweedFAQSection'
 import Footer from '@/components/Footer' // adjust to your actual import path
 import TajweedHowItWorks from "./components/TajweedHowItWorks"
-import TrialClassForm from "../us-page/components/BookTrialUsPageForm"
+import TrialClassForm from "../online-quran-classes-usa/components/BookTrialUsPageForm"
+import Courses from "../online-quran-classes-usa/components/Courses"
 
 export const metadata = {
   title: 'Online Tajweed Classes | Learn Correct Quran Pronunciation – Free Trial',
@@ -33,6 +34,7 @@ export default function OnlineTajweedClassesPage() {
       <main>
         <HeroSection heading={"Online Tajweed Classes | Learn to Recite the Quran Correctly"} subheading={"Reciting the Quran with proper Tajweed isn't just about sounding good — it's about reciting the way it was revealed, with correct pronunciation, articulation points (Makharij), and rules that carry real meaning."}/>
         <TrialClassForm />
+        <Courses />
         <TajweedCurriculumSection />
         <TajweedBenefitsSection />
         <TajweedAudienceSection />
