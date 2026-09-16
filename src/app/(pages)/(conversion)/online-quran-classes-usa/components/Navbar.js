@@ -3,8 +3,8 @@
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image"
-import FormPopup from "../../../../components/FormPopup";
-import ContactStrip from "../../../../components/ContactStrip";
+import FormPopup from "../../../../../components/FormPopup";
+import ContactStrip from "../../../../../components/ContactStrip";
 
 const links = [
   { label: "Home", href: "/" },

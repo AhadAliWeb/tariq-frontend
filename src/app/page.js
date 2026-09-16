@@ -18,7 +18,7 @@ import ContactStrip from "@/components/ContactStrip";
 import ContactForm from "@/components/ContactForm";
 import BottomStrip from "@/components/BottomStrip";
 import CallButton from "@/components/CallButton";
-import HowItWorks from "./(pages)/online-quran-classes-usa/components/HowItWorks";
+import HowItWorks from "./(pages)/(conversion)/online-quran-classes-usa/components/HowItWorks";
 
 
 const STEPS = [

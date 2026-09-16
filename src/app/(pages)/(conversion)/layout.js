@@ -8,10 +8,8 @@ import BottomStrip from "@/components/BottomStrip";
 export default function MainLayout({ children }) {
     return (
         <>
-            <WhatsAppButton />
-            <Navbar />
             {children}
-            <Footer />
+            <WhatsAppButton />
             <Chat />
             <BottomStrip />
         </>
