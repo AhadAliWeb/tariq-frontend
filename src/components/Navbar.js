@@ -24,6 +24,19 @@ const links = [
   { label: "About", href: "/about" },
   { label: "Blog", href: "/blog" },
   { label: "Contact", href: "/contact" },
+  { label: "Learn Quran",
+    sublinks: [
+      { label: "Tajweed", href: "/learn-online-classes-tajweed"},
+      { label: "For Adults", href: "/learn-quran-classes-adults"},
+      { label: "Learn Online", href: "/learn-quran-online"},
+      { label: "Online Classes", href: "/online-islamic-classes-page"},
+      { label: "For Hifz", href: "/online-quran-classes-hifz"},
+      { label: "For Kids", href: "/online-quran-classes-kids"},
+      { label: "For Ladies", href: "/online-quran-classes-lady"},
+      { label: "USA Students", href: "/online-quran-classes-usa"},
+      { label: "Teacher", href: "/teacher-page"}
+    ]
+  }
 ];
 
 function DropdownItem({ link }) {
