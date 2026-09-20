@@ -33,14 +33,14 @@ export default function AdultCTASection() {
 
         <div className="us-page mt-8 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-center">
           <a
-            href="https://wa.me/15552345678" // TODO: replace with your real WhatsApp number
+            href="https://wa.me/+13322515428" // TODO: replace with your real WhatsApp number
             className="whatsapp-chat us-page group inline-flex items-center justify-center gap-2 rounded-full bg-[var(--color-secondary)] px-6 py-3 text-sm font-semibold text-[var(--color-primary)] shadow-lg transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl sm:px-7 sm:py-3.5 sm:text-base"
           >
             <MessageCircle className="us-page h-4 w-4 transition-transform duration-300 group-hover:scale-110" />
             Book Your Free Trial Class
           </a>
           <a
-            href="tel:+15552345678" // TODO: replace with your real phone number
+            href="tel:+13322515428" // TODO: replace with your real phone number
             className="us-page inline-flex items-center justify-center gap-2 rounded-full border-2 border-white/40 px-6 py-3 text-sm font-semibold text-white transition-all duration-300 hover:border-white hover:bg-white/10 sm:px-7 sm:py-3.5 sm:text-base"
           >
             <Phone className="us-page h-4 w-4" />

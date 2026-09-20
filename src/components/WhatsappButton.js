@@ -3,7 +3,7 @@
 import { Phone } from "lucide-react";
 
 export default function ContactButtons({
-  phoneNumber = "13322525428",
+  phoneNumber = "+13322525428",
   message = "Assalam o Aliakum. I want to enroll for the Demo Class.",
 }) {
   const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(

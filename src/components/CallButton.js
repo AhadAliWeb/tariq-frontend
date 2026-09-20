@@ -1,6 +1,6 @@
 "use client";
 
-export default function CallButton({ phoneNumber = "13322525428", message = "Assalam o Aliakum. I want to enroll for the Demo Class." }) {
+export default function CallButton({ phoneNumber = "+13322525428", message = "Assalam o Aliakum. I want to enroll for the Demo Class." }) {
   const url = `https://wa.me/${phoneNumber}?text=${message}`;
 
   return (

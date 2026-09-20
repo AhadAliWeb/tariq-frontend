@@ -49,14 +49,14 @@ export default function HifzCTASection() {
 
         <div className="us-page mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
           <a
-            href="https://wa.me/15552345678" // TODO: replace with your real WhatsApp number
+            href="https://wa.me/+13322515428" // TODO: replace with your real WhatsApp number
             className="us-page group inline-flex w-full items-center justify-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-semibold text-[var(--color-primary)] shadow-lg shadow-black/10 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl sm:w-auto sm:px-7 sm:py-3.5 sm:text-base"
           >
             Book Your Free Trial Class
             <ArrowRight className="whatsapp-chat us-page h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
           </a>
           <a
-            href="tel:+15552345678" // TODO: replace with your real phone number
+            href="tel:+133225154288" // TODO: replace with your real phone number
             className="us-page inline-flex w-full items-center justify-center gap-2 rounded-full border-2 border-white/70 px-6 py-3 text-sm font-semibold text-white transition-all duration-300 hover:bg-white hover:text-[var(--color-primary)] sm:w-auto sm:px-7 sm:py-3.5 sm:text-base"
           >
             <PhoneCall className="us-page h-4 w-4" />

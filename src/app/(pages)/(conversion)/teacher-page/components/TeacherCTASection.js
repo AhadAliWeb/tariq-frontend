@@ -48,7 +48,7 @@ export default function TeacherCTASection() {
             <ArrowRight className="whatsapp-chat us-page h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
           </a>
           <a
-            href="tel:+15552345678" // TODO: replace with your real phone number
+            href="tel:+13322515428" // TODO: replace with your real phone number
             className="us-page inline-flex w-full items-center justify-center gap-2 rounded-full border-2 border-white/70 px-6 py-3 text-sm font-semibold text-white transition-all duration-300 hover:bg-white hover:text-[var(--color-primary)] sm:w-auto sm:px-7 sm:py-3.5 sm:text-base"
           >
             <PhoneCall className="us-page h-4 w-4" />
