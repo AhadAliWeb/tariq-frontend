@@ -54,13 +54,13 @@ export default function HeroSection({heading, subheading}) {
                 </React.Fragment>
               ))
             ) : (
-              "Quran classes your child will actually look forward to"
+              "QOnline Quran Classes in the USA – Learn Quran with Qualified Tutors"
             )}
           </h1>
 
           {/* Description */}
           <p className="us-page mt-4 max-w-md text-sm leading-relaxed text-[var(--color-text)] opacity-70 sm:text-base sm:leading-relaxed lg:text-lg">
-            {subheading ? subheading : "Live 1-on-1 online classes with certified, kid-friendly tutors — Qaida, Tajweed, Hifz and more. Fun for your child, trusted by parents in 30+ countries."}
+            {subheading ? subheading : "Join live 1-on-1 online Quran classes from home, designed for kids and adults across the USA. Certified tutors, flexible scheduling, Tajweed & Hifz courses. Book a free trial class today!"}
           </p>
 
           <div className="lady-page group relative mt-4 inline-flex items-center gap-1.5 overflow-hidden rounded-full border border-white/25 bg-white/10 px-3 py-1.5 text-sm font-medium text-[var(--color-text)] shadow-[0_4px_24px_rgba(0,0,0,0.08)] backdrop-blur-md">
