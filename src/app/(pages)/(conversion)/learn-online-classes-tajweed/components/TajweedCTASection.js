@@ -43,14 +43,14 @@ export default function TajweedCTASection() {
 
         <div className="us-page mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
           <a
-            href="https://wa.me/+1332525428" // TODO: replace with your real WhatsApp number
+            href="https://wa.me/+13322525428" // TODO: replace with your real WhatsApp number
             className="whatsapp-chat us-page group inline-flex items-center justify-center gap-2 rounded-full bg-[var(--color-secondary)] px-7 py-3.5 text-sm font-semibold text-[var(--color-text)] shadow-lg shadow-black/10 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl sm:text-base"
           >
             Book Your Free Trial Class
             <ArrowRight className="us-page h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
           </a>
           <a
-            href="tel:+1332525428" // TODO: replace with your real phone number
+            href="tel:+13322525428" // TODO: replace with your real phone number
             className="us-page inline-flex items-center justify-center gap-2 rounded-full border-2 border-white/40 px-7 py-3.5 text-sm font-semibold text-white transition-all duration-300 hover:border-white hover:bg-white/10 sm:text-base"
           >
             <PhoneCall className="us-page h-4 w-4" />
