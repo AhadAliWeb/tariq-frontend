@@ -26,7 +26,7 @@ export default function LadyCTASection() {
 
         <div className="us-page mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
           <a
-            href="https://wa.me/15552345678" // TODO: replace with your real WhatsApp number
+            href="https://wa.me/+13322525428" // TODO: replace with your real WhatsApp number
             className="whatsapp-chat us-page group inline-flex items-center justify-center gap-2 rounded-full bg-[var(--color-secondary)] px-7 py-3.5 text-sm font-semibold text-[var(--color-text)] shadow-lg shadow-black/10 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl sm:text-base"
           >
             Book Your Free Trial Class

@@ -70,7 +70,7 @@ export default function LadyHeroSection() {
           {/* CTAs */}
           <div className="lady-page mt-7 flex flex-col gap-3 sm:flex-row sm:items-center">
             <a
-              href="https://wa.me/15552345678" // TODO: replace with your real WhatsApp number
+              href="https://wa.me/+13322525428" // TODO: replace with your real WhatsApp number
               className="whatsapp-chat lady-page group inline-flex items-center justify-center gap-2 rounded-full bg-[#FF1595] px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-[var(--color-primary)]/20 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl sm:px-7 sm:py-3.5 sm:text-base"
             >
               Book Free Trial Class
