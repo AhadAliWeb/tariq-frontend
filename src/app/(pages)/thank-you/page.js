@@ -70,7 +70,7 @@ export default function ThankYouPage() {
           {/* CTAs */}
           <div className="flex flex-col sm:flex-row gap-2 justify-center">
             <a
-              href="https://wa.me/133225225428"
+              href="https://wa.me/+13322525428"
               target="_blank"
               rel="noopener noreferrer"
               className="whatsapp-chat inline-flex items-center justify-center gap-2 bg-[#2f8f68] hover:bg-[#257a56] text-white font-extrabold text-sm px-6 py-3 rounded-xl transition-colors duration-200 shadow-lg shadow-[#2f8f68]/20"
